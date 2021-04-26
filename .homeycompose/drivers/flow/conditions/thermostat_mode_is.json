@@ -1,0 +1,84 @@
+{
+  "title": {
+    "en": "Thermostat mode !{{is|is not}}",
+    "nl": "Thermostaat modus !{{is|is niet}}",
+    "de": "Thermostat-Modus !{{ist|ist nicht}}",
+    "fr": "Mode thermostat !{{est|n'est pas}}",
+    "it": "La modalità del termostato !{{è|non è}}",
+    "sv": "Termostatläge !{{är|är inte}}",
+    "no": "Termostatmodus !{{er|er ikke}}",
+    "es": "El modo del termostato !{{está|no está}}",
+    "da": "Termostattilstand !{{er|er ikke}}"
+  },
+  "args": [
+    {
+      "name": "thermostat_mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Automatic",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatica",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk"
+          }
+        },
+        {
+          "id": "hold",
+          "title": {
+            "en": "Hold",
+            "nl": "Vastgezet"
+          }
+        },
+        {
+          "id": "manual",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig",
+            "de": "Manuell",
+            "fr": "Manuellement",
+            "it": "Manualmente",
+            "sv": "Manuellt",
+            "no": "Manuelt",
+            "es": "A mano",
+            "da": "Manuelt"
+          }
+        },
+        {
+          "id": "vacation",
+          "title": {
+            "en": "Vacation",
+            "nl": "Vakantie",
+            "de": "Ferien",
+            "fr": "Vacances",
+            "it": "Vacanza",
+            "sv": "Semester",
+            "no": "Ferie",
+            "es": "Vacaciones",
+            "da": "Ferie"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus",
+            "fr": "Désactivé",
+            "it": "Disattivata",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Desactivado",
+            "da": "Deaktiveret"
+          }
+        }
+      ]
+    }
+  ]
+}

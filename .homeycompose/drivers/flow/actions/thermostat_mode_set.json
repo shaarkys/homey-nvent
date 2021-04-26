@@ -1,0 +1,56 @@
+{
+  "title": {
+    "en": "Set the mode",
+    "nl": "Stel de modus in",
+    "de": "Modus setzen",
+    "fr": "Définir le mode",
+    "it": "Imposta la modalità",
+    "sv": "Ställ in läget",
+    "no": "Innstill modusen",
+    "es": "Configurar el modo",
+    "da": "Indstil tilstanden"
+  },
+  "args": [
+    {
+      "name": "thermostat_mode",
+      "type": "dropdown",
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Automatic",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatica",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk"
+          }
+        },
+        {
+          "id": "hold",
+          "title": {
+            "en": "Hold",
+            "nl": "Vastgezet"
+          }
+        },
+        {
+          "id": "manual",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig",
+            "de": "Manuell",
+            "fr": "Manuellement",
+            "it": "Manualmente",
+            "sv": "Manuellt",
+            "no": "Manuelt",
+            "es": "A mano",
+            "da": "Manuelt"
+          }
+        }
+      ]
+    }
+  ]
+}

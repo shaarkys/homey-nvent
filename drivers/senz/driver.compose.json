@@ -1,0 +1,23 @@
+{
+  "id": "senz",
+  "name": {
+    "en": "SENZ-WIFI"
+  },
+  "class": "thermostat",
+  "capabilities": [
+    "target_temperature",
+    "measure_temperature",
+    "thermostat_mode",
+    "heating"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "step": 0.5,
+      "min": 5,
+      "max": 40
+    }
+  },
+  "$extends": [
+    "defaults"
+  ]
+}

@@ -1,0 +1,504 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.nvent.raychem",
+  "version": "1.0.0",
+  "compatibility": ">=5.0.0",
+  "sdk": 3,
+  "brandColor": "#C4262E",
+  "name": {
+    "en": "nVent Raychem"
+  },
+  "description": {
+    "en": "The new generation of floor heating thermostats",
+    "nl": "De nieuwe generatie vloerverwarmingsthermostaten"
+  },
+  "category": [
+    "climate"
+  ],
+  "tags": {
+    "en": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "floor",
+      "heating",
+      "thermostat"
+    ],
+    "nl": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digitaal",
+      "slimme",
+      "vloer",
+      "verwarming",
+      "thermostaat"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.jpg",
+    "large": "/assets/images/large.jpg",
+    "xlarge": "/assets/images/xlarge.jpg"
+  },
+  "author": {
+    "name": "Edwin van de Pol",
+    "email": "contact@edwinvandepol.nl"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Edwin van de Pol",
+        "email": "developer@edwinvandepol.nl"
+      }
+    ]
+  },
+  "contributing": {
+    "donate": {
+      "paypal": {
+        "username": "edwinvdpol"
+      }
+    }
+  },
+  "homepage": "https://www.raychemfloorheating.co.uk",
+  "flow": {
+    "triggers": [
+      {
+        "id": "heating_false",
+        "title": {
+          "en": "The thermostat stops heating",
+          "nl": "De thermostaat stopt met verwarmen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          }
+        ]
+      },
+      {
+        "id": "heating_true",
+        "title": {
+          "en": "The thermostat starts heating",
+          "nl": "De thermostaat begint met verwarmen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          }
+        ]
+      },
+      {
+        "id": "thermostat_mode_changed",
+        "title": {
+          "en": "Thermostat mode has changed",
+          "nl": "Thermostaat modus is veranderd",
+          "de": "Thermostat-Modus hat sich geändert",
+          "fr": "Mode thermostat a été modifié",
+          "it": "La modalità del termostato è cambiata",
+          "sv": "Termostatläge ändrades",
+          "no": "Termostatmodus ble endret",
+          "es": "El modo del termostato ha cambiado",
+          "da": "Termostattilstand er blevet ændret"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          },
+          {
+            "name": "thermostat_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Automatic",
+                  "nl": "Automatisch",
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatica",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk"
+                }
+              },
+              {
+                "id": "hold",
+                "title": {
+                  "en": "Hold",
+                  "nl": "Vastgezet"
+                }
+              },
+              {
+                "id": "manual",
+                "title": {
+                  "en": "Manual",
+                  "nl": "Handmatig",
+                  "de": "Manuell",
+                  "fr": "Manuellement",
+                  "it": "Manualmente",
+                  "sv": "Manuellt",
+                  "no": "Manuelt",
+                  "es": "A mano",
+                  "da": "Manuelt"
+                }
+              },
+              {
+                "id": "vacation",
+                "title": {
+                  "en": "Vacation",
+                  "nl": "Vakantie",
+                  "de": "Ferien",
+                  "fr": "Vacances",
+                  "it": "Vacanza",
+                  "sv": "Semester",
+                  "no": "Ferie",
+                  "es": "Vacaciones",
+                  "da": "Ferie"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Désactivé",
+                  "it": "Disattivata",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "thermostat_mode_is",
+        "title": {
+          "en": "Thermostat mode !{{is|is not}}",
+          "nl": "Thermostaat modus !{{is|is niet}}",
+          "de": "Thermostat-Modus !{{ist|ist nicht}}",
+          "fr": "Mode thermostat !{{est|n'est pas}}",
+          "it": "La modalità del termostato !{{è|non è}}",
+          "sv": "Termostatläge !{{är|är inte}}",
+          "no": "Termostatmodus !{{er|er ikke}}",
+          "es": "El modo del termostato !{{está|no está}}",
+          "da": "Termostattilstand !{{er|er ikke}}"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          },
+          {
+            "name": "thermostat_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Automatic",
+                  "nl": "Automatisch",
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatica",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk"
+                }
+              },
+              {
+                "id": "hold",
+                "title": {
+                  "en": "Hold",
+                  "nl": "Vastgezet"
+                }
+              },
+              {
+                "id": "manual",
+                "title": {
+                  "en": "Manual",
+                  "nl": "Handmatig",
+                  "de": "Manuell",
+                  "fr": "Manuellement",
+                  "it": "Manualmente",
+                  "sv": "Manuellt",
+                  "no": "Manuelt",
+                  "es": "A mano",
+                  "da": "Manuelt"
+                }
+              },
+              {
+                "id": "vacation",
+                "title": {
+                  "en": "Vacation",
+                  "nl": "Vakantie",
+                  "de": "Ferien",
+                  "fr": "Vacances",
+                  "it": "Vacanza",
+                  "sv": "Semester",
+                  "no": "Ferie",
+                  "es": "Vacaciones",
+                  "da": "Ferie"
+                }
+              },
+              {
+                "id": "off",
+                "title": {
+                  "en": "Off",
+                  "nl": "Uit",
+                  "de": "Aus",
+                  "fr": "Désactivé",
+                  "it": "Disattivata",
+                  "sv": "Av",
+                  "no": "Av",
+                  "es": "Desactivado",
+                  "da": "Deaktiveret"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "thermostat_mode_set",
+        "title": {
+          "en": "Set the mode",
+          "nl": "Stel de modus in",
+          "de": "Modus setzen",
+          "fr": "Définir le mode",
+          "it": "Imposta la modalità",
+          "sv": "Ställ in läget",
+          "no": "Innstill modusen",
+          "es": "Configurar el modo",
+          "da": "Indstil tilstanden"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          },
+          {
+            "name": "thermostat_mode",
+            "type": "dropdown",
+            "values": [
+              {
+                "id": "auto",
+                "title": {
+                  "en": "Automatic",
+                  "nl": "Automatisch",
+                  "de": "Automatisch",
+                  "fr": "Automatique",
+                  "it": "Automatica",
+                  "sv": "Automatiskt",
+                  "no": "Automatisk",
+                  "es": "Automático",
+                  "da": "Automatisk"
+                }
+              },
+              {
+                "id": "hold",
+                "title": {
+                  "en": "Hold",
+                  "nl": "Vastgezet"
+                }
+              },
+              {
+                "id": "manual",
+                "title": {
+                  "en": "Manual",
+                  "nl": "Handmatig",
+                  "de": "Manuell",
+                  "fr": "Manuellement",
+                  "it": "Manualmente",
+                  "sv": "Manuellt",
+                  "no": "Manuelt",
+                  "es": "A mano",
+                  "da": "Manuelt"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "images": {
+        "small": "/drivers/senz/assets/images/small.png",
+        "large": "/drivers/senz/assets/images/large.png",
+        "xlarge": "/drivers/senz/assets/images/xlarge.png"
+      },
+      "icon": "/drivers/senz/assets/icon.svg",
+      "pair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_oauth2",
+          "template": "login_oauth2"
+        }
+      ],
+      "id": "senz",
+      "name": {
+        "en": "SENZ-WIFI"
+      },
+      "class": "thermostat",
+      "capabilities": [
+        "target_temperature",
+        "measure_temperature",
+        "thermostat_mode",
+        "heating"
+      ],
+      "capabilitiesOptions": {
+        "target_temperature": {
+          "step": 0.5,
+          "min": 5,
+          "max": 40
+        }
+      }
+    }
+  ],
+  "capabilities": {
+    "heating": {
+      "title": {
+        "en": "Heating",
+        "nl": "Verwarmen"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": true,
+      "uiComponent": "sensor",
+      "uiQuickAction": false,
+      "icon": "/assets/heating.svg"
+    },
+    "thermostat_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Thermostat mode",
+        "nl": "Thermostaat modus",
+        "de": "Thermostat-Modus",
+        "fr": "Mode thermostat",
+        "it": "Modalità termostato",
+        "sv": "Termostatläge",
+        "no": "Termostatmodus",
+        "es": "Modo del termostato",
+        "da": "Termostattilstand"
+      },
+      "desc": {
+        "en": "Mode of the thermostat",
+        "nl": "Modus van de thermostaat",
+        "de": "Modus des Thermostates",
+        "fr": "Mode du thermostat",
+        "it": "Modalità del termostato",
+        "sv": "Läge för termostaten",
+        "no": "Modus for termostaten",
+        "es": "Modo del termostato",
+        "da": "Tilstand for termostat"
+      },
+      "values": [
+        {
+          "id": "auto",
+          "title": {
+            "en": "Automatic",
+            "nl": "Automatisch",
+            "de": "Automatisch",
+            "fr": "Automatique",
+            "it": "Automatica",
+            "sv": "Automatiskt",
+            "no": "Automatisk",
+            "es": "Automático",
+            "da": "Automatisk"
+          }
+        },
+        {
+          "id": "hold",
+          "title": {
+            "en": "Hold",
+            "nl": "Vastgezet"
+          }
+        },
+        {
+          "id": "manual",
+          "title": {
+            "en": "Manual",
+            "nl": "Handmatig",
+            "de": "Manuell",
+            "fr": "Manuellement",
+            "it": "Manualmente",
+            "sv": "Manuellt",
+            "no": "Manuelt",
+            "es": "A mano",
+            "da": "Manuelt"
+          }
+        },
+        {
+          "id": "vacation",
+          "title": {
+            "en": "Vacation",
+            "nl": "Vakantie",
+            "de": "Ferien",
+            "fr": "Vacances",
+            "it": "Vacanza",
+            "sv": "Semester",
+            "no": "Ferie",
+            "es": "Vacaciones",
+            "da": "Ferie"
+          }
+        },
+        {
+          "id": "off",
+          "title": {
+            "en": "Off",
+            "nl": "Uit",
+            "de": "Aus",
+            "fr": "Désactivé",
+            "it": "Disattivata",
+            "sv": "Av",
+            "no": "Av",
+            "es": "Desactivado",
+            "da": "Deaktiveret"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
+    }
+  }
+}

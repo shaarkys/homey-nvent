@@ -1,0 +1,12 @@
+{
+  "error": {
+    "401": "U bent niet bevoegd om de API te gebruiken",
+    "404": "Thermostaat niet gevonden",
+    "50x": "nVent API is niet beschikbaar"
+  },
+  "connectionNotAvailable": "Connectie naar update berichten niet beschikbaar",
+  "modeNotViaAPi": "Deze mode kan niet geactiveerd worden via API",
+  "modeUnknown": "Thermostaat staat in onbekende modus",
+  "offline": "Thermostaat is offline",
+  "updateError": "Thermostaat kon niet bijgewerkt worden"
+}
