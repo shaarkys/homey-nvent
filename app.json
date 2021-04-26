@@ -67,6 +67,9 @@
   "homepage": "https://www.raychemfloorheating.co.uk",
   "homeyCommunityTopicId": 46749,
   "support": "https://community.athom.com/t/46749",
+  "bugs": {
+    "url": "https://community.athom.com/t/46749"
+  },
   "flow": {
     "triggers": [
       {
