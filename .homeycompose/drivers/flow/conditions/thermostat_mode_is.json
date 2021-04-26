@@ -16,17 +16,17 @@
       "type": "dropdown",
       "values": [
         {
-          "id": "auto",
+          "id": "program",
           "title": {
-            "en": "Automatic",
-            "nl": "Automatisch",
-            "de": "Automatisch",
-            "fr": "Automatique",
-            "it": "Automatica",
-            "sv": "Automatiskt",
-            "no": "Automatisk",
-            "es": "Automático",
-            "da": "Automatisk"
+            "en": "Program",
+            "nl": "Programma",
+            "de": "Programm",
+            "fr": "Programme",
+            "it": "Programma",
+            "sv": "Program",
+            "no": "Program",
+            "es": "Programa",
+            "da": "Program"
           }
         },
         {
@@ -36,25 +36,25 @@
           }
         },
         {
-          "id": "manual",
+          "id": "constant",
           "title": {
-            "en": "Manual",
-            "nl": "Handmatig",
-            "de": "Manuell",
-            "fr": "Manuellement",
-            "it": "Manualmente",
-            "sv": "Manuellt",
-            "no": "Manuelt",
-            "es": "A mano",
-            "da": "Manuelt"
+            "en": "Constant",
+            "nl": "Constant",
+            "de": "Konstant",
+            "fr": "Constant",
+            "it": "Costante",
+            "sv": "Konstant",
+            "no": "Konstant",
+            "es": "Constante",
+            "da": "Konstant"
           }
         },
         {
-          "id": "vacation",
+          "id": "holiday",
           "title": {
-            "en": "Vacation",
+            "en": "Holiday",
             "nl": "Vakantie",
-            "de": "Ferien",
+            "de": "Urlaub",
             "fr": "Vacances",
             "it": "Vacanza",
             "sv": "Semester",

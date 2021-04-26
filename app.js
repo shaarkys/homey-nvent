@@ -119,24 +119,15 @@ class nVent extends OAuth2App {
       // Notify when reconnecting
       connection.onreconnecting(error => {
         this.log(`Connection lost due to error "${error}". Reconnecting...`);
-
-        // Disable devices
-        this.homey.emit('disable_devices', this.homey.__('connectionNotAvailable'));
       });
 
       // Notify when reestablished
       connection.onreconnected(connectionId => {
         this.log(`Connection reestablished. Connected with connectionId '${connectionId}'`);
-
-        // Enable devices
-        this.homey.emit('enable_devices');
       });
 
       connection.onclose(error => {
         this.log(`Connection closed due to error "${error}".`);
-
-        // Disable devices
-        this.homey.emit('disable_devices', this.homey.__('connectionNotAvailable'));
 
         // Reset connection
         this.resetConnection()
@@ -145,9 +136,6 @@ class nVent extends OAuth2App {
       this.connection = connection;
     } catch (err) {
       this.error(err);
-
-      // Disable devices
-      this.homey.emit('disable_devices', this.homey.__('connectionNotAvailable'));
 
       // Reset connection
       this.resetConnection();

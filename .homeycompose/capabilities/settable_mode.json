@@ -58,35 +58,21 @@
       }
     },
     {
-      "id": "holiday",
+      "id": "none",
       "title": {
-        "en": "Holiday",
-        "nl": "Vakantie",
-        "de": "Urlaub",
-        "fr": "Vacances",
-        "it": "Vacanza",
-        "sv": "Semester",
-        "no": "Ferie",
-        "es": "Vacaciones",
-        "da": "Ferie"
-      }
-    },
-    {
-      "id": "off",
-      "title": {
-        "en": "Off",
-        "nl": "Uit",
-        "de": "Aus",
-        "fr": "Désactivé",
-        "it": "Disattivata",
-        "sv": "Av",
-        "no": "Av",
-        "es": "Desactivado",
-        "da": "Deaktiveret"
+        "en": "No state",
+        "nl": "Geen stand",
+        "de": "Kein Staat",
+        "fr": "Aucun état",
+        "it": "Nessuno stato",
+        "sv": "Inget tillstånd",
+        "no": "Ingen stat",
+        "es": "Sin estado",
+        "da": "Ingen stat"
       }
     }
   ],
   "getable": true,
   "setable": true,
-  "uiComponent": null
+  "uiComponent": "picker"
 }

@@ -8,11 +8,17 @@ const temperatureType = {
   relative: 1
 }
 
+const apiMode = {
+  'program': 'auto',
+  'boost': 'hold',
+  'constant': 'manual',
+}
+
 const thermostatMode = {
-  1: 'auto',
-  2: 'boost',
-  3: 'manual',
-  4: 'vacation',
+  1: 'program', // "Auto" at API
+  2: 'boost', // "Hold" at API
+  3: 'constant', // "Manual" at API
+  4: 'holiday',
   5: 'off'
 }
 
@@ -33,7 +39,7 @@ class SenzDevice extends OAuth2Device {
 
     // Register capability listeners
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
-    this.registerCapabilityListener('thermostat_mode', this.onCapabilityThermostatMode.bind(this));
+    this.registerCapabilityListener('settable_mode', this.onCapabilityThermostatMode.bind(this));
     this.registerCapabilityListener('heating', this.onCapabilityHeating.bind(this));
 
     // Register event listeners
@@ -93,16 +99,11 @@ class SenzDevice extends OAuth2Device {
         if (!thermostatMode.hasOwnProperty(mode)) {
           this.error(`Unknown mode ID: '${mode}'`);
         } else {
-          // Hack for 'Off' mode (set mode to 'Manual' and target temperature as
-          // stated by nVent themselves.
-          if (thermostatMode[mode] !== 'vacation' && thermostatMode[mode] !== 'off' &&
-            deviceData.hasOwnProperty('setPointTemperature') &&
-            Number(deviceData.setPointTemperature) === 500) {
+          await this.setCapabilityValue('thermostat_mode', thermostatMode[mode]);
 
-            await this.setCapabilityValue('thermostat_mode', 'off');
-          } else {
-            await this.setCapabilityValue('thermostat_mode', thermostatMode[mode]);
-          }
+          // Settable mode
+          const setMode = mode > 3 ? 'none' : thermostatMode[mode];
+          await this.setCapabilityValue('settable_mode', setMode);
         }
       }
 
@@ -125,10 +126,8 @@ class SenzDevice extends OAuth2Device {
         await this.setCapabilityValue('target_temperature', rounded);
       }
 
-      this.log('Device ' + this.getData().id + ' updated');
-
       // Set available
-      if (!this.getAvailable() && this.homey.app.hasConnection()) {
+      if (!this.getAvailable()) {
         await this.setAvailable();
       }
     } catch (err) {
@@ -173,59 +172,50 @@ class SenzDevice extends OAuth2Device {
 
   // Set target temperature
   async setTargetTemperature(temperature) {
-    let mode = await this.getCapabilityValue('thermostat_mode');
+    let mode = await this.getCapabilityValue('settable_mode');
 
-    // Set to manual, or keep boost. Auto does not support setting temperature
-    if (mode !== 'boost') {
-      mode = 'manual';
+    // Set to constant if settable mode is none or program
+    if (mode === 'none' || mode === 'program') {
+      mode = 'constant';
     }
 
     const data = {
       serialNumber: String(this.getData().id),
-      mode: String(mode),
+      mode: apiMode[mode],
       temperature: Number(temperature * 100),
       temperatureType: Number(temperatureType.absolute)
     };
 
-    // Update thermostat
-    await this.oAuth2Client.updateState(data);
+    // Update thermostat target temperature
+    await this.oAuth2Client.updateTargetTemperature(data);
 
     // Update thermostat mode capability
     await this.setCapabilityValue('target_temperature', temperature);
 
-    // Update thermostat mode capability
+    // Update thermostat mode capabilities
     await this.setCapabilityValue('thermostat_mode', mode);
+    await this.setCapabilityValue('settable_mode', mode);
 
     return temperature;
   }
 
   // Set thermostat mode
   async setThermostatMode(mode) {
-    if (mode === 'vacation') {
-      throw new Error(this.homey.__('modeNotViaAPi'));
+    if (mode === 'none')  {
+      throw new Error(this.homey.__('modeInvalid'));
     }
 
     let data = {
       serialNumber: String(this.getData().id),
-      mode: String(mode)
+      mode: apiMode[mode]
     };
 
-    // Hack for 'Off' mode (set mode to 'Manual' and target temperature as
-    // stated by nVent themselves.
-    if (mode === 'off') {
-      data = {
-        serialNumber: String(this.getData().id),
-        mode: 'manual',
-        temperature: 500,
-        temperatureType: Number(temperatureType.absolute)
-      };
-    }
+    // Update thermostat mode
+    await this.oAuth2Client.updateMode(data);
 
-    // Update thermostat
-    await this.oAuth2Client.updateState(data);
-
-    // Update thermostat mode capability
+    // Update thermostate mode capabilities
     await this.setCapabilityValue('thermostat_mode', mode);
+    await this.setCapabilityValue('settable_mode', mode);
 
     return mode;
   }

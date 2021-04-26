@@ -4,8 +4,7 @@
     "404": "Thermostat not found",
     "50x": "nVent API is not available"
   },
-  "connectionNotAvailable": "Connection to update messages not available",
-  "modeNotViaAPi": "This mode cannot be activated via API",
+  "modeInvalid": "This mode cannot be activated",
   "modeUnknown": "Thermostat is in unknown mode",
   "offline": "Thermostat is offline",
   "updateError": "Thermostat could not be updated"
