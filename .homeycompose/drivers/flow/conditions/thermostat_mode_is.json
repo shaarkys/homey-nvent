@@ -30,10 +30,9 @@
           }
         },
         {
-          "id": "hold",
+          "id": "boost",
           "title": {
-            "en": "Hold",
-            "nl": "Vastgezet"
+            "en": "Boost"
           }
         },
         {

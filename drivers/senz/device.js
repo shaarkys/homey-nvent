@@ -10,7 +10,7 @@ const temperatureType = {
 
 const thermostatMode = {
   1: 'auto',
-  2: 'hold',
+  2: 'boost',
   3: 'manual',
   4: 'vacation',
   5: 'off'
@@ -175,8 +175,8 @@ class SenzDevice extends OAuth2Device {
   async setTargetTemperature(temperature) {
     let mode = await this.getCapabilityValue('thermostat_mode');
 
-    // Set to manual, or keep hold. Auto does not support setting temperature
-    if (mode !== 'hold') {
+    // Set to manual, or keep boost. Auto does not support setting temperature
+    if (mode !== 'boost') {
       mode = 'manual';
     }
 
