@@ -5,8 +5,8 @@ const {OAuth2App} = require('homey-oauth2app');
 const nVentOAuth2Client = require('./lib/nVentOAuth2Client');
 const signalR = require('@microsoft/signalr');
 
-const refreshDeviceInterval = 10 * 60 * 1000; // 10 minutes
-const startConnectionInterval = 5 * 1000; // 5 seconds
+const refreshDeviceInterval = 5 * 1000; // 5 seconds
+const startConnectionInterval = 10 * 1000; // 10 seconds
 
 class nVent extends OAuth2App {
 
@@ -26,8 +26,8 @@ class nVent extends OAuth2App {
     // Reset connection
     this.resetConnection();
 
-    // As SignalR does not notify us when the temperature changes, set
-    // a custom interval to update all devices once every 5 minutes.
+    // As SignalR does not notify us when the temperature changes or when the
+    // heating starts, set a custom interval to update all devices once every 5 seconds.
     this.homey.setInterval(this.refreshDevices.bind(this), refreshDeviceInterval);
 
     // Start notification connection if not already started
