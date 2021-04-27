@@ -5,7 +5,7 @@ const {OAuth2App} = require('homey-oauth2app');
 const nVentOAuth2Client = require('./lib/nVentOAuth2Client');
 const signalR = require('@microsoft/signalr');
 
-const refreshDeviceInterval = 5 * 1000; // 5 seconds
+const refreshDeviceInterval = 10 * 1000; // 10 seconds
 const startConnectionInterval = 10 * 1000; // 10 seconds
 
 class nVent extends OAuth2App {
