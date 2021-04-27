@@ -1,12 +1,6 @@
 {
   "triggers": [
     {
-      "$extends": "heating_false"
-    },
-    {
-      "$extends": "heating_true"
-    },
-    {
       "$extends": "operating_mode_changed"
     }
   ],

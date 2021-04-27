@@ -9,8 +9,7 @@
     "measure_temperature",
     "thermostat_mode",
     "operating_mode",
-    "settable_mode",
-    "heating"
+    "settable_mode"
   ],
   "capabilitiesOptions": {
     "target_temperature": {

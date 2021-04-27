@@ -73,34 +73,6 @@
   "flow": {
     "triggers": [
       {
-        "id": "heating_false",
-        "title": {
-          "en": "The thermostat stops heating",
-          "nl": "De thermostaat stopt met verwarmen"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=senz"
-          }
-        ]
-      },
-      {
-        "id": "heating_true",
-        "title": {
-          "en": "The thermostat starts heating",
-          "nl": "De thermostaat begint met verwarmen"
-        },
-        "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=senz"
-          }
-        ]
-      },
-      {
         "id": "operating_mode_changed",
         "title": {
           "en": "Thermostat mode has changed",
@@ -386,8 +358,7 @@
         "measure_temperature",
         "thermostat_mode",
         "operating_mode",
-        "settable_mode",
-        "heating"
+        "settable_mode"
       ],
       "capabilitiesOptions": {
         "target_temperature": {
@@ -399,18 +370,6 @@
     }
   ],
   "capabilities": {
-    "heating": {
-      "title": {
-        "en": "Heating",
-        "nl": "Verwarmen"
-      },
-      "type": "boolean",
-      "getable": true,
-      "setable": true,
-      "uiComponent": "sensor",
-      "uiQuickAction": false,
-      "icon": "/assets/heating.svg"
-    },
     "operating_mode": {
       "type": "enum",
       "title": {

@@ -40,7 +40,6 @@ class SenzDevice extends OAuth2Device {
     // Register capability listeners
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
     this.registerCapabilityListener('settable_mode', this.onCapabilityOperatingMode.bind(this));
-    this.registerCapabilityListener('heating', this.onCapabilityHeating.bind(this));
 
     // Register event listeners
     this.homey.on('refresh_devices', this.onRefresh.bind(this));
@@ -109,7 +108,9 @@ class SenzDevice extends OAuth2Device {
 
       // Heating
       if (deviceData.hasOwnProperty('isHeating')) {
-        await this.setCapabilityValue('heating', deviceData.isHeating);
+        if (deviceData.isHeating) {
+          await this.setCapabilityValue('thermostat_mode', 'heat');
+        }
       }
 
       // Current temperature
@@ -142,11 +143,6 @@ class SenzDevice extends OAuth2Device {
   | Capabilities
   |-----------------------------------------------------------------------------
   */
-
-  // This method will be called when the heating is changed
-  onCapabilityHeating(heating) {
-    return this.log(`Heating is changed to '${heating}'`);
-  }
 
   // This method will be called when the target temperature needs to be changed
   onCapabilityTargetTemperature(temperature) {
