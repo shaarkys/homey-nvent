@@ -414,7 +414,7 @@
     "operating_mode": {
       "type": "enum",
       "title": {
-        "en": "Operating mode",
+        "en": "Thermostat mode",
         "nl": "Thermostaat modus",
         "de": "Thermostat-Modus",
         "fr": "Mode thermostat",
