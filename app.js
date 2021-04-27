@@ -27,8 +27,8 @@ class nVent extends OAuth2App {
     this.resetConnection();
 
     // As SignalR does not notify us when the temperature changes or when the
-    // heating starts, set a custom interval to update all devices once every 5 seconds.
-    this.homey.setInterval(this.refreshDevices.bind(this), refreshDeviceInterval);
+    // heating starts, set a custom interval to update all devices.
+    this.refreshInterval = this.homey.setInterval(this.refreshDevices.bind(this), refreshDeviceInterval);
 
     // Start notification connection if not already started
     this.homey.setInterval(this.startNotifications.bind(this), startConnectionInterval);
@@ -111,9 +111,17 @@ class nVent extends OAuth2App {
 
       // Refresh device when notification is received
       connection.on('Notify', (list) => {
+        // Stop refresh device interval because devices are updated
+        this.homey.clearTimeout(this.refreshInterval);
+        this.refreshInterval = null;
+
+        // Process notifications
         list.forEach(notification => {
           this.homey.emit('refresh_devices', String(notification.id));
         });
+
+        // Start refresh device interval
+        this.refreshInterval = this.homey.setInterval(this.refreshDevices.bind(this), refreshDeviceInterval);
       });
 
       // Notify when reconnecting
