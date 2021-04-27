@@ -7,17 +7,17 @@
       "$extends": "heating_true"
     },
     {
-      "$extends": "thermostat_mode_changed"
+      "$extends": "operating_mode_changed"
     }
   ],
   "conditions": [
     {
-      "$extends": "thermostat_mode_is"
+      "$extends": "operating_mode_is"
     }
   ],
   "actions": [
     {
-      "$extends": "thermostat_mode_set"
+      "$extends": "operating_mode_set"
     }
   ]
 }

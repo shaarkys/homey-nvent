@@ -8,6 +8,7 @@
     "target_temperature",
     "measure_temperature",
     "thermostat_mode",
+    "operating_mode",
     "settable_mode",
     "heating"
   ],

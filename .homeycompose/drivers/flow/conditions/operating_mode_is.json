@@ -1,18 +1,18 @@
 {
   "title": {
-    "en": "Thermostat mode has changed",
-    "nl": "Thermostaat modus is veranderd",
-    "de": "Thermostat-Modus hat sich geändert",
-    "fr": "Mode thermostat a été modifié",
-    "it": "La modalità del termostato è cambiata",
-    "sv": "Termostatläge ändrades",
-    "no": "Termostatmodus ble endret",
-    "es": "El modo del termostato ha cambiado",
-    "da": "Termostattilstand er blevet ændret"
+    "en": "Thermostat mode !{{is|is not}}",
+    "nl": "Thermostaat modus !{{is|is niet}}",
+    "de": "Thermostat-Modus !{{ist|ist nicht}}",
+    "fr": "Mode thermostat !{{est|n'est pas}}",
+    "it": "La modalità del termostato !{{è|non è}}",
+    "sv": "Termostatläge !{{är|är inte}}",
+    "no": "Termostatmodus !{{er|er ikke}}",
+    "es": "El modo del termostato !{{está|no está}}",
+    "da": "Termostattilstand !{{er|er ikke}}"
   },
   "args": [
     {
-      "name": "thermostat_mode",
+      "name": "operating_mode",
       "type": "dropdown",
       "values": [
         {

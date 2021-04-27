@@ -12,7 +12,7 @@
   },
   "args": [
     {
-      "name": "thermostat_mode",
+      "name": "operating_mode",
       "type": "dropdown",
       "values": [
         {

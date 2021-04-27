@@ -101,7 +101,7 @@
         ]
       },
       {
-        "id": "thermostat_mode_changed",
+        "id": "operating_mode_changed",
         "title": {
           "en": "Thermostat mode has changed",
           "nl": "Thermostaat modus is veranderd",
@@ -120,7 +120,7 @@
             "filter": "driver_id=senz"
           },
           {
-            "name": "thermostat_mode",
+            "name": "operating_mode",
             "type": "dropdown",
             "values": [
               {
@@ -192,7 +192,7 @@
     ],
     "conditions": [
       {
-        "id": "thermostat_mode_is",
+        "id": "operating_mode_is",
         "title": {
           "en": "Thermostat mode !{{is|is not}}",
           "nl": "Thermostaat modus !{{is|is niet}}",
@@ -211,7 +211,7 @@
             "filter": "driver_id=senz"
           },
           {
-            "name": "thermostat_mode",
+            "name": "operating_mode",
             "type": "dropdown",
             "values": [
               {
@@ -283,7 +283,7 @@
     ],
     "actions": [
       {
-        "id": "thermostat_mode_set",
+        "id": "operating_mode_set",
         "title": {
           "en": "Set the mode",
           "nl": "Stel de modus in",
@@ -302,7 +302,7 @@
             "filter": "driver_id=senz"
           },
           {
-            "name": "thermostat_mode",
+            "name": "operating_mode",
             "type": "dropdown",
             "values": [
               {
@@ -385,6 +385,7 @@
         "target_temperature",
         "measure_temperature",
         "thermostat_mode",
+        "operating_mode",
         "settable_mode",
         "heating"
       ],
@@ -410,88 +411,10 @@
       "uiQuickAction": false,
       "icon": "/assets/heating.svg"
     },
-    "settable_mode": {
+    "operating_mode": {
       "type": "enum",
       "title": {
-        "en": "Thermostat mode",
-        "nl": "Thermostaat modus",
-        "de": "Thermostat-Modus",
-        "fr": "Mode thermostat",
-        "it": "Modalità termostato",
-        "sv": "Termostatläge",
-        "no": "Termostatmodus",
-        "es": "Modo del termostato",
-        "da": "Termostattilstand"
-      },
-      "desc": {
-        "en": "Mode of the thermostat",
-        "nl": "Modus van de thermostaat",
-        "de": "Modus des Thermostates",
-        "fr": "Mode du thermostat",
-        "it": "Modalità del termostato",
-        "sv": "Läge för termostaten",
-        "no": "Modus for termostaten",
-        "es": "Modo del termostato",
-        "da": "Tilstand for termostat"
-      },
-      "values": [
-        {
-          "id": "program",
-          "title": {
-            "en": "Program",
-            "nl": "Programma",
-            "de": "Programm",
-            "fr": "Programme",
-            "it": "Programma",
-            "sv": "Program",
-            "no": "Program",
-            "es": "Programa",
-            "da": "Program"
-          }
-        },
-        {
-          "id": "boost",
-          "title": {
-            "en": "Boost"
-          }
-        },
-        {
-          "id": "constant",
-          "title": {
-            "en": "Constant",
-            "nl": "Constant",
-            "de": "Konstant",
-            "fr": "Constant",
-            "it": "Costante",
-            "sv": "Konstant",
-            "no": "Konstant",
-            "es": "Constante",
-            "da": "Konstant"
-          }
-        },
-        {
-          "id": "none",
-          "title": {
-            "en": "No state",
-            "nl": "Geen stand",
-            "de": "Kein Staat",
-            "fr": "Aucun état",
-            "it": "Nessuno stato",
-            "sv": "Inget tillstånd",
-            "no": "Ingen stat",
-            "es": "Sin estado",
-            "da": "Ingen stat"
-          }
-        }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": "picker"
-    },
-    "thermostat_mode": {
-      "type": "enum",
-      "title": {
-        "en": "Thermostat mode",
+        "en": "Operating mode",
         "nl": "Thermostaat modus",
         "de": "Thermostat-Modus",
         "fr": "Mode thermostat",
@@ -579,6 +502,84 @@
       "getable": true,
       "setable": true,
       "uiComponent": null
+    },
+    "settable_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Thermostat mode",
+        "nl": "Thermostaat modus",
+        "de": "Thermostat-Modus",
+        "fr": "Mode thermostat",
+        "it": "Modalità termostato",
+        "sv": "Termostatläge",
+        "no": "Termostatmodus",
+        "es": "Modo del termostato",
+        "da": "Termostattilstand"
+      },
+      "desc": {
+        "en": "Mode of the thermostat",
+        "nl": "Modus van de thermostaat",
+        "de": "Modus des Thermostates",
+        "fr": "Mode du thermostat",
+        "it": "Modalità del termostato",
+        "sv": "Läge för termostaten",
+        "no": "Modus for termostaten",
+        "es": "Modo del termostato",
+        "da": "Tilstand for termostat"
+      },
+      "values": [
+        {
+          "id": "program",
+          "title": {
+            "en": "Program",
+            "nl": "Programma",
+            "de": "Programm",
+            "fr": "Programme",
+            "it": "Programma",
+            "sv": "Program",
+            "no": "Program",
+            "es": "Programa",
+            "da": "Program"
+          }
+        },
+        {
+          "id": "boost",
+          "title": {
+            "en": "Boost"
+          }
+        },
+        {
+          "id": "constant",
+          "title": {
+            "en": "Constant",
+            "nl": "Constant",
+            "de": "Konstant",
+            "fr": "Constant",
+            "it": "Costante",
+            "sv": "Konstant",
+            "no": "Konstant",
+            "es": "Constante",
+            "da": "Konstant"
+          }
+        },
+        {
+          "id": "none",
+          "title": {
+            "en": "No state",
+            "nl": "Geen stand",
+            "de": "Kein Staat",
+            "fr": "Aucun état",
+            "it": "Nessuno stato",
+            "sv": "Inget tillstånd",
+            "no": "Ingen stat",
+            "es": "Sin estado",
+            "da": "Ingen stat"
+          }
+        }
+      ],
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker"
     }
   }
 }

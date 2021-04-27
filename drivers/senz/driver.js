@@ -49,25 +49,25 @@ class SenzDriver extends OAuth2Driver {
 
   // Register action flow cards
   async registerActionFlowCards() {
-    // Register a Flow card to trigger update thermostat mode
-    this.homey.flow.getActionCard('thermostat_mode_set').registerRunListener(async (args) => {
-      return args.device.onCapabilityThermostatMode(args.thermostat_mode);
+    // Register a Flow card to trigger update operating mode
+    this.homey.flow.getActionCard('operating_mode_set').registerRunListener(async (args) => {
+      return args.device.onCapabilityOperatingMode(args.operating_mode);
     });
   }
 
   // Register condition flow cards
   async registerConditionFlowCards() {
-    // Thermostat mode
-    this.homey.flow.getConditionCard('thermostat_mode_is').registerRunListener(async (args) => {
-      return args.device.getCapabilityValue('thermostat_mode') === args.thermostat_mode;
+    // operating mode
+    this.homey.flow.getConditionCard('operating_mode_is').registerRunListener(async (args) => {
+      return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
     });
   }
 
   // Register device trigger flow cards
   async registerDeviceTriggerFlowCards() {
-    // Thermostat mode changed
-    this.homey.flow.getDeviceTriggerCard('thermostat_mode_changed').registerRunListener(async (args) => {
-      return args.device.getCapabilityValue('thermostat_mode') === args.thermostat_mode;
+    // operating mode changed
+    this.homey.flow.getDeviceTriggerCard('operating_mode_changed').registerRunListener(async (args) => {
+      return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
     });
   }
 
