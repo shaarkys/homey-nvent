@@ -1,14 +1,14 @@
 {
   "title": {
-    "en": "Thermostat mode has changed",
-    "nl": "Thermostaat modus is veranderd",
-    "de": "Thermostat-Modus hat sich geändert",
-    "fr": "Mode thermostat a été modifié",
-    "it": "La modalità del termostato è cambiata",
-    "sv": "Termostatläge ändrades",
-    "no": "Termostatmodus ble endret",
-    "es": "El modo del termostato ha cambiado",
-    "da": "Termostattilstand er blevet ændret"
+    "en": "Operating mode has changed",
+    "nl": "Bedrijfsmodus is gewijzigd",
+    "de": "Betriebsart hat sich geändert",
+    "fr": "Mode fonctionnement a changé",
+    "it": "Modalità operativa è cambiata",
+    "sv": "Driftläget har ändrats",
+    "no": "Driftsmodus er endret",
+    "es": "El modo de funcionamiento ha cambiado",
+    "da": "Driftstilstand er ændret"
   },
   "args": [
     {

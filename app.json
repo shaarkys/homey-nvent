@@ -75,15 +75,15 @@
       {
         "id": "operating_mode_changed",
         "title": {
-          "en": "Thermostat mode has changed",
-          "nl": "Thermostaat modus is veranderd",
-          "de": "Thermostat-Modus hat sich geändert",
-          "fr": "Mode thermostat a été modifié",
-          "it": "La modalità del termostato è cambiata",
-          "sv": "Termostatläge ändrades",
-          "no": "Termostatmodus ble endret",
-          "es": "El modo del termostato ha cambiado",
-          "da": "Termostattilstand er blevet ændret"
+          "en": "Operating mode has changed",
+          "nl": "Bedrijfsmodus is gewijzigd",
+          "de": "Betriebsart hat sich geändert",
+          "fr": "Mode fonctionnement a changé",
+          "it": "Modalità operativa è cambiata",
+          "sv": "Driftläget har ändrats",
+          "no": "Driftsmodus er endret",
+          "es": "El modo de funcionamiento ha cambiado",
+          "da": "Driftstilstand er ændret"
         },
         "args": [
           {
@@ -166,15 +166,15 @@
       {
         "id": "operating_mode_is",
         "title": {
-          "en": "Thermostat mode !{{is|is not}}",
-          "nl": "Thermostaat modus !{{is|is niet}}",
-          "de": "Thermostat-Modus !{{ist|ist nicht}}",
-          "fr": "Mode thermostat !{{est|n'est pas}}",
-          "it": "La modalità del termostato !{{è|non è}}",
-          "sv": "Termostatläge !{{är|är inte}}",
-          "no": "Termostatmodus !{{er|er ikke}}",
-          "es": "El modo del termostato !{{está|no está}}",
-          "da": "Termostattilstand !{{er|er ikke}}"
+          "en": "Operating mode !{{is|is not}}",
+          "nl": "Bedrijfsmodus !{{is|is niet}}",
+          "de": "Betriebsart !{{ist|ist nicht}}",
+          "fr": "Mode fonctionnement !{{est|n'est pas}}",
+          "it": "Modalità operativa !{{è|non è}}",
+          "sv": "Driftläget !{{är|är inte}}",
+          "no": "Driftsmodus !{{er|er ikke}}",
+          "es": "El modo de funcionamiento !{{está|no está}}",
+          "da": "Driftstilstand !{{er|er ikke}}"
         },
         "args": [
           {
@@ -257,15 +257,15 @@
       {
         "id": "operating_mode_set",
         "title": {
-          "en": "Set the mode",
-          "nl": "Stel de modus in",
-          "de": "Modus setzen",
-          "fr": "Définir le mode",
-          "it": "Imposta la modalità",
-          "sv": "Ställ in läget",
-          "no": "Innstill modusen",
-          "es": "Configurar el modo",
-          "da": "Indstil tilstanden"
+          "en": "Set the operating mode",
+          "nl": "Stel de bedrijfsmodus in",
+          "de": "Stellen Sie die Betriebsart ein",
+          "fr": "Régler le mode de fonctionnement",
+          "it": "Impostare la modalità di funzionamento",
+          "sv": "Ställ in driftläge",
+          "no": "Still inn driftsmodus",
+          "es": "Establecer el modo de funcionamiento",
+          "da": "Indstil driftstilstand"
         },
         "args": [
           {
@@ -365,6 +365,9 @@
           "step": 0.5,
           "min": 5,
           "max": 40
+        },
+        "thermostat_mode": {
+          "uiComponent": false
         }
       }
     }
@@ -373,26 +376,15 @@
     "operating_mode": {
       "type": "enum",
       "title": {
-        "en": "Thermostat mode",
-        "nl": "Thermostaat modus",
-        "de": "Thermostat-Modus",
-        "fr": "Mode thermostat",
-        "it": "Modalità termostato",
-        "sv": "Termostatläge",
-        "no": "Termostatmodus",
-        "es": "Modo del termostato",
-        "da": "Termostattilstand"
-      },
-      "desc": {
-        "en": "Mode of the thermostat",
-        "nl": "Modus van de thermostaat",
-        "de": "Modus des Thermostates",
-        "fr": "Mode du thermostat",
-        "it": "Modalità del termostato",
-        "sv": "Läge för termostaten",
-        "no": "Modus for termostaten",
-        "es": "Modo del termostato",
-        "da": "Tilstand for termostat"
+        "en": "Operating mode",
+        "nl": "Bedrijfsmodus",
+        "de": "Betriebsart",
+        "fr": "Mode de fonctionnement",
+        "it": "Modalità operativa",
+        "sv": "Driftläge",
+        "no": "Driftsmodus",
+        "es": "Modo operativo",
+        "da": "Driftstilstand"
       },
       "values": [
         {

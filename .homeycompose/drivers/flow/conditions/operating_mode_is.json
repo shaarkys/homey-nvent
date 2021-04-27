@@ -1,14 +1,14 @@
 {
   "title": {
-    "en": "Thermostat mode !{{is|is not}}",
-    "nl": "Thermostaat modus !{{is|is niet}}",
-    "de": "Thermostat-Modus !{{ist|ist nicht}}",
-    "fr": "Mode thermostat !{{est|n'est pas}}",
-    "it": "La modalità del termostato !{{è|non è}}",
-    "sv": "Termostatläge !{{är|är inte}}",
-    "no": "Termostatmodus !{{er|er ikke}}",
-    "es": "El modo del termostato !{{está|no está}}",
-    "da": "Termostattilstand !{{er|er ikke}}"
+    "en": "Operating mode !{{is|is not}}",
+    "nl": "Bedrijfsmodus !{{is|is niet}}",
+    "de": "Betriebsart !{{ist|ist nicht}}",
+    "fr": "Mode fonctionnement !{{est|n'est pas}}",
+    "it": "Modalità operativa !{{è|non è}}",
+    "sv": "Driftläget !{{är|är inte}}",
+    "no": "Driftsmodus !{{er|er ikke}}",
+    "es": "El modo de funcionamiento !{{está|no está}}",
+    "da": "Driftstilstand !{{er|er ikke}}"
   },
   "args": [
     {

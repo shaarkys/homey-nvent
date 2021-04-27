@@ -1,26 +1,15 @@
 {
   "type": "enum",
   "title": {
-    "en": "Thermostat mode",
-    "nl": "Thermostaat modus",
-    "de": "Thermostat-Modus",
-    "fr": "Mode thermostat",
-    "it": "Modalità termostato",
-    "sv": "Termostatläge",
-    "no": "Termostatmodus",
-    "es": "Modo del termostato",
-    "da": "Termostattilstand"
-  },
-  "desc": {
-    "en": "Mode of the thermostat",
-    "nl": "Modus van de thermostaat",
-    "de": "Modus des Thermostates",
-    "fr": "Mode du thermostat",
-    "it": "Modalità del termostato",
-    "sv": "Läge för termostaten",
-    "no": "Modus for termostaten",
-    "es": "Modo del termostato",
-    "da": "Tilstand for termostat"
+    "en": "Operating mode",
+    "nl": "Bedrijfsmodus",
+    "de": "Betriebsart",
+    "fr": "Mode de fonctionnement",
+    "it": "Modalità operativa",
+    "sv": "Driftläge",
+    "no": "Driftsmodus",
+    "es": "Modo operativo",
+    "da": "Driftstilstand"
   },
   "values": [
     {
