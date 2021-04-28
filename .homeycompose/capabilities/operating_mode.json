@@ -11,6 +11,17 @@
     "es": "Modo operativo",
     "da": "Driftstilstand"
   },
+  "desc": {
+    "en": "Operating mode of the thermostat",
+    "nl": "Bedrijfsmodus van de thermostaat",
+    "de": "Betriebsart des Thermostats",
+    "fr": "Mode de fonctionnement du thermostat",
+    "it": "Modalità di funzionamento del termostato",
+    "sv": "Termostats driftläge",
+    "no": "Driftsmodus for termostaten",
+    "es": "Modo de funcionamiento del termostato",
+    "da": "Termostatens driftstilstand"
+  },
   "values": [
     {
       "id": "program",
