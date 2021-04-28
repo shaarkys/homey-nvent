@@ -8,13 +8,13 @@ const temperatureType = {
   relative: 1
 }
 
-const apiMode = {
+const apiModeMapping = {
   'program': 'auto',
   'boost': 'hold',
   'constant': 'manual',
 }
 
-const operatingMode = {
+const operatingModeMapping = {
   1: 'program', // "Auto" at API
   2: 'boost', // "Hold" at API
   3: 'constant', // "Manual" at API
@@ -85,47 +85,37 @@ class SenzDevice extends OAuth2Device {
       const deviceData = await this.oAuth2Client.getById(this.getData().id);
 
       // Online
-      if (deviceData.hasOwnProperty('online')) {
-        if (!deviceData.online) {
-          return this.onDisable(this.homey.__('offline'));
-        }
+      if (!deviceData.online) {
+        return this.onDisable(this.homey.__('offline'));
       }
 
-      // Mode
-      if (deviceData.hasOwnProperty('mode')) {
-        const mode = deviceData.mode;
+      // Data
+      const measureTemperature = Math.round((deviceData.currentTemperature / 100) * 10) / 10;
+      const targetTemperature = Math.round((deviceData.setPointTemperature / 100) * 10) / 10;
+      const mode = deviceData.mode;
+      const operatingMode = operatingModeMapping[mode];
+      const setMode = mode > 3 ? 'none' : operatingMode;
 
-        if (!operatingMode.hasOwnProperty(mode)) {
-          this.error(`Unknown mode ID: '${mode}'`);
-        } else {
-          await this.setCapabilityValue('operating_mode', operatingMode[mode]);
+      // Set temperatures
+      await this.setCapabilityValue('measure_temperature', measureTemperature);
+      await this.setCapabilityValue('target_temperature', targetTemperature);
 
-          // Settable mode
-          const setMode = mode > 3 ? 'none' : operatingMode[mode];
-          await this.setCapabilityValue('settable_mode', setMode);
-        }
+      // Modes
+      await this.setCapabilityValue('operating_mode', operatingMode);
+      await this.setCapabilityValue('settable_mode', setMode);
+
+      // Thermostat mode
+      let thermostatMode;
+
+      if (operatingMode === 'off') {
+        thermostatMode = 'off';
+      } else if (deviceData.isHeating) {
+        thermostatMode = 'heat';
+      } else {
+        thermostatMode = 'auto';
       }
 
-      // Heating
-      if (deviceData.hasOwnProperty('isHeating')) {
-        if (deviceData.isHeating) {
-          await this.setCapabilityValue('thermostat_mode', 'heat');
-        }
-      }
-
-      // Current temperature
-      if (deviceData.hasOwnProperty('currentTemperature')) {
-        const rounded = Math.round((deviceData.currentTemperature / 100) * 10) / 10;
-
-        await this.setCapabilityValue('measure_temperature', rounded);
-      }
-
-      // Target temperature
-      if (deviceData.hasOwnProperty('setPointTemperature')) {
-        const rounded = Math.round((deviceData.setPointTemperature / 100) * 10) / 10;
-
-        await this.setCapabilityValue('target_temperature', rounded);
-      }
+      await this.setCapabilityValue('thermostat_mode', thermostatMode);
 
       // Set available
       if (!this.getAvailable()) {
@@ -177,7 +167,7 @@ class SenzDevice extends OAuth2Device {
 
     const data = {
       serialNumber: String(this.getData().id),
-      mode: apiMode[mode],
+      mode: apiModeMapping[mode],
       temperature: Number(temperature * 100),
       temperatureType: Number(temperatureType.absolute)
     };
@@ -203,7 +193,7 @@ class SenzDevice extends OAuth2Device {
 
     let data = {
       serialNumber: String(this.getData().id),
-      mode: apiMode[mode]
+      mode: apiModeMapping[mode]
     };
 
     // Update operating mode
