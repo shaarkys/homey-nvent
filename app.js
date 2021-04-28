@@ -135,7 +135,11 @@ class nVent extends OAuth2App {
       });
 
       connection.onclose(error => {
-        this.log(`Connection closed due to error "${error}".`);
+        if (error != null) {
+          this.log(`Connection closed due to error "${error}"`);
+        } else {
+          this.log('Connection closed');
+        }
 
         // Reset connection
         this.resetConnection()
