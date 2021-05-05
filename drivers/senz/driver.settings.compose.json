@@ -1,0 +1,14 @@
+[
+  {
+    "type": "group",
+    "label": {
+      "en": "General settings",
+      "nl": "Algemene instellingen"
+    },
+    "children": [
+      {
+        "$extends": "boost_temperature"
+      }
+    ]
+  }
+]

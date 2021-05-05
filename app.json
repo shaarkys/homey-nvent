@@ -408,7 +408,36 @@
           "min": 5,
           "max": 40
         }
-      }
+      },
+      "settings": [
+        {
+          "type": "group",
+          "label": {
+            "en": "General settings",
+            "nl": "Algemene instellingen"
+          },
+          "children": [
+            {
+              "id": "boost_temperature",
+              "type": "number",
+              "label": {
+                "en": "Boost temperature",
+                "nl": "Boost temperatuur"
+              },
+              "hint": {
+                "en": "Temperature when Boost mode is activated",
+                "nl": "Temperatuur wanneer Boost mode geactiveerd wordt"
+              },
+              "units": {
+                "en": "°C"
+              },
+              "value": 26,
+              "min": 5,
+              "max": 40
+            }
+          ]
+        }
+      ]
     }
   ],
   "capabilities": {

@@ -187,7 +187,7 @@ class SenzDevice extends OAuth2Device {
       serialNumber: String(this.getData().id),
       mode: apiModeMapping[mode],
       temperature: Number(temperature * 100),
-      temperatureType: Number(temperatureType.absolute)
+      temperatureType: temperatureType.absolute
     };
 
     // Update thermostat target temperature
@@ -210,6 +210,12 @@ class SenzDevice extends OAuth2Device {
       serialNumber: String(this.getData().id),
       mode: apiModeMapping[mode]
     };
+
+    // Boost mode, also set temperature from settings
+    if (mode === 'boost') {
+      data.temperature = this.getSetting('boost_temperature') * 100;
+      data.temperatureType = temperatureType.absolute;
+    }
 
     // Update operating mode
     await this.oAuth2Client.updateMode(data);
