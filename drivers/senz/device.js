@@ -169,7 +169,7 @@ class SenzDevice extends OAuth2Device {
     // Update thermostat target temperature
     await this.setCapabilityValue('target_temperature', temperature);
 
-    // Update operating mode capabilities
+    // Update settable- and operating mode capabilities
     await this.setCapabilityValue('operating_mode', mode);
     await this.setCapabilityValue('settable_mode', mode);
 
