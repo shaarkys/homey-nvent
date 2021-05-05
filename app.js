@@ -5,7 +5,7 @@ const {OAuth2App} = require('homey-oauth2app');
 const nVentOAuth2Client = require('./lib/nVentOAuth2Client');
 const signalR = require('@microsoft/signalr');
 
-const refreshDeviceInterval = 30 * 1000; // 30 seconds
+const refreshDeviceInterval = 60 * 1000; // 1 minute
 const startConnectionInterval = 10 * 1000; // 10 seconds
 
 class nVent extends OAuth2App {
@@ -125,8 +125,12 @@ class nVent extends OAuth2App {
       });
 
       // Notify when reconnecting
-      connection.onreconnecting(error => {
-        this.log(`Connection lost due to error "${error}". Reconnecting...`);
+      connection.onreconnecting(err => {
+        if (err) {
+          this.log(`Connection lost due to error "${err}". Reconnecting...`);
+        } else {
+          this.log(`Connection lost. Reconnecting...`);
+        }
       });
 
       // Notify when reestablished
@@ -134,9 +138,9 @@ class nVent extends OAuth2App {
         this.log(`Connection reestablished. Connected with connectionId '${connectionId}'`);
       });
 
-      connection.onclose(error => {
-        if (error != null) {
-          this.log(`Connection closed due to error "${error}"`);
+      connection.onclose(err => {
+        if (err) {
+          this.log(`Connection closed due to error "${err}"`);
         } else {
           this.log('Connection closed');
         }
@@ -190,6 +194,7 @@ class nVent extends OAuth2App {
   resetConnection() {
     this.connection = null;
   }
+
 }
 
 module.exports = nVent;
