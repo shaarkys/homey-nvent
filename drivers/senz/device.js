@@ -136,6 +136,8 @@ class SenzDevice extends OAuth2Device {
     }
 
     this.log(`Operating mode changed to '${mode}'`);
+
+    return this.setOperatingMode(mode);
   }
 
   // This method will be called when the settable mode needs to be changed
