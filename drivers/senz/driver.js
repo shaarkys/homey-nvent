@@ -47,27 +47,32 @@ class SenzDriver extends OAuth2Driver {
   |-----------------------------------------------------------------------------
   */
 
-  // Register action flow cards
-  async registerActionFlowCards() {
-    // Register a Flow card to trigger update operating mode
-    this.homey.flow.getActionCard('operating_mode_set').registerRunListener(async (args) => {
-      return args.device.onCapabilityOperatingMode(args.operating_mode);
+  // Register device trigger flow cards
+  async registerDeviceTriggerFlowCards() {
+    // When operating mode changed to ...
+    this.homey.flow.getDeviceTriggerCard('operating_mode_changed').registerRunListener(async (args) => {
+      return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
     });
   }
 
   // Register condition flow cards
   async registerConditionFlowCards() {
-    // operating mode
+    // ... and heating is ...
+    this.homey.flow.getConditionCard('is_heating').registerRunListener(async (args) => {
+      return args.device.getCapabilityValue('heating');
+    });
+
+    // ... and operating mode is ...
     this.homey.flow.getConditionCard('operating_mode_is').registerRunListener(async (args) => {
       return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
     });
   }
 
-  // Register device trigger flow cards
-  async registerDeviceTriggerFlowCards() {
-    // Operating mode changed
-    this.homey.flow.getDeviceTriggerCard('operating_mode_changed').registerRunListener(async (args) => {
-      return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
+  // Register action flow cards
+  async registerActionFlowCards() {
+    // ... then set operating mode to ...
+    this.homey.flow.getActionCard('operating_mode_set').registerRunListener(async (args) => {
+      return args.device.onCapabilityOperatingMode(args.operating_mode);
     });
   }
 

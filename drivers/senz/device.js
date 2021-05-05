@@ -84,22 +84,32 @@ class SenzDevice extends OAuth2Device {
       const deviceData = await this.oAuth2Client.getById(this.getData().id);
 
       // Online
-      if (!deviceData.online) {
+      if (deviceData.hasOwnProperty('online') && !deviceData.online) {
         return this.onDisable(this.homey.__('offline'));
       }
 
-      // Data
-      const measureTemperature = Math.round((deviceData.currentTemperature / 100) * 10) / 10;
-      const targetTemperature = Math.round((deviceData.setPointTemperature / 100) * 10) / 10;
+      // Set current temperature
+      if (deviceData.hasOwnProperty('currentTemperature')) {
+        const measureTemperature = Math.round((deviceData.currentTemperature / 100) * 10) / 10;
+        await this.setCapabilityValue('measure_temperature', measureTemperature);
+      }
+
+      // Set target temperature
+      if (deviceData.hasOwnProperty('setPointTemperature')) {
+        const targetTemperature = Math.round((deviceData.setPointTemperature / 100) * 10) / 10;
+        await this.setCapabilityValue('target_temperature', targetTemperature);
+      }
+
+      // Set heating
+      if (deviceData.hasOwnProperty('isHeating')) {
+        await this.setCapabilityValue('heating', deviceData.isHeating);
+      }
+
+      // Modes
       const mode = deviceData.mode;
       const operatingMode = operatingModeMapping[mode];
       const setMode = mode > 3 ? 'none' : operatingMode;
 
-      // Set temperatures
-      await this.setCapabilityValue('measure_temperature', measureTemperature);
-      await this.setCapabilityValue('target_temperature', targetTemperature);
-
-      // Modes
       await this.setCapabilityValue('operating_mode', operatingMode);
       await this.setCapabilityValue('settable_mode', setMode);
 

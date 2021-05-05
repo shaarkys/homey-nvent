@@ -1,0 +1,11 @@
+{
+  "title": {
+    "en": "Heating",
+    "nl": "Verwarmen"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": true,
+  "uiComponent": "sensor",
+  "icon": "/assets/heating.svg"
+}

@@ -6,6 +6,9 @@
   ],
   "conditions": [
     {
+      "$extends": "is_heating"
+    },
+    {
       "$extends": "operating_mode_is"
     }
   ],
