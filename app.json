@@ -73,6 +73,34 @@
   "flow": {
     "triggers": [
       {
+        "id": "heating_false",
+        "title": {
+          "en": "Stops heating",
+          "nl": "Stopt met opwarmen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          }
+        ]
+      },
+      {
+        "id": "heating_true",
+        "title": {
+          "en": "Starts heating",
+          "nl": "Begint met opwarmen"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          }
+        ]
+      },
+      {
         "id": "operating_mode_changed",
         "title": {
           "en": "Operating mode has changed",
