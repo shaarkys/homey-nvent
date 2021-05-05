@@ -65,7 +65,7 @@ class SenzDriver extends OAuth2Driver {
 
   // Register device trigger flow cards
   async registerDeviceTriggerFlowCards() {
-    // operating mode changed
+    // Operating mode changed
     this.homey.flow.getDeviceTriggerCard('operating_mode_changed').registerRunListener(async (args) => {
       return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
     });

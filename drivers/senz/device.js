@@ -39,12 +39,11 @@ class SenzDevice extends OAuth2Device {
 
     // Register capability listeners
     this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
-    this.registerCapabilityListener('settable_mode', this.onCapabilityOperatingMode.bind(this));
+    this.registerCapabilityListener('operating_mode', this.onCapabilityOperatingMode.bind(this));
+    this.registerCapabilityListener('settable_mode', this.onCapabilitySettableMode.bind(this));
 
     // Register event listeners
     this.homey.on('refresh_devices', this.onRefresh.bind(this));
-    this.homey.on('enable_devices', this.onEnable.bind(this));
-    this.homey.on('disable_devices', this.onDisable.bind(this));
   }
 
   // Saved
@@ -104,22 +103,9 @@ class SenzDevice extends OAuth2Device {
       await this.setCapabilityValue('operating_mode', operatingMode);
       await this.setCapabilityValue('settable_mode', setMode);
 
-      // Thermostat mode
-      let thermostatMode;
-
-      if (operatingMode === 'off') {
-        thermostatMode = 'off';
-      } else if (deviceData.isHeating) {
-        thermostatMode = 'heat';
-      } else {
-        thermostatMode = 'auto';
-      }
-
-      await this.setCapabilityValue('thermostat_mode', thermostatMode);
-
       // Set available
       if (!this.getAvailable()) {
-        await this.setAvailable();
+        await this.onEnable();
       }
     } catch (err) {
       this.error(err.toString());
@@ -145,7 +131,20 @@ class SenzDevice extends OAuth2Device {
 
   // This method will be called when the operating mode needs to be changed
   onCapabilityOperatingMode(mode) {
+    if (this.getCapabilityValue('operating_mode') === mode) {
+      return;
+    }
+
     this.log(`Operating mode changed to '${mode}'`);
+  }
+
+  // This method will be called when the settable mode needs to be changed
+  onCapabilitySettableMode(mode) {
+    if (this.getCapabilityValue('settable_mode') === mode) {
+      return;
+    }
+
+    this.log(`Settable mode changed to '${mode}'`);
 
     return this.setOperatingMode(mode);
   }
@@ -165,6 +164,13 @@ class SenzDevice extends OAuth2Device {
       mode = 'constant';
     }
 
+    // Update thermostat target temperature
+    await this.setCapabilityValue('target_temperature', temperature);
+
+    // Update operating mode capabilities
+    await this.setCapabilityValue('operating_mode', mode);
+    await this.setCapabilityValue('settable_mode', mode);
+
     const data = {
       serialNumber: String(this.getData().id),
       mode: apiModeMapping[mode],
@@ -175,21 +181,18 @@ class SenzDevice extends OAuth2Device {
     // Update thermostat target temperature
     await this.oAuth2Client.updateTargetTemperature(data);
 
-    // Update thermostat target temperature
-    await this.setCapabilityValue('target_temperature', temperature);
-
-    // Update operating mode capabilities
-    await this.setCapabilityValue('operating_mode', mode);
-    await this.setCapabilityValue('settable_mode', mode);
-
     return temperature;
   }
 
   // Set operating mode
   async setOperatingMode(mode) {
     if (mode === 'none')  {
-      throw new Error(this.homey.__('modeInvalid'));
+      mode = 'program';
     }
+
+    // Update operating mode capabilities
+    await this.setCapabilityValue('operating_mode', mode);
+    await this.setCapabilityValue('settable_mode', mode);
 
     let data = {
       serialNumber: String(this.getData().id),
@@ -198,10 +201,6 @@ class SenzDevice extends OAuth2Device {
 
     // Update operating mode
     await this.oAuth2Client.updateMode(data);
-
-    // Update operating mode capabilities
-    await this.setCapabilityValue('operating_mode', mode);
-    await this.setCapabilityValue('settable_mode', mode);
 
     return mode;
   }
