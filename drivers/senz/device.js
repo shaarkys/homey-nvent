@@ -108,10 +108,17 @@ class SenzDevice extends OAuth2Device {
       // Modes
       const mode = deviceData.mode;
       const operatingMode = operatingModeMapping[mode];
-      const setMode = mode > 3 ? 'none' : operatingMode;
+      let settableMode = mode > 3 ? 'none' : operatingMode;
+
+      // Antifreeze mode
+      if (deviceData.hasOwnProperty('setPointTemperature')) {
+        if (deviceData.setPointTemperature === 500 && operatingMode === 'constant') {
+          settableMode = 'antifreeze';
+        }
+      }
 
       await this.setCapabilityValue('operating_mode', operatingMode);
-      await this.setCapabilityValue('settable_mode', setMode);
+      await this.setCapabilityValue('settable_mode', settableMode);
 
       // Set available
       if (!this.getAvailable()) {
@@ -198,20 +205,23 @@ class SenzDevice extends OAuth2Device {
 
   // Set operating mode
   async setOperatingMode(mode) {
-    const currentMode = await this.getCapabilityValue('operation_mode');
+    const currentOperationMode = await this.getCapabilityValue('operation_mode');
 
-    if (mode === 'none')  {
-      mode = 'program';
+    let operationMode = mode;
+    let settableMode = mode;
+
+    if (settableMode === 'none')  {
+      settableMode = 'program';
     }
 
     let data = {
       serialNumber: String(this.getData().id),
-      mode: apiModeMapping[mode]
+      mode: apiModeMapping[settableMode]
     };
 
     // Boost mode, also set temperature from settings
-    if (mode === 'boost') {
-      if (currentMode === 'off') {
+    if (settableMode === 'boost') {
+      if (currentOperationMode === 'off') {
         throw new Error(this.homey.__('modeInvalid'));
       }
 
@@ -219,14 +229,22 @@ class SenzDevice extends OAuth2Device {
       data.temperatureType = temperatureType.absolute;
     }
 
+    // Antifreeze mode
+    if (settableMode === 'antifreeze') {
+      operationMode = 'constant';
+      data.mode = apiModeMapping.constant
+      data.temperature = 500;
+      data.temperatureType = temperatureType.absolute;
+    }
+
     // Update operating mode
     await this.oAuth2Client.updateMode(data);
 
     // Update settable- and operating mode capabilities
-    await this.setCapabilityValue('operating_mode', mode);
-    await this.setCapabilityValue('settable_mode', mode);
+    await this.setCapabilityValue('operating_mode', operationMode);
+    await this.setCapabilityValue('settable_mode', settableMode);
 
-    return mode;
+    return settableMode;
   }
 
   /*

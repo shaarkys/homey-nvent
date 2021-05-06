@@ -604,6 +604,20 @@
           }
         },
         {
+          "id": "antifreeze",
+          "title": {
+            "en": "Antifreeze",
+            "nl": "Antivries",
+            "de": "Frostschutzmittel",
+            "fr": "Antigel",
+            "it": "Antigelo",
+            "sv": "Frostskydd",
+            "no": "Frostvæske",
+            "es": "Anticongelante",
+            "da": "Frostvæske"
+          }
+        },
+        {
           "id": "none",
           "title": {
             "en": "No state",
