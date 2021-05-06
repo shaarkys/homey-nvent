@@ -1,13 +1,8 @@
 {
-    "1.0.0": {
-        "en": "Initial release",
-        "da": "Første udgivelse",
-        "de": "Erstveröffentlichung",
-        "es": "Versión inicial",
-        "fr": "Première version",
-        "it": "Versione iniziale",
-        "nl": "Eerste release",
-        "no": "Første utgivelse",
-        "sv": "Första utgåvan"
-    }
+  "1.0.0": {
+    "en": "Initial release"
+  },
+  "1.1.0": {
+    "en": "Added tons of new features"
+  }
 }
