@@ -18,8 +18,8 @@ const operatingModeMapping = {
   1: 'program', // "Auto" at API
   2: 'boost', // "Hold" at API
   3: 'constant', // "Manual" at API
-  4: 'holiday',
-  5: 'off'
+  4: 'holiday', // Not available at API
+  5: 'off' // Not available at API
 }
 
 class SenzDevice extends OAuth2Device {
@@ -134,7 +134,7 @@ class SenzDevice extends OAuth2Device {
   onCapabilityTargetTemperature(temperature) {
     const rounded = Math.round(temperature * 2) / 2;
 
-    this.log(`Target temperature changed to '${rounded}'`);
+    this.log(`Target temperature changed to ${rounded}°C`);
 
     return this.setTargetTemperature(rounded);
   }
