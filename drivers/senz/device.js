@@ -198,13 +198,11 @@ class SenzDevice extends OAuth2Device {
 
   // Set operating mode
   async setOperatingMode(mode) {
+    const currentMode = await this.getCapabilityValue('operation_mode');
+
     if (mode === 'none')  {
       mode = 'program';
     }
-
-    // Update operating mode capabilities
-    await this.setCapabilityValue('operating_mode', mode);
-    await this.setCapabilityValue('settable_mode', mode);
 
     let data = {
       serialNumber: String(this.getData().id),
@@ -213,12 +211,20 @@ class SenzDevice extends OAuth2Device {
 
     // Boost mode, also set temperature from settings
     if (mode === 'boost') {
+      if (currentMode === 'off') {
+        throw new Error(this.homey.__('modeInvalid'));
+      }
+
       data.temperature = this.getSetting('boost_temperature') * 100;
       data.temperatureType = temperatureType.absolute;
     }
 
     // Update operating mode
     await this.oAuth2Client.updateMode(data);
+
+    // Update settable- and operating mode capabilities
+    await this.setCapabilityValue('operating_mode', mode);
+    await this.setCapabilityValue('settable_mode', mode);
 
     return mode;
   }
