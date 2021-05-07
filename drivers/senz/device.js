@@ -207,16 +207,17 @@ class SenzDevice extends OAuth2Device {
   async setOperatingMode(mode) {
     const currentOperationMode = await this.getCapabilityValue('operation_mode');
 
+    let temperature = null;
     let operationMode = mode;
     let settableMode = mode;
 
     if (settableMode === 'none')  {
-      settableMode = 'program';
+      operationMode = 'program';
     }
 
     let data = {
       serialNumber: String(this.getData().id),
-      mode: apiModeMapping[settableMode]
+      mode: apiModeMapping[operationMode]
     };
 
     // Boost mode, also set temperature from settings
@@ -225,15 +226,34 @@ class SenzDevice extends OAuth2Device {
         throw new Error(this.homey.__('modeInvalid'));
       }
 
-      data.temperature = this.getSetting('boost_temperature') * 100;
-      data.temperatureType = temperatureType.absolute;
+      temperature = this.getSetting('boost_temperature');
+    }
+
+    // Constant mode
+    if (settableMode === 'constant') {
+      let constantTemperature = this.getSetting('constant_temperature');
+
+      if (constantTemperature > 0) {
+        if (constantTemperature < 5) {
+          // Minimum temperature
+          temperature = 5;
+        } else {
+          temperature = constantTemperature;
+        }
+      }
     }
 
     // Antifreeze mode
     if (settableMode === 'antifreeze') {
       operationMode = 'constant';
-      data.mode = apiModeMapping.constant
-      data.temperature = 500;
+      data.mode = apiModeMapping.constant;
+
+      temperature = 5;
+    }
+
+    // Set temperature and type
+    if (temperature !== null) {
+      data.temperature = temperature * 100;
       data.temperatureType = temperatureType.absolute;
     }
 

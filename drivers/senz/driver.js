@@ -38,7 +38,8 @@ class SenzDriver extends OAuth2Driver {
           id: deviceData.serialNumber,
         },
         settings: {
-          boost_temperature: 26
+          boost_temperature: 26,
+          constant_temperature: 22
         }
       }
     });
