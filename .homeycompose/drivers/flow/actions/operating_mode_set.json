@@ -10,6 +10,17 @@
     "es": "Establecer el modo de funcionamiento",
     "da": "Indstil driftstilstand"
   },
+  "titleFormatted": {
+    "en": "Set the operating mode to [[operating_mode]]",
+    "nl": "Zet de bedrijfsmodus in [[operating_mode]]",
+    "de": "Stellen Sie die Betriebsart [[operating_mode]]",
+    "fr": "Réglez le mode de fonctionnement sur [[operating_mode]]",
+    "it": "Impostare la modalità operativa su [[operating_mode]]",
+    "sv": "Ställ in driftläget på [[operating_mode]]",
+    "no": "Sett driftsmodusen til [[operating_mode]]",
+    "es": "Establezca el modo de funcionamiento en [[operating_mode]]",
+    "da": "Indstil driftstilstanden til [[operating_mode]]"
+  },
   "args": [
     {
       "name": "operating_mode",
@@ -17,7 +28,7 @@
       "values": [
         {
           "id": "program",
-          "title": {
+          "label": {
             "en": "Program",
             "nl": "Programma",
             "de": "Programm",
@@ -31,13 +42,13 @@
         },
         {
           "id": "boost",
-          "title": {
+          "label": {
             "en": "Boost"
           }
         },
         {
           "id": "constant",
-          "title": {
+          "label": {
             "en": "Constant",
             "nl": "Constant",
             "de": "Konstant",

@@ -3,6 +3,9 @@
   "id": "com.nvent.raychem",
   "version": "1.2.0",
   "compatibility": ">=5.0.0",
+  "platforms": [
+    "local"
+  ],
   "sdk": 3,
   "brandColor": "#C4262E",
   "name": {
@@ -113,6 +116,17 @@
           "es": "El modo de funcionamiento ha cambiado",
           "da": "Driftstilstand er ændret"
         },
+        "titleFormatted": {
+          "en": "Operating mode has changed to [[operating_mode]]",
+          "nl": "Bedrijfsmodus is veranderd naar [[operating_mode]]",
+          "de": "Betriebsmodus wurde auf [[operating_mode]] geändert",
+          "fr": "Le mode de fonctionnement est passé à [[operating_mode]]",
+          "it": "La modalità operativa è stata modificata in [[operating_mode]]",
+          "sv": "Driftläge har ändrats till [[operating_mode]]",
+          "no": "Driftsmodus er endret til [[operating_mode]]",
+          "es": "El modo de funcionamiento se ha cambiado a [[operating_mode]]",
+          "da": "Driftstilstand er blevet ændret til [[operating_mode]]"
+        },
         "args": [
           {
             "type": "device",
@@ -120,12 +134,12 @@
             "filter": "driver_id=senz"
           },
           {
-            "name": "operating_mode",
             "type": "dropdown",
+            "name": "operating_mode",
             "values": [
               {
                 "id": "program",
-                "title": {
+                "label": {
                   "en": "Program",
                   "nl": "Programma",
                   "de": "Programm",
@@ -139,13 +153,13 @@
               },
               {
                 "id": "boost",
-                "title": {
+                "label": {
                   "en": "Boost"
                 }
               },
               {
                 "id": "constant",
-                "title": {
+                "label": {
                   "en": "Constant",
                   "nl": "Constant",
                   "de": "Konstant",
@@ -159,7 +173,7 @@
               },
               {
                 "id": "holiday",
-                "title": {
+                "label": {
                   "en": "Holiday",
                   "nl": "Vakantie",
                   "de": "Urlaub",
@@ -173,7 +187,7 @@
               },
               {
                 "id": "off",
-                "title": {
+                "label": {
                   "en": "Off",
                   "nl": "Uit",
                   "de": "Aus",
@@ -218,6 +232,17 @@
           "es": "El modo de funcionamiento !{{está|no está}}",
           "da": "Driftstilstand !{{er|er ikke}}"
         },
+        "titleFormatted": {
+          "en": "Operating mode is [[operating_mode]]",
+          "nl": "Bedrijfsmodus is [[operating_mode]]",
+          "de": "Betriebsmodus ist [[operating_mode]]",
+          "fr": "Le mode de fonctionnement est [[operating_mode]]",
+          "it": "La modalità operativa è [[operating_mode]]",
+          "sv": "Driftläget är [[operating_mode]]",
+          "no": "Driftsmodus er [[operating_mode]]",
+          "es": "El modo de funcionamiento está [[operating_mode]]",
+          "da": "Driftstilstand er [[operating_mode]]"
+        },
         "args": [
           {
             "type": "device",
@@ -230,7 +255,7 @@
             "values": [
               {
                 "id": "program",
-                "title": {
+                "label": {
                   "en": "Program",
                   "nl": "Programma",
                   "de": "Programm",
@@ -244,13 +269,13 @@
               },
               {
                 "id": "boost",
-                "title": {
+                "label": {
                   "en": "Boost"
                 }
               },
               {
                 "id": "constant",
-                "title": {
+                "label": {
                   "en": "Constant",
                   "nl": "Constant",
                   "de": "Konstant",
@@ -264,7 +289,7 @@
               },
               {
                 "id": "holiday",
-                "title": {
+                "label": {
                   "en": "Holiday",
                   "nl": "Vakantie",
                   "de": "Urlaub",
@@ -278,7 +303,7 @@
               },
               {
                 "id": "off",
-                "title": {
+                "label": {
                   "en": "Off",
                   "nl": "Uit",
                   "de": "Aus",
@@ -309,6 +334,17 @@
           "es": "Establecer el modo de funcionamiento",
           "da": "Indstil driftstilstand"
         },
+        "titleFormatted": {
+          "en": "Set the operating mode to [[operating_mode]]",
+          "nl": "Zet de bedrijfsmodus in [[operating_mode]]",
+          "de": "Stellen Sie die Betriebsart [[operating_mode]]",
+          "fr": "Réglez le mode de fonctionnement sur [[operating_mode]]",
+          "it": "Impostare la modalità operativa su [[operating_mode]]",
+          "sv": "Ställ in driftläget på [[operating_mode]]",
+          "no": "Sett driftsmodusen til [[operating_mode]]",
+          "es": "Establezca el modo de funcionamiento en [[operating_mode]]",
+          "da": "Indstil driftstilstanden til [[operating_mode]]"
+        },
         "args": [
           {
             "type": "device",
@@ -321,7 +357,7 @@
             "values": [
               {
                 "id": "program",
-                "title": {
+                "label": {
                   "en": "Program",
                   "nl": "Programma",
                   "de": "Programm",
@@ -335,13 +371,13 @@
               },
               {
                 "id": "boost",
-                "title": {
+                "label": {
                   "en": "Boost"
                 }
               },
               {
                 "id": "constant",
-                "title": {
+                "label": {
                   "en": "Constant",
                   "nl": "Constant",
                   "de": "Konstant",
@@ -389,6 +425,12 @@
           "id": "login_oauth2",
           "template": "login_oauth2"
         }
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "platforms": [
+        "local"
       ],
       "id": "senz",
       "name": {
