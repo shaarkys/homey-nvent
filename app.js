@@ -1,6 +1,6 @@
 'use strict';
 
-const Homey = require('homey');
+const {Log} = require('homey-log');
 const {OAuth2App} = require('homey-oauth2app');
 const nVentOAuth2Client = require('./lib/nVentOAuth2Client');
 const signalR = require('@microsoft/signalr');
@@ -22,6 +22,9 @@ class nVent extends OAuth2App {
   // Application initialized
   async onOAuth2Init() {
     this.log('Application initialized');
+
+    // Sentry logging
+    this.homeyLog = new Log({ homey: this.homey });
 
     // Reset connection
     this.resetConnection();
