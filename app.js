@@ -178,12 +178,10 @@ class nVent extends OAuth2App {
       // Stop SignalR
       await this.connection.stop();
       this.log('SignalR stopped!');
-
-      // Reset connection
-      this.resetConnection();
     } catch (err) {
       this.error(err);
-
+    } finally {
+      // Reset connection
       this.resetConnection();
     }
   }
