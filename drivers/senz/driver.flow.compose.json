@@ -1,6 +1,12 @@
 {
   "triggers": [
     {
+      "$extends": "connected_false"
+    },
+    {
+      "$extends": "connected_true"
+    },
+    {
       "$extends": "heating_false"
     },
     {
@@ -11,6 +17,9 @@
     }
   ],
   "conditions": [
+    {
+      "$extends": "connected"
+    },
     {
       "$extends": "is_heating"
     },

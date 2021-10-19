@@ -61,6 +61,11 @@ class SenzDriver extends OAuth2Driver {
 
   // Register condition flow cards
   async registerConditionFlowCards() {
+    // ... and connected is ...
+    this.homey.flow.getConditionCard('connected').registerRunListener(async (args) => {
+      return args.device.getCapabilityValue('connected');
+    });
+
     // ... and heating is ...
     this.homey.flow.getConditionCard('is_heating').registerRunListener(async (args) => {
       return args.device.getCapabilityValue('heating');

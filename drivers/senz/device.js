@@ -33,6 +33,11 @@ class SenzDevice extends OAuth2Device {
   async onOAuth2Init() {
     this.log('Device initialized');
 
+    // Make sure the connected capability is added
+    if (!this.hasCapability('connected')) {
+      await this.addCapability('connected');
+    }
+
     // Refresh device data
     await this.onRefresh();
 
@@ -83,8 +88,16 @@ class SenzDevice extends OAuth2Device {
       const deviceData = await this.oAuth2Client.getById(this.getData().id);
 
       // Online
-      if (deviceData.hasOwnProperty('online') && !deviceData.online) {
-        return this.onDisable(this.homey.__('offline'));
+      if (deviceData.hasOwnProperty('online')) {
+        if (deviceData.online !== this.getCapabilityValue('connected')) {
+          this.log(deviceData.online ? 'Device is online' : 'Device is offline');
+        }
+
+        await this.setCapabilityValue('connected', deviceData.online);
+
+        if (!deviceData.online) {
+          return this.setUnavailable(this.homey.__('offline'));
+        }
       }
 
       // Set current temperature
@@ -121,12 +134,14 @@ class SenzDevice extends OAuth2Device {
 
       // Set available
       if (!this.getAvailable()) {
-        await this.onEnable();
+        this.log('Device is available');
+
+        await this.setAvailable();
       }
     } catch (err) {
-      this.error(err.toString());
+      this.error(`Device is unavailable: ${err.toString()}`);
 
-      await this.onDisable(err.toString());
+      await this.setUnavailable(err.toString())
     }
   }
 
@@ -264,26 +279,6 @@ class SenzDevice extends OAuth2Device {
     await this.setCapabilityValue('settable_mode', settableMode);
 
     return settableMode;
-  }
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Availability functions
-  |-----------------------------------------------------------------------------
-  */
-
-  // Enable device
-  async onEnable() {
-    this.log('Device enabled');
-
-    return this.setAvailable();
-  }
-
-  // Disable device
-  async onDisable(reason) {
-    this.log(`Device disabled: ${reason}`);
-
-    return this.setUnavailable(reason);
   }
 
 }

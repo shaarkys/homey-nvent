@@ -76,6 +76,38 @@
   "flow": {
     "triggers": [
       {
+        "id": "connected_false",
+        "title": {
+          "en": "The connection was lost",
+          "nl": "De verbinding werd verbroken",
+          "de": "Die Verbindung war verloren",
+          "fr": "La connexion a été perdue"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          }
+        ]
+      },
+      {
+        "id": "connected_true",
+        "title": {
+          "en": "The connection was restored",
+          "nl": "De verbinding werd hersteld",
+          "de": "Die Verbindung wurde wiederhergestellt",
+          "fr": "La connexion a été rétablie"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          }
+        ]
+      },
+      {
         "id": "heating_false",
         "title": {
           "en": "Stops heating",
@@ -205,6 +237,22 @@
       }
     ],
     "conditions": [
+      {
+        "id": "connected",
+        "title": {
+          "en": "!{{Is|Is not}} connected",
+          "nl": "!{{Is|Is niet}} verbonden",
+          "de": "!{{Ist|Nicht}} verbunden",
+          "fr": "!{{Est|N'est pas}} connecté"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
+          }
+        ]
+      },
       {
         "id": "is_heating",
         "title": {
@@ -501,6 +549,31 @@
     }
   ],
   "capabilities": {
+    "connected": {
+      "title": {
+        "en": "Connected",
+        "nl": "Verbonden",
+        "de": "Verbunden",
+        "fr": "Connectée"
+      },
+      "type": "boolean",
+      "getable": true,
+      "setable": false,
+      "insights": true,
+      "insightsTitleTrue": {
+        "en": "Connected",
+        "nl": "Verbonden",
+        "de": "Verbunden",
+        "fr": "Connectée"
+      },
+      "insightsTitleFalse": {
+        "en": "Disconnected",
+        "nl": "Verbroken",
+        "de": "Getrennt",
+        "fr": "Déconnectée"
+      },
+      "uiComponent": null
+    },
     "heating": {
       "title": {
         "en": "Heating",

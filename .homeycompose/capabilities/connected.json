@@ -1,0 +1,25 @@
+{
+  "title": {
+    "en": "Connected",
+    "nl": "Verbonden",
+    "de": "Verbunden",
+    "fr": "Connectée"
+  },
+  "type": "boolean",
+  "getable": true,
+  "setable": false,
+  "insights": true,
+  "insightsTitleTrue": {
+    "en": "Connected",
+    "nl": "Verbonden",
+    "de": "Verbunden",
+    "fr": "Connectée"
+  },
+  "insightsTitleFalse": {
+    "en": "Disconnected",
+    "nl": "Verbroken",
+    "de": "Getrennt",
+    "fr": "Déconnectée"
+  },
+  "uiComponent": null
+}
