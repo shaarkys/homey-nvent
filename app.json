@@ -111,7 +111,7 @@
         "id": "heating_false",
         "title": {
           "en": "Stops heating",
-          "nl": "Stopt met opwarmen"
+          "nl": "Stopt met verwarmen"
         },
         "args": [
           {
@@ -125,7 +125,7 @@
         "id": "heating_true",
         "title": {
           "en": "Starts heating",
-          "nl": "Begint met opwarmen"
+          "nl": "Begint met verwarmen"
         },
         "args": [
           {

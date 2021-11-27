@@ -2,15 +2,14 @@
 
 const {Log} = require('homey-log');
 const {OAuth2App} = require('homey-oauth2app');
-const nVentOAuth2Client = require('./lib/nVentOAuth2Client');
+const Client = require('./lib/Client');
 const signalR = require('@microsoft/signalr');
 
-const refreshDeviceInterval = 60 * 1000; // 1 minute
-const startConnectionInterval = 10 * 1000; // 10 seconds
+const refreshInterval = 60 * 1000; // 1 minute
 
 class nVent extends OAuth2App {
 
-  static OAUTH2_CLIENT = nVentOAuth2Client;
+  static OAUTH2_CLIENT = Client;
   //static OAUTH2_DEBUG = true;
 
   /*
@@ -21,20 +20,18 @@ class nVent extends OAuth2App {
 
   // Application initialized
   async onOAuth2Init() {
-    this.log('Application initialized');
-
     // Sentry logging
-    this.homeyLog = new Log({ homey: this.homey });
+    this.homeyLog = new Log({homey: this.homey});
 
-    // Reset connection
-    this.resetConnection();
+    // Reset properties
+    this.connection = null;
+    this.client = null;
+    this.refreshTimer = null;
 
-    // As SignalR does not notify us when the temperature changes or when the
-    // heating starts, set a custom interval to update all devices.
-    this.refreshInterval = this.homey.setInterval(this.refreshDevices.bind(this), refreshDeviceInterval);
-
-    // Start notification connection if not already started
-    this.homey.setInterval(this.startNotifications.bind(this), startConnectionInterval);
+    // Register flow cards
+    this._registerActionFlowCards();
+    this._registerConditionFlowCards();
+    this._registerDeviceTriggerFlowCards();
 
     // Register app event listeners
     this.homey.on('cpuwarn', () => {
@@ -44,7 +41,7 @@ class nVent extends OAuth2App {
     }).on('unload', () => {
       this.stopNotifications();
 
-      this.log('-- Unloaded! _o/ --');
+      this.log('-- Unloaded! --');
     });
   }
 
@@ -54,14 +51,35 @@ class nVent extends OAuth2App {
   |-----------------------------------------------------------------------------
   */
 
+  startTimers() {
+    this.client = this.getFirstSavedOAuth2Client();
+
+    if (!this.refreshTimer) {
+      this.refreshTimer = this.homey.setInterval(this.refreshDevices.bind(this), refreshInterval);
+    }
+
+    this.startNotifications().catch(this.error);
+
+    this.log('Timers started');
+  }
+
   // Update devices by action
   async refreshDevices() {
-    if (Object.keys(this.getSavedOAuth2Sessions()).length === 0) {
+    // Check for devices
+    if (!this.hasOAuthDevices()) {
       return;
     }
 
-    // Refresh all devices
-    this.homey.emit('refresh_devices');
+    this.startNotifications().catch(this.error);
+
+    try {
+      // Sync all devices
+      await this.client.syncDevices();
+    } catch (err) {
+      this.error(err.message);
+
+      this.homey.emit('nvent:error', err.message);
+    }
   }
 
   /*
@@ -77,34 +95,26 @@ class nVent extends OAuth2App {
       return;
     }
 
-    let sessions = this.getSavedOAuth2Sessions();
-
-    // Check if there are sessions available
-    if (Object.keys(sessions).length === 0) {
-      return this.resetConnection();
-    }
-
-    // Get oAuth session
-    const sessionId = Object.keys(sessions)[0];
-    const token = sessions[sessionId].token.access_token;
-    const url = nVentOAuth2Client.API_URL;
-
-    // Check if token is filled
-    if (token == null) {
+    // Check number of devices
+    if (!this.hasOAuthDevices()) {
       return;
     }
+
+    const token = this.client.getToken().access_token;
 
     this.log('Starting notifications');
 
     // Set notifications connection
     const connection = new signalR.HubConnectionBuilder()
-      .withUrl(`${url}/v1/changenotifications?token=${token}`)
+      .withUrl(`${Client.API_URL}/v1/changenotifications?token=${token}`)
       .configureLogging(signalR.LogLevel.Warning)
       .withAutomaticReconnect()
       .build();
 
     try {
       // Start connection
+      this.log('Starting connection');
+
       await connection.start();
       this.log('SignalR connected');
 
@@ -114,17 +124,22 @@ class nVent extends OAuth2App {
 
       // Refresh device when notification is received
       connection.on('Notify', (list) => {
+        this.log('Notification received');
+
         // Stop refresh device interval because devices are updated
-        this.homey.clearTimeout(this.refreshInterval);
-        this.refreshInterval = null;
+        this.homey.clearTimeout(this.refreshTimer);
+        this.refreshTimer = null;
 
         // Process notifications
         list.forEach(notification => {
-          this.homey.emit('refresh_devices', String(notification.id));
+          const deviceId = String(notification.id);
+          this.client.syncDevice(deviceId).catch(this.error);
         });
 
         // Start refresh device interval
-        this.refreshInterval = this.homey.setInterval(this.refreshDevices.bind(this), refreshDeviceInterval);
+        if (!this.refreshTimer) {
+          this.refreshTimer = this.homey.setInterval(this.refreshDevices.bind(this), refreshInterval);
+        }
       });
 
       // Notify when reconnecting
@@ -132,7 +147,7 @@ class nVent extends OAuth2App {
         if (err) {
           this.log(`Connection lost due to error "${err}". Reconnecting...`);
         } else {
-          this.log(`Connection lost. Reconnecting...`);
+          this.log('Connection lost. Reconnecting...');
         }
       });
 
@@ -149,15 +164,20 @@ class nVent extends OAuth2App {
         }
 
         // Reset connection
-        this.resetConnection()
+        this.connection = null;
       });
 
       this.connection = connection;
     } catch (err) {
-      this.error(err);
+      this.error(err.message);
+
+      if (err.statusCode === 401) {
+        this.log('Refreshing oAuth token...');
+        return this.client.refreshToken();
+      }
 
       // Reset connection
-      this.resetConnection();
+      await this.stopNotifications();
     }
   }
 
@@ -165,6 +185,11 @@ class nVent extends OAuth2App {
   async stopNotifications() {
     // No connection found
     if (!this.hasConnection()) {
+      return;
+    }
+
+    // Devices are available
+    if (this.hasOAuthDevices()) {
       return;
     }
 
@@ -181,8 +206,7 @@ class nVent extends OAuth2App {
     } catch (err) {
       this.error(err);
     } finally {
-      // Reset connection
-      this.resetConnection();
+      this.connection = null;
     }
   }
 
@@ -191,11 +215,81 @@ class nVent extends OAuth2App {
     return this.connection != null;
   }
 
-  // Reset connection
-  resetConnection() {
-    this.connection = null;
+  /*
+  |-----------------------------------------------------------------------------
+  | Flow cards
+  |-----------------------------------------------------------------------------
+  */
+
+  // Register action flow cards
+  _registerActionFlowCards() {
+    // ... then set operating mode to ...
+    this.homey.flow.getActionCard('operating_mode_set').registerRunListener(async (args) => {
+      if (args.hasOwnProperty('device') && args.hasOwnProperty('operating_mode')) {
+        return args.device.onCapabilityOperatingMode(args.operating_mode);
+      }
+    });
   }
 
+  // Register condition flow cards
+  _registerConditionFlowCards() {
+    // ... and connected is ...
+    this.homey.flow.getConditionCard('connected').registerRunListener(async (args) => {
+      if (args.hasOwnProperty('device')) {
+        return args.device.getCapabilityValue('connected') === true;
+      }
+    });
+
+    // ... and heating is ...
+    this.homey.flow.getConditionCard('is_heating').registerRunListener(async (args) => {
+      if (args.hasOwnProperty('device')) {
+        return args.device.getCapabilityValue('heating') === true;
+      }
+    });
+
+    // ... and operating mode is ...
+    this.homey.flow.getConditionCard('operating_mode_is').registerRunListener(async (args) => {
+      if (args.hasOwnProperty('device') && args.hasOwnProperty('operating_mode')) {
+        return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
+      }
+    });
+  }
+
+  // Register device trigger flow cards
+  _registerDeviceTriggerFlowCards() {
+    // When operating mode changed to ...
+    this.homey.flow.getDeviceTriggerCard('operating_mode_changed').registerRunListener(async (args) => {
+      if (args.hasOwnProperty('device') && args.hasOwnProperty('operating_mode')) {
+        return args.device.getCapabilityValue('operating_mode') === args.operating_mode;
+      }
+    });
+  }
+
+  /*
+  |-----------------------------------------------------------------------------
+  | Helpers
+  |-----------------------------------------------------------------------------
+  */
+
+  // Returns whether devices are available
+  hasOAuthDevices() {
+    const sessions = this.getSavedOAuth2Sessions();
+
+    // Check if there are sessions available
+    if (Object.keys(sessions).length === 0) {
+      this.log('No oAuth sessions found');
+
+      return false;
+    }
+
+    // Get oAuth session
+    const sessionId = Object.keys(sessions)[0];
+    const configId = sessions[sessionId]['default'];
+
+    const devices = this.getOAuth2Devices({sessionId, configId});
+
+    return Object.keys(devices).length === 0;
+  }
 }
 
 module.exports = nVent;

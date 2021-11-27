@@ -1,147 +1,53 @@
 'use strict';
 
-const {OAuth2Device} = require('homey-oauth2app');
+const Device = require('../../lib/Device');
+const {ApiModeMapping, OperatingModeMapping, TemperatureType} = require('../../lib/Enums');
 
-const temperatureType = {
-  absolute: 0,
-  relative: 1
-}
+class SenzDevice extends Device {
 
-const apiModeMapping = {
-  'program': 'auto',
-  'boost': 'hold',
-  'constant': 'manual',
-}
+  // Set device capabilities
+  async setCapabilities(data) {
 
-const operatingModeMapping = {
-  1: 'program', // "Auto" at API
-  2: 'boost', // "Hold" at API
-  3: 'constant', // "Manual" at API
-  4: 'holiday', // Not available at API
-  5: 'off' // Not available at API
-}
+    // Variables
+    const mode = data.mode;
+    const operatingMode = OperatingModeMapping[mode];
+    let settableMode = mode > 3 ? 'none' : operatingMode;
 
-class SenzDevice extends OAuth2Device {
+    // Current temperature
+    if (data.hasOwnProperty('currentTemperature')) {
+      const measureTemperature = Math.round((data.currentTemperature / 100) * 10) / 10;
 
-  /*
-  |-----------------------------------------------------------------------------
-  | Device initialization
-  |-----------------------------------------------------------------------------
-  */
-
-  // Initialized
-  async onOAuth2Init() {
-    this.log('Device initialized');
-
-    // Make sure the connected capability is added
-    if (!this.hasCapability('connected')) {
-      await this.addCapability('connected');
+      this.setCapabilityValue('measure_temperature', measureTemperature).catch(this.error);
     }
 
-    // Refresh device data
-    await this.onRefresh();
+    // Target temperature
+    if (data.hasOwnProperty('setPointTemperature')) {
+      const targetTemperature = Math.round((data.setPointTemperature / 100) * 10) / 10;
 
-    // Register capability listeners
-    this.registerCapabilityListener('target_temperature', this.onCapabilityTargetTemperature.bind(this));
-    this.registerCapabilityListener('operating_mode', this.onCapabilityOperatingMode.bind(this));
-    this.registerCapabilityListener('settable_mode', this.onCapabilitySettableMode.bind(this));
-
-    // Register event listeners
-    this.homey.on('refresh_devices', this.onRefresh.bind(this));
-  }
-
-  // Saved
-  async onOAuth2Saved() {
-    this.log('Device saved');
-  }
-
-  // Uninitialized
-  async onOAuth2Uninit() {
-    this.log('Device uninitialized');
-  }
-
-  // Deleted
-  async onOAuth2Deleted() {
-    this.log('Device deleted');
-
-    // Stop notification connection if no devices available
-    if (Object.keys(this.driver.getDevices()).length === 0) {
-      await this.homey.app.stopNotifications();
-    }
-  }
-
-  /*
-  |-----------------------------------------------------------------------------
-  | Refresh device data
-  |-----------------------------------------------------------------------------
-  */
-
-  async onRefresh(deviceId) {
-    // Return when device ID is given, but does not match this device ID
-    // If device ID not NOT given, it should update all devices
-    if (deviceId != null && this.getData().id !== deviceId) {
-      return;
+      this.setCapabilityValue('target_temperature', targetTemperature).catch(this.error);
     }
 
-    try {
-      // Fetch data from API
-      const deviceData = await this.oAuth2Client.getById(this.getData().id);
+    // Heating
+    if (data.hasOwnProperty('isHeating')) {
+      this.setCapabilityValue('heating', data.isHeating).catch(this.error);
+    }
 
-      // Online
-      if (deviceData.hasOwnProperty('online')) {
-        if (deviceData.online !== this.getCapabilityValue('connected')) {
-          this.log(deviceData.online ? 'Device is online' : 'Device is offline');
-        }
-
-        await this.setCapabilityValue('connected', deviceData.online);
-
-        if (!deviceData.online) {
-          return this.setUnavailable(this.homey.__('offline'));
-        }
+    // Antifreeze mode
+    if (data.hasOwnProperty('setPointTemperature')) {
+      if (data.setPointTemperature === 500 && operatingMode === 'constant') {
+        settableMode = 'antifreeze';
       }
+    }
 
-      // Set current temperature
-      if (deviceData.hasOwnProperty('currentTemperature')) {
-        const measureTemperature = Math.round((deviceData.currentTemperature / 100) * 10) / 10;
-        await this.setCapabilityValue('measure_temperature', measureTemperature);
-      }
+    // Operating mode
+    this.setCapabilityValue('operating_mode', operatingMode).catch(this.error);
 
-      // Set target temperature
-      if (deviceData.hasOwnProperty('setPointTemperature')) {
-        const targetTemperature = Math.round((deviceData.setPointTemperature / 100) * 10) / 10;
-        await this.setCapabilityValue('target_temperature', targetTemperature);
-      }
+    // Settable mode
+    this.setCapabilityValue('settable_mode', settableMode).catch(this.error);
 
-      // Set heating
-      if (deviceData.hasOwnProperty('isHeating')) {
-        await this.setCapabilityValue('heating', deviceData.isHeating);
-      }
-
-      // Modes
-      const mode = deviceData.mode;
-      const operatingMode = operatingModeMapping[mode];
-      let settableMode = mode > 3 ? 'none' : operatingMode;
-
-      // Antifreeze mode
-      if (deviceData.hasOwnProperty('setPointTemperature')) {
-        if (deviceData.setPointTemperature === 500 && operatingMode === 'constant') {
-          settableMode = 'antifreeze';
-        }
-      }
-
-      await this.setCapabilityValue('operating_mode', operatingMode);
-      await this.setCapabilityValue('settable_mode', settableMode);
-
-      // Set available
-      if (!this.getAvailable()) {
-        this.log('Device is available');
-
-        await this.setAvailable();
-      }
-    } catch (err) {
-      this.error(`Device is unavailable: ${err.toString()}`);
-
-      await this.setUnavailable(err.toString())
+    // Connected
+    if (data.hasOwnProperty('online')) {
+      this.setCapabilityValue('connected', data.online).catch(this.error);
     }
   }
 
@@ -152,7 +58,7 @@ class SenzDevice extends OAuth2Device {
   */
 
   // This method will be called when the target temperature needs to be changed
-  onCapabilityTargetTemperature(temperature) {
+  async onCapabilityTargetTemperature(temperature) {
     const rounded = Math.round(temperature * 2) / 2;
 
     this.log(`Target temperature changed to ${rounded}°C`);
@@ -161,7 +67,7 @@ class SenzDevice extends OAuth2Device {
   }
 
   // This method will be called when the operating mode needs to be changed
-  onCapabilityOperatingMode(mode) {
+  async onCapabilityOperatingMode(mode) {
     if (this.getCapabilityValue('operating_mode') === mode) {
       return;
     }
@@ -172,7 +78,7 @@ class SenzDevice extends OAuth2Device {
   }
 
   // This method will be called when the settable mode needs to be changed
-  onCapabilitySettableMode(mode) {
+  async onCapabilitySettableMode(mode) {
     if (this.getCapabilityValue('settable_mode') === mode) {
       return;
     }
@@ -198,17 +104,17 @@ class SenzDevice extends OAuth2Device {
     }
 
     // Update thermostat target temperature
-    await this.setCapabilityValue('target_temperature', temperature);
+    this.setCapabilityValue('target_temperature', temperature).catch(this.error);
 
     // Update settable- and operating mode capabilities
-    await this.setCapabilityValue('operating_mode', mode);
-    await this.setCapabilityValue('settable_mode', mode);
+    this.setCapabilityValue('operating_mode', mode).catch(this.error);
+    this.setCapabilityValue('settable_mode', mode).catch(this.error);
 
     const data = {
-      serialNumber: String(this.getData().id),
-      mode: apiModeMapping[mode],
+      serialNumber: this.nventId,
+      mode: ApiModeMapping[mode],
       temperature: Number(temperature * 100),
-      temperatureType: temperatureType.absolute
+      temperatureType: TemperatureType.absolute
     };
 
     // Update thermostat target temperature
@@ -225,13 +131,13 @@ class SenzDevice extends OAuth2Device {
     let operationMode = mode;
     let settableMode = mode;
 
-    if (settableMode === 'none')  {
+    if (settableMode === 'none') {
       operationMode = 'program';
     }
 
     let data = {
-      serialNumber: String(this.getData().id),
-      mode: apiModeMapping[operationMode]
+      serialNumber: String(this.nventId),
+      mode: ApiModeMapping[operationMode]
     };
 
     // Boost mode, also set temperature from settings
@@ -260,7 +166,7 @@ class SenzDevice extends OAuth2Device {
     // Antifreeze mode
     if (settableMode === 'antifreeze') {
       operationMode = 'constant';
-      data.mode = apiModeMapping.constant;
+      data.mode = ApiModeMapping.constant;
 
       temperature = 5;
     }
@@ -268,15 +174,15 @@ class SenzDevice extends OAuth2Device {
     // Set temperature and type
     if (temperature !== null) {
       data.temperature = temperature * 100;
-      data.temperatureType = temperatureType.absolute;
+      data.temperatureType = TemperatureType.absolute;
     }
 
     // Update operating mode
     await this.oAuth2Client.updateMode(data);
 
     // Update settable- and operating mode capabilities
-    await this.setCapabilityValue('operating_mode', operationMode);
-    await this.setCapabilityValue('settable_mode', settableMode);
+    this.setCapabilityValue('operating_mode', operationMode).catch(this.error);
+    this.setCapabilityValue('settable_mode', settableMode).catch(this.error);
 
     return settableMode;
   }
