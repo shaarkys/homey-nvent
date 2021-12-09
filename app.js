@@ -5,8 +5,6 @@ const {OAuth2App} = require('homey-oauth2app');
 const Client = require('./lib/Client');
 const signalR = require('@microsoft/signalr');
 
-const refreshInterval = 60 * 1000; // 1 minute
-
 class nVent extends OAuth2App {
 
   static OAUTH2_CLIENT = Client;
@@ -24,6 +22,7 @@ class nVent extends OAuth2App {
     this.homeyLog = new Log({homey: this.homey});
 
     // Reset properties
+    this.refreshInterval = 60 * 1000; // 1 minute
     this.connection = null;
     this.client = null;
     this.refreshTimer = null;
@@ -55,7 +54,7 @@ class nVent extends OAuth2App {
     this.client = this.getFirstSavedOAuth2Client();
 
     if (!this.refreshTimer) {
-      this.refreshTimer = this.homey.setInterval(this.refreshDevices.bind(this), refreshInterval);
+      this.refreshTimer = this.homey.setInterval(this.refreshDevices.bind(this), this.refreshInterval);
     }
 
     this.startNotifications().catch(this.error);
@@ -138,7 +137,7 @@ class nVent extends OAuth2App {
 
         // Start refresh device interval
         if (!this.refreshTimer) {
-          this.refreshTimer = this.homey.setInterval(this.refreshDevices.bind(this), refreshInterval);
+          this.refreshTimer = this.homey.setInterval(this.refreshDevices.bind(this), this.refreshInterval);
         }
       });
 
