@@ -32,6 +32,7 @@
     "cloud"
   ],
   "platforms": [
-    "local"
+    "local",
+    "cloud"
   ]
 }

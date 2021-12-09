@@ -4,7 +4,8 @@
   "version": "1.2.1",
   "compatibility": ">=5.0.0",
   "platforms": [
-    "local"
+    "local",
+    "cloud"
   ],
   "sdk": 3,
   "brandColor": "#C4262E",
@@ -511,7 +512,8 @@
         "cloud"
       ],
       "platforms": [
-        "local"
+        "local",
+        "cloud"
       ],
       "id": "senz",
       "name": {
