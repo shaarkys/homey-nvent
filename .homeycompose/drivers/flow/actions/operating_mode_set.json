@@ -23,6 +23,17 @@
   },
   "args": [
     {
+      "title": {
+        "en": "Program",
+        "nl": "Programma",
+        "de": "Programm",
+        "fr": "Programme",
+        "it": "Programma",
+        "sv": "Program",
+        "no": "Program",
+        "es": "Programa",
+        "da": "Program"
+      },
       "name": "operating_mode",
       "type": "dropdown",
       "values": [

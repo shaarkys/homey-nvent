@@ -166,6 +166,17 @@
             "filter": "driver_id=senz"
           },
           {
+            "title": {
+              "en": "Program",
+              "nl": "Programma",
+              "de": "Programm",
+              "fr": "Programme",
+              "it": "Programma",
+              "sv": "Program",
+              "no": "Program",
+              "es": "Programa",
+              "da": "Program"
+            },
             "type": "dropdown",
             "name": "operating_mode",
             "values": [
@@ -298,6 +309,17 @@
             "filter": "driver_id=senz"
           },
           {
+            "title": {
+              "en": "Program",
+              "nl": "Programma",
+              "de": "Programm",
+              "fr": "Programme",
+              "it": "Programma",
+              "sv": "Program",
+              "no": "Program",
+              "es": "Programa",
+              "da": "Program"
+            },
             "name": "operating_mode",
             "type": "dropdown",
             "values": [
@@ -400,6 +422,17 @@
             "filter": "driver_id=senz"
           },
           {
+            "title": {
+              "en": "Program",
+              "nl": "Programma",
+              "de": "Programm",
+              "fr": "Programme",
+              "it": "Programma",
+              "sv": "Program",
+              "no": "Program",
+              "es": "Programa",
+              "da": "Program"
+            },
             "name": "operating_mode",
             "type": "dropdown",
             "values": [
