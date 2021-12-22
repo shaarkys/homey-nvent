@@ -84,6 +84,10 @@
           "de": "Die Verbindung war verloren",
           "fr": "La connexion a été perdue"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -100,6 +104,10 @@
           "de": "Die Verbindung wurde wiederhergestellt",
           "fr": "La connexion a été rétablie"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -114,6 +122,10 @@
           "en": "Stops heating",
           "nl": "Stopt met verwarmen"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -128,6 +140,10 @@
           "en": "Starts heating",
           "nl": "Begint met verwarmen"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -160,6 +176,10 @@
           "es": "El modo de funcionamiento se ha cambiado a [[operating_mode]]",
           "da": "Driftstilstand er blevet ændret til [[operating_mode]]"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -257,6 +277,10 @@
           "de": "!{{Ist|Nicht}} verbunden",
           "fr": "!{{Est|N'est pas}} connecté"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -271,6 +295,10 @@
           "en": "!{{Is|Is not}} heating",
           "nl": "!{{Is|Is niet}} aan het verwarmen"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -303,6 +331,10 @@
           "es": "El modo de funcionamiento está [[operating_mode]]",
           "da": "Driftstilstand er [[operating_mode]]"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -416,6 +448,10 @@
           "es": "Establezca el modo de funcionamiento en [[operating_mode]]",
           "da": "Indstil driftstilstanden til [[operating_mode]]"
         },
+        "platforms": [
+          "local",
+          "cloud"
+        ],
         "args": [
           {
             "type": "device",
@@ -485,6 +521,13 @@
         "xlarge": "/drivers/senz/assets/images/xlarge.png"
       },
       "icon": "/drivers/senz/assets/icon.svg",
+      "connectivity": [
+        "cloud"
+      ],
+      "platforms": [
+        "local",
+        "cloud"
+      ],
       "pair": [
         {
           "id": "login_oauth2",
@@ -507,13 +550,6 @@
           "id": "login_oauth2",
           "template": "login_oauth2"
         }
-      ],
-      "connectivity": [
-        "cloud"
-      ],
-      "platforms": [
-        "local",
-        "cloud"
       ],
       "id": "senz",
       "name": {

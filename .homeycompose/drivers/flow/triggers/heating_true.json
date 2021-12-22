@@ -2,5 +2,9 @@
   "title": {
     "en": "Starts heating",
     "nl": "Begint met verwarmen"
-  }
+  },
+  "platforms": [
+    "local",
+    "cloud"
+  ]
 }

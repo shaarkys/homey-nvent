@@ -4,5 +4,9 @@
     "nl": "De verbinding werd hersteld",
     "de": "Die Verbindung wurde wiederhergestellt",
     "fr": "La connexion a été rétablie"
-  }
+  },
+  "platforms": [
+    "local",
+    "cloud"
+  ]
 }

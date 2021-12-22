@@ -21,6 +21,10 @@
     "es": "Establezca el modo de funcionamiento en [[operating_mode]]",
     "da": "Indstil driftstilstanden til [[operating_mode]]"
   },
+  "platforms": [
+    "local",
+    "cloud"
+  ],
   "args": [
     {
       "title": {

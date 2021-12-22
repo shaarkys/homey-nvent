@@ -21,6 +21,10 @@
     "es": "El modo de funcionamiento se ha cambiado a [[operating_mode]]",
     "da": "Driftstilstand er blevet ændret til [[operating_mode]]"
   },
+  "platforms": [
+    "local",
+    "cloud"
+  ],
   "args": [
     {
       "title": {

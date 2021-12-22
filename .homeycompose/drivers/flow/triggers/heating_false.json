@@ -2,5 +2,9 @@
   "title": {
     "en": "Stops heating",
     "nl": "Stopt met verwarmen"
-  }
+  },
+  "platforms": [
+    "local",
+    "cloud"
+  ]
 }

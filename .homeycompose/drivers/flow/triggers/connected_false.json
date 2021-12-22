@@ -4,5 +4,9 @@
     "nl": "De verbinding werd verbroken",
     "de": "Die Verbindung war verloren",
     "fr": "La connexion a été perdue"
-  }
+  },
+  "platforms": [
+    "local",
+    "cloud"
+  ]
 }

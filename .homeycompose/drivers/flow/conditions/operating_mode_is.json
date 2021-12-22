@@ -21,6 +21,10 @@
     "es": "El modo de funcionamiento está [[operating_mode]]",
     "da": "Driftstilstand er [[operating_mode]]"
   },
+  "platforms": [
+    "local",
+    "cloud"
+  ],
   "args": [
     {
       "title": {
