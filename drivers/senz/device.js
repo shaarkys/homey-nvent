@@ -5,10 +5,18 @@ const {ApiModeMapping, OperatingModeMapping, TemperatureType} = require('../../l
 
 class SenzDevice extends Device {
 
+  // Set device availability
+  async setAvailability(data) {
+    // Offline
+    if (data.hasOwnProperty('online') && !data.online) {
+      await this.setUnavailable(this.homey.__('offline'));
+    } else {
+      await this.setAvailable();
+    }
+  }
+
   // Set device capabilities
   async setCapabilities(data) {
-
-    // Variables
     const mode = data.mode;
     const operatingMode = OperatingModeMapping[mode];
     let settableMode = mode > 3 ? 'none' : operatingMode;
@@ -57,35 +65,31 @@ class SenzDevice extends Device {
   |-----------------------------------------------------------------------------
   */
 
-  // This method will be called when the target temperature needs to be changed
+  // Target temperature capability changed
   async onCapabilityTargetTemperature(temperature) {
     const rounded = Math.round(temperature * 2) / 2;
 
     this.log(`Target temperature changed to ${rounded}°C`);
 
-    return this.setTargetTemperature(rounded);
+    await this.setTargetTemperature(rounded);
   }
 
-  // This method will be called when the operating mode needs to be changed
+  // Operating mode capability changed
   async onCapabilityOperatingMode(mode) {
-    if (this.getCapabilityValue('operating_mode') === mode) {
-      return;
+    if (this.getCapabilityValue('operating_mode') !== mode) {
+      this.log(`Operating mode changed to '${mode}'`);
+
+      await this.setOperatingMode(mode);
     }
-
-    this.log(`Operating mode changed to '${mode}'`);
-
-    return this.setOperatingMode(mode);
   }
 
-  // This method will be called when the settable mode needs to be changed
+  // Settable mode capability changed
   async onCapabilitySettableMode(mode) {
-    if (this.getCapabilityValue('settable_mode') === mode) {
-      return;
+    if (this.getCapabilityValue('settable_mode') !== mode) {
+      this.log(`Settable mode changed to '${mode}'`);
+
+      await this.setOperatingMode(mode);
     }
-
-    this.log(`Settable mode changed to '${mode}'`);
-
-    return this.setOperatingMode(mode);
   }
 
   /*
@@ -119,13 +123,11 @@ class SenzDevice extends Device {
 
     // Update thermostat target temperature
     await this.oAuth2Client.updateTargetTemperature(data);
-
-    return temperature;
   }
 
   // Set operating mode
   async setOperatingMode(mode) {
-    const currentOperationMode = await this.getCapabilityValue('operation_mode');
+    const currentOperationMode = this.getCapabilityValue('operation_mode');
 
     let temperature = null;
     let operationMode = mode;
@@ -183,8 +185,6 @@ class SenzDevice extends Device {
     // Update settable- and operating mode capabilities
     this.setCapabilityValue('operating_mode', operationMode).catch(this.error);
     this.setCapabilityValue('settable_mode', settableMode).catch(this.error);
-
-    return settableMode;
   }
 
 }
