@@ -1,4 +1,4 @@
-# nVent Raychem
+# SENZ-WIFI for Homey
 
 The new generation of floor heating thermostats
 
