@@ -100,6 +100,7 @@ class SenzDevice extends Device {
 
   // Set target temperature
   async setTargetTemperature(temperature) {
+    const {id} = this.getData();
     let mode = await this.getCapabilityValue('settable_mode');
 
     // Set to constant if settable mode is none or program
@@ -115,7 +116,7 @@ class SenzDevice extends Device {
     this.setCapabilityValue('settable_mode', mode).catch(this.error);
 
     const data = {
-      serialNumber: this.nventId,
+      serialNumber: id,
       mode: ApiModeMapping[mode],
       temperature: Number(temperature * 100),
       temperatureType: TemperatureType.absolute
@@ -127,6 +128,7 @@ class SenzDevice extends Device {
 
   // Set operating mode
   async setOperatingMode(mode) {
+    const {id} = this.getData();
     const currentOperationMode = this.getCapabilityValue('operation_mode');
 
     let temperature = null;
@@ -138,7 +140,7 @@ class SenzDevice extends Device {
     }
 
     let data = {
-      serialNumber: String(this.nventId),
+      serialNumber: String(id),
       mode: ApiModeMapping[operationMode]
     };
 
