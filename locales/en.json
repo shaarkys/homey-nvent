@@ -1,12 +1,12 @@
 {
-  "error": {
+  "errors": {
     "401": "You are not authorized to use the API.",
-    "404": "Thermostat not found.",
+    "404": "Device not found.",
     "50x": "nVent API is not available.",
-    "response": "Invalid response from Tedee API."
+    "response": "Invalid response from API."
   },
   "modeInvalid": "This mode cannot be activated.",
-  "modeUnknown": "Thermostat is in unknown mode.",
-  "offline": "Thermostat is offline.",
-  "updateError": "Thermostat could not be updated."
+  "modeUnknown": "Device is in unknown mode.",
+  "offline": "Device is offline.",
+  "updateError": "Device could not be updated."
 }

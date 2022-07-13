@@ -1,12 +1,12 @@
 {
-  "error": {
+  "errors": {
     "401": "U bent niet bevoegd om de API te gebruiken.",
-    "404": "Thermostaat niet gevonden.",
+    "404": "Apparaat niet gevonden.",
     "50x": "nVent API is niet beschikbaar.",
-    "response": "Ongeldig antwoord van Tedee API."
+    "response": "Ongeldig antwoord van API."
   },
   "modeInvalid": "Deze mode kan niet geactiveerd worden.",
-  "modeUnknown": "Thermostaat staat in onbekende modus.",
-  "offline": "Thermostaat is offline.",
-  "updateError": "Thermostaat kon niet bijgewerkt worden."
+  "modeUnknown": "Apparaat staat in onbekende modus.",
+  "offline": "Apparaat is offline.",
+  "updateError": "Apparaat kon niet bijgewerkt worden."
 }

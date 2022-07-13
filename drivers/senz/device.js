@@ -1,68 +1,22 @@
 'use strict';
 
 const Device = require('../../lib/Device');
-const {ApiModeMapping, OperatingModeMapping, TemperatureType} = require('../../lib/Enums');
+const {ApiModeMapping, TemperatureType} = require('../../lib/Enums');
 
 class SenzDevice extends Device {
 
   // Set device availability
-  async setAvailability(data) {
+  setAvailability(data) {
     // Offline
     if (data.hasOwnProperty('online') && !data.online) {
-      await this.setUnavailable(this.homey.__('offline'));
+      this.setUnavailable(this.homey.__('offline')).catch(this.error);
     } else {
-      await this.setAvailable();
-    }
-  }
-
-  // Set device capabilities
-  async setCapabilities(data) {
-    const mode = data.mode;
-    const operatingMode = OperatingModeMapping[mode];
-    let settableMode = mode > 3 ? 'none' : operatingMode;
-
-    // Current temperature
-    if (data.hasOwnProperty('currentTemperature')) {
-      const measureTemperature = Math.round((data.currentTemperature / 100) * 10) / 10;
-
-      this.setCapabilityValue('measure_temperature', measureTemperature).catch(this.error);
-    }
-
-    // Target temperature
-    if (data.hasOwnProperty('setPointTemperature')) {
-      const targetTemperature = Math.round((data.setPointTemperature / 100) * 10) / 10;
-
-      this.setCapabilityValue('target_temperature', targetTemperature).catch(this.error);
-    }
-
-    // Heating
-    if (data.hasOwnProperty('isHeating')) {
-      this.setCapabilityValue('heating', data.isHeating).catch(this.error);
-    }
-
-    // Antifreeze mode
-    if (data.hasOwnProperty('setPointTemperature')) {
-      if (data.setPointTemperature === 500 && operatingMode === 'constant') {
-        settableMode = 'antifreeze';
-      }
-    }
-
-    // Operating mode
-    this.setCapabilityValue('operating_mode', operatingMode).catch(this.error);
-
-    // Settable mode
-    this.setCapabilityValue('settable_mode', settableMode).catch(this.error);
-
-    // Connected
-    if (data.hasOwnProperty('online')) {
-      this.setCapabilityValue('connected', data.online).catch(this.error);
+      this.setAvailable().catch(this.error);
     }
   }
 
   /*
-  |-----------------------------------------------------------------------------
   | Capabilities
-  |-----------------------------------------------------------------------------
   */
 
   // Target temperature capability changed
@@ -93,9 +47,7 @@ class SenzDevice extends Device {
   }
 
   /*
-  |-----------------------------------------------------------------------------
   | API commands
-  |-----------------------------------------------------------------------------
   */
 
   // Set target temperature
