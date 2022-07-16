@@ -2,17 +2,20 @@
 
 const Device = require('../../lib/Device');
 const {ApiModeMapping, TemperatureType} = require('../../lib/Enums');
+const {filled} = require('../../lib/Utils');
 
 class SenzDevice extends Device {
 
   // Set device availability
   setAvailability(data) {
     // Offline
-    if (data.hasOwnProperty('online') && !data.online) {
+    if (filled(data.online) && !data.online) {
       this.setUnavailable(this.homey.__('offline')).catch(this.error);
-    } else {
-      this.setAvailable().catch(this.error);
+
+      return;
     }
+
+    this.setAvailable().catch(this.error);
   }
 
   /*
@@ -30,20 +33,24 @@ class SenzDevice extends Device {
 
   // Operating mode capability changed
   async onCapabilityOperatingMode(mode) {
-    if (this.getCapabilityValue('operating_mode') !== mode) {
-      this.log(`Operating mode changed to '${mode}'`);
-
-      await this.setOperatingMode(mode);
+    if (this.getCapabilityValue('operating_mode') === mode) {
+      return;
     }
+
+    this.log(`Operating mode changed to '${mode}'`);
+
+    await this.setOperatingMode(mode);
   }
 
   // Settable mode capability changed
   async onCapabilitySettableMode(mode) {
-    if (this.getCapabilityValue('settable_mode') !== mode) {
-      this.log(`Settable mode changed to '${mode}'`);
-
-      await this.setOperatingMode(mode);
+    if (this.getCapabilityValue('settable_mode') === mode) {
+      return;
     }
+
+    this.log(`Settable mode changed to '${mode}'`);
+
+    await this.setOperatingMode(mode);
   }
 
   /*
@@ -128,7 +135,7 @@ class SenzDevice extends Device {
     }
 
     // Set temperature and type
-    if (temperature !== null) {
+    if (filled(temperature)) {
       data.temperature = temperature * 100;
       data.temperatureType = TemperatureType.absolute;
     }
