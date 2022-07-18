@@ -77,7 +77,6 @@
   "flow": {
     "triggers": [
       {
-        "id": "connected_false",
         "title": {
           "en": "The connection was lost",
           "nl": "De verbinding werd verbroken",
@@ -94,10 +93,10 @@
             "name": "device",
             "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "connected_false"
       },
       {
-        "id": "connected_true",
         "title": {
           "en": "The connection was restored",
           "nl": "De verbinding werd hersteld",
@@ -114,10 +113,10 @@
             "name": "device",
             "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "connected_true"
       },
       {
-        "id": "heating_false",
         "title": {
           "en": "Stops heating",
           "nl": "Stopt met verwarmen"
@@ -132,10 +131,10 @@
             "name": "device",
             "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "heating_false"
       },
       {
-        "id": "heating_true",
         "title": {
           "en": "Starts heating",
           "nl": "Begint met verwarmen"
@@ -150,10 +149,10 @@
             "name": "device",
             "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "heating_true"
       },
       {
-        "id": "operating_mode_changed",
         "title": {
           "en": "Operating mode has changed",
           "nl": "Bedrijfsmodus is veranderd",
@@ -182,11 +181,6 @@
         ],
         "args": [
           {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=senz"
-          },
-          {
             "title": {
               "en": "Program",
               "nl": "Programma",
@@ -264,13 +258,18 @@
                 }
               }
             ]
+          },
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "operating_mode_changed"
       }
     ],
     "conditions": [
       {
-        "id": "connected",
         "title": {
           "en": "!{{Is|Is not}} connected",
           "nl": "!{{Is|Is niet}} verbonden",
@@ -287,10 +286,10 @@
             "name": "device",
             "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "connected"
       },
       {
-        "id": "is_heating",
         "title": {
           "en": "!{{Is|Is not}} heating",
           "nl": "!{{Is|Is niet}} aan het verwarmen"
@@ -305,10 +304,10 @@
             "name": "device",
             "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "is_heating"
       },
       {
-        "id": "operating_mode_is",
         "title": {
           "en": "Operating mode !{{is|is not}}",
           "nl": "Bedrijfsmodus !{{is|is niet}}",
@@ -337,11 +336,6 @@
         ],
         "args": [
           {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=senz"
-          },
-          {
             "title": {
               "en": "Program",
               "nl": "Programma",
@@ -419,13 +413,18 @@
                 }
               }
             ]
+          },
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "operating_mode_is"
       }
     ],
     "actions": [
       {
-        "id": "operating_mode_set",
         "title": {
           "en": "Set the operating mode",
           "nl": "Stel de bedrijfsmodus in",
@@ -453,11 +452,6 @@
           "cloud"
         ],
         "args": [
-          {
-            "type": "device",
-            "name": "device",
-            "filter": "driver_id=senz"
-          },
           {
             "title": {
               "en": "Program",
@@ -508,8 +502,14 @@
                 }
               }
             ]
+          },
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=senz"
           }
-        ]
+        ],
+        "id": "operating_mode_set"
       }
     ]
   },

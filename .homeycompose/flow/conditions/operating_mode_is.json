@@ -1,25 +1,25 @@
 {
   "title": {
-    "en": "Operating mode has changed",
-    "nl": "Bedrijfsmodus is veranderd",
-    "de": "Betriebsart hat sich geändert",
-    "fr": "Mode fonctionnement a changé",
-    "it": "Modalità operativa è cambiata",
-    "sv": "Driftläget har ändrats",
-    "no": "Driftsmodus er endret",
-    "es": "El modo de funcionamiento ha cambiado",
-    "da": "Driftstilstand er ændret"
+    "en": "Operating mode !{{is|is not}}",
+    "nl": "Bedrijfsmodus !{{is|is niet}}",
+    "de": "Betriebsart !{{ist|ist nicht}}",
+    "fr": "Mode fonctionnement !{{est|n'est pas}}",
+    "it": "Modalità operativa !{{è|non è}}",
+    "sv": "Driftläget !{{är|är inte}}",
+    "no": "Driftsmodus !{{er|er ikke}}",
+    "es": "El modo de funcionamiento !{{está|no está}}",
+    "da": "Driftstilstand !{{er|er ikke}}"
   },
   "titleFormatted": {
-    "en": "Operating mode has changed to [[operating_mode]]",
-    "nl": "Bedrijfsmodus is veranderd naar [[operating_mode]]",
-    "de": "Betriebsmodus wurde auf [[operating_mode]] geändert",
-    "fr": "Le mode de fonctionnement est passé à [[operating_mode]]",
-    "it": "La modalità operativa è stata modificata in [[operating_mode]]",
-    "sv": "Driftläge har ändrats till [[operating_mode]]",
-    "no": "Driftsmodus er endret til [[operating_mode]]",
-    "es": "El modo de funcionamiento se ha cambiado a [[operating_mode]]",
-    "da": "Driftstilstand er blevet ændret til [[operating_mode]]"
+    "en": "Operating mode is [[operating_mode]]",
+    "nl": "Bedrijfsmodus is [[operating_mode]]",
+    "de": "Betriebsmodus ist [[operating_mode]]",
+    "fr": "Le mode de fonctionnement est [[operating_mode]]",
+    "it": "La modalità operativa è [[operating_mode]]",
+    "sv": "Driftläget är [[operating_mode]]",
+    "no": "Driftsmodus er [[operating_mode]]",
+    "es": "El modo de funcionamiento está [[operating_mode]]",
+    "da": "Driftstilstand er [[operating_mode]]"
   },
   "platforms": [
     "local",
@@ -38,8 +38,8 @@
         "es": "Programa",
         "da": "Program"
       },
-      "type": "dropdown",
       "name": "operating_mode",
+      "type": "dropdown",
       "values": [
         {
           "id": "program",
@@ -104,6 +104,11 @@
           }
         }
       ]
+    },
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=senz"
     }
   ]
 }
