@@ -6,18 +6,6 @@ const {filled} = require('../../lib/Utils');
 
 class SenzDevice extends Device {
 
-  // Set device availability
-  setAvailability(data) {
-    // Offline
-    if (filled(data.online) && !data.online) {
-      this.setUnavailable(this.homey.__('offline')).catch(this.error);
-
-      return;
-    }
-
-    this.setAvailable().catch(this.error);
-  }
-
   /*
   | Capabilities
   */
