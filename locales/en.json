@@ -7,6 +7,5 @@
   },
   "modeInvalid": "This mode cannot be activated.",
   "modeUnknown": "Device is in unknown mode.",
-  "offline": "Device is offline.",
-  "updateError": "Device could not be updated."
+  "offline": "Device is offline."
 }

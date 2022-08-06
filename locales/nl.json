@@ -7,6 +7,5 @@
   },
   "modeInvalid": "Deze mode kan niet geactiveerd worden.",
   "modeUnknown": "Apparaat staat in onbekende modus.",
-  "offline": "Apparaat is offline.",
-  "updateError": "Apparaat kon niet bijgewerkt worden."
+  "offline": "Apparaat is offline."
 }

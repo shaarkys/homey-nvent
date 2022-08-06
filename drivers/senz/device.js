@@ -1,10 +1,64 @@
 'use strict';
 
 const Device = require('../../lib/Device');
-const {ApiModeMapping, TemperatureType} = require('../../lib/Enums');
+const {ApiModeMapping, TemperatureType, OperatingModeMapping} = require('../../lib/Enums');
 const {filled} = require('../../lib/Utils');
 
 class SenzDevice extends Device {
+
+  // Set device data
+  handleSyncData(data) {
+    this.log('Update device', JSON.stringify(data));
+
+    const mode = data.mode;
+    const operatingMode = OperatingModeMapping[mode];
+    let settableMode = mode > 3 ? 'none' : operatingMode;
+
+    // Current temperature
+    if (filled(data.currentTemperature)) {
+      const measureTemperature = Math.round((data.currentTemperature / 100) * 10) / 10;
+
+      this.setCapabilityValue('measure_temperature', measureTemperature).catch(this.error);
+    }
+
+    // Target temperature
+    if (filled(data.setPointTemperature)) {
+      const targetTemperature = Math.round((data.setPointTemperature / 100) * 10) / 10;
+
+      this.setCapabilityValue('target_temperature', targetTemperature).catch(this.error);
+    }
+
+    // Heating
+    if (filled(data.isHeating)) {
+      this.setCapabilityValue('heating', data.isHeating).catch(this.error);
+    }
+
+    // Antifreeze mode
+    if (filled(data.setPointTemperature)) {
+      if (data.setPointTemperature === 500 && operatingMode === 'constant') {
+        settableMode = 'antifreeze';
+      }
+    }
+
+    // Operating mode
+    this.setCapabilityValue('operating_mode', operatingMode).catch(this.error);
+
+    // Settable mode
+    this.setCapabilityValue('settable_mode', settableMode).catch(this.error);
+
+    // Connected
+    if (filled(data.online)) {
+      this.setCapabilityValue('connected', data.online).catch(this.error);
+
+      if (!data.online) {
+        this.setUnavailable(this.homey.__('offline')).catch(this.error);
+
+        return;
+      }
+    }
+
+    this.setAvailable().catch(this.error);
+  }
 
   /*
   | Capabilities
