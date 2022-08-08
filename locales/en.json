@@ -6,6 +6,5 @@
     "response": "Invalid response from API."
   },
   "modeInvalid": "This mode cannot be activated.",
-  "modeUnknown": "Device is in unknown mode.",
   "offline": "Device is offline."
 }

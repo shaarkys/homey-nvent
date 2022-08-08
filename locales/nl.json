@@ -6,6 +6,5 @@
     "response": "Ongeldig antwoord van API."
   },
   "modeInvalid": "Deze mode kan niet geactiveerd worden.",
-  "modeUnknown": "Apparaat staat in onbekende modus.",
   "offline": "Apparaat is offline."
 }
