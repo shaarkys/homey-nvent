@@ -1,8 +1,8 @@
 'use strict';
 
 const Device = require('../../lib/Device');
-const {ApiModeMapping, TemperatureType, OperatingModeMapping} = require('../../lib/Enums');
-const {filled} = require('../../lib/Utils');
+const { ApiModeMapping, TemperatureType, OperatingModeMapping } = require('../../lib/Enums');
+const { filled } = require('../../lib/Utils');
 
 class SenzDevice extends Device {
 
@@ -10,7 +10,7 @@ class SenzDevice extends Device {
   handleSyncData(data) {
     this.log('Update device', JSON.stringify(data));
 
-    const mode = data.mode;
+    const { mode } = data;
     const operatingMode = OperatingModeMapping[mode];
     let settableMode = mode > 3 ? 'none' : operatingMode;
 
@@ -101,7 +101,7 @@ class SenzDevice extends Device {
 
   // Set target temperature
   async setTargetTemperature(temperature) {
-    const {id} = this.getData();
+    const { id } = this.getData();
     let mode = await this.getCapabilityValue('settable_mode');
 
     // Set to constant if settable mode is none or program
@@ -120,7 +120,7 @@ class SenzDevice extends Device {
       serialNumber: id,
       mode: ApiModeMapping[mode],
       temperature: Number(temperature * 100),
-      temperatureType: TemperatureType.absolute
+      temperatureType: TemperatureType.absolute,
     };
 
     // Update thermostat target temperature
@@ -129,20 +129,20 @@ class SenzDevice extends Device {
 
   // Set operating mode
   async setOperatingMode(mode) {
-    const {id} = this.getData();
+    const { id } = this.getData();
     const currentOperationMode = this.getCapabilityValue('operation_mode');
 
     let temperature = null;
     let operationMode = mode;
-    let settableMode = mode;
+    const settableMode = mode;
 
     if (settableMode === 'none') {
       operationMode = 'program';
     }
 
-    let data = {
+    const data = {
       serialNumber: String(id),
-      mode: ApiModeMapping[operationMode]
+      mode: ApiModeMapping[operationMode],
     };
 
     // Boost mode, also set temperature from settings
@@ -156,7 +156,7 @@ class SenzDevice extends Device {
 
     // Constant mode
     if (settableMode === 'constant') {
-      let constantTemperature = this.getSetting('constant_temperature');
+      const constantTemperature = this.getSetting('constant_temperature');
 
       if (constantTemperature > 0) {
         if (constantTemperature < 5) {
