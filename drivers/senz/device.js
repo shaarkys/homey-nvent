@@ -75,9 +75,7 @@ class SenzDevice extends Device {
 
   // Operating mode capability changed
   async onCapabilityOperatingMode(mode) {
-    if (this.getCapabilityValue('operating_mode') === mode) {
-      return;
-    }
+    if (this.getCapabilityValue('operating_mode') === mode) return;
 
     this.log(`Operating mode changed to '${mode}'`);
 
@@ -86,9 +84,7 @@ class SenzDevice extends Device {
 
   // Settable mode capability changed
   async onCapabilitySettableMode(mode) {
-    if (this.getCapabilityValue('settable_mode') === mode) {
-      return;
-    }
+    if (this.getCapabilityValue('settable_mode') === mode) return;
 
     this.log(`Settable mode changed to '${mode}'`);
 
