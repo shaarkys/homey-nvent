@@ -22,13 +22,12 @@
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
   },
   "dependencies": {
-    "@microsoft/signalr": "^5.0.15",
+    "@microsoft/signalr": "^7.0.3",
     "homey-log": "^2.1.0",
-    "homey-oauth2app": "^3.5.0"
+    "homey-oauth2app": "^3.5.3"
   },
   "devDependencies": {
-    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.1",
-    "eslint": "^7.32.0",
+    "@types/homey": "npm:homey-apps-sdk-v3-types@^0.3.3",
     "eslint-config-athom": "^3.1.1"
   }
 }
