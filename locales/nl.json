@@ -1,6 +1,7 @@
 {
   "errors": {
-    "401": "U bent niet bevoegd om de API te gebruiken.",
+    "401": "U bent niet geautoriseerd.",
+    "403": "U mag dit apparaat niet gebruiken.",
     "404": "Apparaat niet gevonden.",
     "50x": "nVent API is niet beschikbaar.",
     "response": "Ongeldig antwoord van API."
