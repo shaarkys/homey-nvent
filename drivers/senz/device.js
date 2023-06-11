@@ -7,6 +7,37 @@ const { filled } = require('../../lib/Utils');
 class SenzDevice extends Device {
 
   /*
+  | Device events
+  */
+
+  // Target temperature capability changed
+  async onCapabilityTargetTemperature(temperature) {
+    const rounded = Math.round(temperature * 2) / 2;
+
+    this.log(`Capability 'target_temperature' is now '${rounded}°C'`);
+
+    await this.setTargetTemperature(rounded);
+  }
+
+  // Operating mode capability changed
+  async onCapabilityOperatingMode(mode) {
+    if (this.getCapabilityValue('operating_mode') === mode) return;
+
+    this.log(`Capability 'operating_mode' is now '${mode}'`);
+
+    await this.setOperatingMode(mode);
+  }
+
+  // Settable mode capability changed
+  async onCapabilitySettableMode(mode) {
+    if (this.getCapabilityValue('') === mode) return;
+
+    this.log(`Capability 'settable_mode' is now '${mode}'`);
+
+    await this.setOperatingMode(mode);
+  }
+
+  /*
   | Synchronization functions
   */
 
@@ -14,7 +45,11 @@ class SenzDevice extends Device {
   async setAvailability(data) {
     // Disconnected
     if (filled(data.online) && !data.online) {
-      this.setUnavailable(this.homey.__('offline')).catch(this.error);
+      if (this.getAvailable()) {
+        this.log('[Availability] Offline');
+      }
+
+      throw new Error(this.homey.__('offline'));
     }
   }
 
@@ -71,42 +106,13 @@ class SenzDevice extends Device {
   }
 
   /*
-  | Capabilities
-  */
-
-  // Target temperature capability changed
-  async onCapabilityTargetTemperature(temperature) {
-    const rounded = Math.round(temperature * 2) / 2;
-
-    this.log(`Target temperature changed to ${rounded}°C`);
-
-    await this.setTargetTemperature(rounded);
-  }
-
-  // Operating mode capability changed
-  async onCapabilityOperatingMode(mode) {
-    if (this.getCapabilityValue('operating_mode') === mode) return;
-
-    this.log(`Operating mode changed to '${mode}'`);
-
-    await this.setOperatingMode(mode);
-  }
-
-  // Settable mode capability changed
-  async onCapabilitySettableMode(mode) {
-    if (this.getCapabilityValue('settable_mode') === mode) return;
-
-    this.log(`Settable mode changed to '${mode}'`);
-
-    await this.setOperatingMode(mode);
-  }
-
-  /*
   | API commands
   */
 
   // Set target temperature
   async setTargetTemperature(temperature) {
+    this.log(`Set target temperature to ${temperature}°C`);
+
     const { id } = this.getData();
     let mode = await this.getCapabilityValue('settable_mode');
 
@@ -135,8 +141,9 @@ class SenzDevice extends Device {
 
   // Set operating mode
   async setOperatingMode(mode) {
+    this.log(`Set operating mode to '${mode}'`);
+
     const { id } = this.getData();
-    const currentOperationMode = this.getCapabilityValue('operation_mode');
 
     let temperature = null;
     let operationMode = mode;
@@ -153,7 +160,7 @@ class SenzDevice extends Device {
 
     // Boost mode, also set temperature from settings
     if (settableMode === 'boost') {
-      if (currentOperationMode === 'off') {
+      if (this.getCapabilityValue('operating_mode') === 'off') {
         throw new Error(this.homey.__('modeInvalid'));
       }
 

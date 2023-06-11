@@ -1,11 +1,12 @@
 {
   "errors": {
-    "401": "You are not authorized.",
-    "403": "You are not allowed to use this device.",
-    "404": "Device not found.",
-    "50x": "nVent API is unavailable.",
-    "response": "Invalid response from API."
+    "401": "nVent API credentials are incorrect",
+    "403": "nVent API has denied access to this device",
+    "404": "Device not found in nVent account",
+    "50x": "nVent API is unavailable",
+    "network": "nVent API is unreachable",
+    "unknown": "An unknown error has occurred"
   },
-  "modeInvalid": "This mode cannot be activated.",
-  "offline": "Device is offline."
+  "modeInvalid": "This mode cannot be activated",
+  "offline": "Device is offline"
 }
