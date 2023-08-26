@@ -28,15 +28,15 @@
   "args": [
     {
       "title": {
-        "en": "Program",
-        "nl": "Programma",
+        "en": "program",
+        "nl": "programma",
         "de": "Programm",
-        "fr": "Programme",
-        "it": "Programma",
-        "sv": "Program",
-        "no": "Program",
-        "es": "Programa",
-        "da": "Program"
+        "fr": "programme",
+        "it": "programma",
+        "sv": "program",
+        "no": "program",
+        "es": "programa",
+        "da": "program"
       },
       "name": "operating_mode",
       "type": "dropdown",
