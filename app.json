@@ -620,13 +620,13 @@
   ],
   "capabilities": {
     "connected": {
+      "type": "boolean",
       "title": {
         "en": "Connected",
         "nl": "Verbonden",
         "de": "Verbunden",
         "fr": "Connectée"
       },
-      "type": "boolean",
       "getable": true,
       "setable": false,
       "insights": true,
@@ -645,11 +645,11 @@
       "uiComponent": null
     },
     "heating": {
+      "type": "boolean",
       "title": {
         "en": "Heating",
         "nl": "Verwarmen"
       },
-      "type": "boolean",
       "getable": true,
       "setable": true,
       "uiComponent": "sensor",
