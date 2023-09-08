@@ -27,6 +27,8 @@
   ],
   "args": [
     {
+      "type": "dropdown",
+      "name": "operating_mode",
       "title": {
         "en": "program",
         "nl": "programma",
@@ -38,8 +40,6 @@
         "es": "programa",
         "da": "program"
       },
-      "name": "operating_mode",
-      "type": "dropdown",
       "values": [
         {
           "id": "program",
@@ -80,7 +80,7 @@
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=senz"
+      "filter": "driver_id=senz&capabilities=operating_mode"
     }
   ]
 }

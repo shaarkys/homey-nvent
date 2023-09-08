@@ -1,6 +1,6 @@
 {
   "title": {
-    "en": "Operating mode has changed",
+    "en": "Operating mode changed",
     "nl": "Bedrijfsmodus is veranderd",
     "de": "Betriebsart hat sich geändert",
     "fr": "Mode fonctionnement a changé",
@@ -27,6 +27,8 @@
   ],
   "args": [
     {
+      "type": "dropdown",
+      "name": "operating_mode",
       "title": {
         "en": "program",
         "nl": "programma",
@@ -38,8 +40,6 @@
         "es": "programa",
         "da": "program"
       },
-      "type": "dropdown",
-      "name": "operating_mode",
       "values": [
         {
           "id": "program",
@@ -108,7 +108,7 @@
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=senz"
+      "filter": "driver_id=senz&capabilities=operating_mode"
     }
   ]
 }

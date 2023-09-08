@@ -91,7 +91,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=connected"
           }
         ],
         "id": "connected_false"
@@ -111,7 +111,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=connected"
           }
         ],
         "id": "connected_true"
@@ -129,7 +129,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=heating"
           }
         ],
         "id": "heating_false"
@@ -147,14 +147,14 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=heating"
           }
         ],
         "id": "heating_true"
       },
       {
         "title": {
-          "en": "Operating mode has changed",
+          "en": "Operating mode changed",
           "nl": "Bedrijfsmodus is veranderd",
           "de": "Betriebsart hat sich geändert",
           "fr": "Mode fonctionnement a changé",
@@ -181,6 +181,8 @@
         ],
         "args": [
           {
+            "type": "dropdown",
+            "name": "operating_mode",
             "title": {
               "en": "program",
               "nl": "programma",
@@ -192,8 +194,6 @@
               "es": "programa",
               "da": "program"
             },
-            "type": "dropdown",
-            "name": "operating_mode",
             "values": [
               {
                 "id": "program",
@@ -262,7 +262,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=operating_mode"
           }
         ],
         "id": "operating_mode_changed"
@@ -284,7 +284,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=connected"
           }
         ],
         "id": "connected"
@@ -302,7 +302,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=heating"
           }
         ],
         "id": "is_heating"
@@ -336,6 +336,8 @@
         ],
         "args": [
           {
+            "type": "dropdown",
+            "name": "operating_mode",
             "title": {
               "en": "program",
               "nl": "programma",
@@ -347,8 +349,6 @@
               "es": "programa",
               "da": "program"
             },
-            "name": "operating_mode",
-            "type": "dropdown",
             "values": [
               {
                 "id": "program",
@@ -417,7 +417,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=operating_mode"
           }
         ],
         "id": "operating_mode_is"
@@ -453,6 +453,8 @@
         ],
         "args": [
           {
+            "type": "dropdown",
+            "name": "operating_mode",
             "title": {
               "en": "program",
               "nl": "programma",
@@ -464,8 +466,6 @@
               "es": "programa",
               "da": "program"
             },
-            "name": "operating_mode",
-            "type": "dropdown",
             "values": [
               {
                 "id": "program",
@@ -506,7 +506,7 @@
           {
             "type": "device",
             "name": "device",
-            "filter": "driver_id=senz"
+            "filter": "driver_id=senz&capabilities=operating_mode"
           }
         ],
         "id": "operating_mode_set"

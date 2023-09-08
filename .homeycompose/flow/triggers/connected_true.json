@@ -13,7 +13,7 @@
     {
       "type": "device",
       "name": "device",
-      "filter": "driver_id=senz"
+      "filter": "driver_id=senz&capabilities=connected"
     }
   ]
 }
