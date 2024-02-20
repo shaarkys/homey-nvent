@@ -44,7 +44,7 @@ class SenzDevice extends Device {
   // Set availability
   async setAvailability(data) {
     // Disconnected
-    if (filled(data.online) && !data.online) {
+    if ('online' in data && !data.online) {
       if (this.getAvailable()) {
         this.log('[Availability] Offline');
       }
@@ -56,7 +56,7 @@ class SenzDevice extends Device {
   // Set capabilities
   async setCapabilities(data) {
     // Connection state
-    if (filled(data.online)) {
+    if ('online' in data) {
       this.setCapabilityValue('connected', data.online).catch(this.error);
 
       // Offline
@@ -66,32 +66,32 @@ class SenzDevice extends Device {
     }
 
     // Current temperature
-    if (filled(data.currentTemperature)) {
+    if ('currentTemperature' in data) {
       const measureTemperature = Math.round((data.currentTemperature / 100) * 10) / 10;
 
       this.setCapabilityValue('measure_temperature', measureTemperature).catch(this.error);
     }
 
     // Heating
-    if (filled(data.isHeating)) {
+    if ('isHeating' in data) {
       this.setCapabilityValue('heating', data.isHeating).catch(this.error);
     }
 
     // Target temperature
-    if (filled(data.setPointTemperature)) {
+    if ('setPointTemperature' in data) {
       const targetTemperature = Math.round((data.setPointTemperature / 100) * 10) / 10;
 
       this.setCapabilityValue('target_temperature', targetTemperature).catch(this.error);
     }
 
     // Modes
-    if (filled(data.mode)) {
+    if ('mode' in data) {
       const { mode } = data;
       const operatingMode = OperatingModeMapping[mode];
       let settableMode = mode > 3 ? 'none' : operatingMode;
 
       // Antifreeze mode
-      if (filled(data.setPointTemperature)) {
+      if ('setPointTemperature' in data) {
         if (data.setPointTemperature === 500 && operatingMode === 'constant') {
           settableMode = 'antifreeze';
         }
