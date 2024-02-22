@@ -2,7 +2,7 @@
 
 const Device = require('../../lib/Device');
 const { ApiModeMapping, TemperatureType, OperatingModeMapping } = require('../../lib/Enums');
-const { filled } = require('../../lib/Utils');
+const { blank, filled } = require('../../lib/Utils');
 
 class SenzDevice extends Device {
 
@@ -43,18 +43,18 @@ class SenzDevice extends Device {
 
   // Set availability
   async setAvailability(data) {
-    // Disconnected
-    if ('online' in data && !data.online) {
-      if (this.getAvailable()) {
-        this.log('[Availability] Offline');
-      }
+    if (blank(data)) return;
 
+    // Offline
+    if ('online' in data && !data.online) {
       throw new Error(this.homey.__('offline'));
     }
   }
 
   // Set capabilities
   async setCapabilities(data) {
+    if (blank(data)) return;
+
     // Connection state
     if ('online' in data) {
       this.setCapabilityValue('connected', data.online).catch(this.error);
