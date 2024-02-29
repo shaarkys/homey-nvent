@@ -56,7 +56,7 @@ class SenzDevice extends Device {
     if (blank(data)) return;
 
     // Connection state
-    if ('online' in data) {
+    if ('online' in data && this.hasCapability('connected')) {
       this.setCapabilityValue('connected', data.online).catch(this.error);
 
       // Offline
