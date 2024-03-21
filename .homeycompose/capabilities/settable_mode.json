@@ -11,6 +11,9 @@
     "es": "Modo operativo",
     "da": "Driftstilstand"
   },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
   "desc": {
     "en": "Operating mode of the thermostat",
     "nl": "Bedrijfsmodus van de thermostaat",
@@ -85,8 +88,5 @@
         "da": "Ingen stat"
       }
     }
-  ],
-  "getable": true,
-  "setable": true,
-  "uiComponent": "picker"
+  ]
 }

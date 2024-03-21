@@ -668,6 +668,9 @@
         "es": "Modo operativo",
         "da": "Driftstilstand"
       },
+      "getable": true,
+      "setable": true,
+      "uiComponent": null,
       "desc": {
         "en": "Operating mode of the thermostat",
         "nl": "Bedrijfsmodus van de thermostaat",
@@ -742,10 +745,7 @@
             "da": "Deaktiveret"
           }
         }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": null
+      ]
     },
     "settable_mode": {
       "type": "enum",
@@ -760,6 +760,9 @@
         "es": "Modo operativo",
         "da": "Driftstilstand"
       },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
       "desc": {
         "en": "Operating mode of the thermostat",
         "nl": "Bedrijfsmodus van de thermostaat",
@@ -834,10 +837,7 @@
             "da": "Ingen stat"
           }
         }
-      ],
-      "getable": true,
-      "setable": true,
-      "uiComponent": "picker"
+      ]
     }
   }
 }
