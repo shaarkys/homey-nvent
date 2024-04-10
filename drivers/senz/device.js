@@ -47,7 +47,7 @@ class SenzDevice extends Device {
 
     // Offline
     if ('online' in data && !data.online) {
-      throw new Error(this.homey.__('offline'));
+      throw new Error(this.homey.__('error.offline'));
     }
   }
 
@@ -161,7 +161,7 @@ class SenzDevice extends Device {
     // Boost mode, also set temperature from settings
     if (settableMode === 'boost') {
       if (this.getCapabilityValue('operating_mode') === 'off') {
-        throw new Error(this.homey.__('modeInvalid'));
+        throw new Error(this.homey.__('error.invalid_mode'));
       }
 
       temperature = this.getSetting('boost_temperature');
