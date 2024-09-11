@@ -1,7 +1,7 @@
 {
-  "name": "com.nvent.raychem",
+  "name": "homey-nvent",
   "version": "1.4.5",
-  "homepage": "https://github.com/edwinvdpol/com.nvent.raychem#readme",
+  "homepage": "https://github.com/edwinvdpol/homey-nvent#readme",
   "license": "SEE LICENSE",
   "author": {
     "name": "Edwin van de Pol",
@@ -16,7 +16,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/edwinvdpol/com.nvent.raychem.git"
+    "url": "https://github.com/edwinvdpol/homey-nvent.git"
   },
   "scripts": {
     "lint": "eslint --ext .js,.ts --ignore-path .gitignore ."
