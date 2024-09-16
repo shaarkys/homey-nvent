@@ -1,5 +1,7 @@
 # SENZ-WIFI for Homey
 
+![Homey App Validation](https://github.com/edwinvdpol/homey-nvent/actions/workflows/validate.yml/badge.svg)
+
 The new generation of floor heating thermostats
 
 nVent RAYCHEM SENZ WIFI is developed to suit the modern home owner, who prioritizes high comfort, low energy costs and a beautiful home.It can be used with all underfloor heating cables and heating mats.
