@@ -1,6 +1,6 @@
 {
   "authentication": {
-    "connecting": "Connecting..."
+    "connecting": "Bezig met verbinden..."
   },
   "error": {
     "401": "Inloggegevens van de nVent API zijn onjuist",
