@@ -1,4 +1,7 @@
 {
+  "authentication": {
+    "connecting": "Connecting..."
+  },
   "error": {
     "401": "Inloggegevens van de nVent API zijn onjuist",
     "403": "nVent API heeft de toegang tot dit apparaat geweigerd",

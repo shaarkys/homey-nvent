@@ -1,4 +1,7 @@
 {
+  "authentication": {
+    "connecting": "Connecting..."
+  },
   "error": {
     "401": "nVent API credentials are incorrect",
     "403": "nVent API has denied access to this device",
