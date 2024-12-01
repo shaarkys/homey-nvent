@@ -9,11 +9,32 @@
   "sdk": 3,
   "brandColor": "#C4262E",
   "name": {
-    "en": "nVent Raychem"
+    "en": "nVent Raychem",
+    "nl": "nVent Raychem",
+    "da": "nVent Raychem",
+    "de": "nVent Raychem",
+    "es": "nVent Raychem",
+    "fr": "nVent Raychem",
+    "it": "nVent Raychem",
+    "no": "nVent Raychem",
+    "sv": "nVent Raychem",
+    "pl": "nVent Raychem",
+    "ru": "nVent Raychem",
+    "ko": "nVent Raychem"
   },
   "description": {
     "en": "The new generation of floor heating thermostats",
-    "nl": "De nieuwe generatie vloerverwarmingsthermostaten"
+    "nl": "De nieuwe generatie vloerverwarmingsthermostaten",
+    "da": "Den nye generation af gulvvarmetermostater",
+    "de": "Die neue Generation von Fußbodenheizungsthermostaten",
+    "es": "La nueva generación de termostatos para calefacción por suelo radiante",
+    "fr": "La nouvelle génération de thermostats de chauffage au sol",
+    "it": "La nuova generazione di termostati per riscaldamento a pavimento",
+    "no": "Den nye generasjonen av gulvvarmetermostater",
+    "sv": "Den nya generationen av golvvärmetermostater",
+    "pl": "Nowa generacja termostatów do ogrzewania podłogowego",
+    "ru": "Новое поколение терморегуляторов теплого пола",
+    "ko": "바닥 난방 온도 조절기의 새로운 세대"
   },
   "category": [
     "climate"
@@ -40,6 +61,116 @@
       "vloer",
       "verwarming",
       "thermostaat"
+    ],
+    "da": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "gulv",
+      "opvarmning",
+      "termostat"
+    ],
+    "de": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "boden",
+      "heizung",
+      "thermostat"
+    ],
+    "es": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "inteligente",
+      "suelo",
+      "calefacción",
+      "termostato"
+    ],
+    "fr": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "numérique",
+      "intelligent",
+      "sol",
+      "chauffage",
+      "thermostat"
+    ],
+    "it": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digitale",
+      "intelligente",
+      "pavimento",
+      "riscaldamento",
+      "termostato"
+    ],
+    "no": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "gulv",
+      "oppvarming",
+      "termostat"
+    ],
+    "sv": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "golv",
+      "uppvärmning",
+      "termostat"
+    ],
+    "pl": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "cyfrowy",
+      "inteligentny",
+      "podłoga",
+      "ogrzewanie",
+      "termostat"
+    ],
+    "ru": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "цифровой",
+      "умный",
+      "пол",
+      "отопление",
+      "термостат"
+    ],
+    "ko": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "디지털",
+      "스마트",
+      "바닥",
+      "난방",
+      "온도 조절기"
     ]
   },
   "images": {

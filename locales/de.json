@@ -1,0 +1,15 @@
+{
+  "authentication": {
+    "connecting": "Verbinden..."
+  },
+  "error": {
+    "401": "nVent API-Anmeldedaten sind falsch",
+    "403": "nVent API hat den Zugriff auf dieses Gerät verweigert",
+    "404": "Gerät im nVent-Konto nicht gefunden",
+    "50x": "nVent API ist nicht verfügbar",
+    "invalid_mode": "Dieser Modus kann nicht aktiviert werden",
+    "network": "nVent API ist nicht erreichbar",
+    "offline": "Gerät ist offline",
+    "unknown": "Ein unbekannter Fehler ist aufgetreten"
+  }
+}

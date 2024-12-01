@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Starts heating",
-    "nl": "Begint met verwarmen"
+    "nl": "Begint met verwarmen",
+    "da": "Begynder opvarmning",
+    "de": "Beginnt zu heizen",
+    "es": "Comienza a calentar",
+    "fr": "Commence le chauffage",
+    "it": "Inizia a scaldare",
+    "no": "Starter oppvarming",
+    "sv": "Börjar värma",
+    "pl": "Zaczyna się ogrzewanie",
+    "ru": "Начинает нагреваться",
+    "ko": "난방 시작"
   },
   "platforms": [
     "local",

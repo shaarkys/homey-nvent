@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "!{{Is|Is not}} heating",
-    "nl": "!{{Is|Is niet}} aan het verwarmen"
+    "nl": "!{{Is|Is niet}} aan het verwarmen",
+    "da": "!{{Is|Er ikke}} opvarmning",
+    "de": "!{{Ist|Ist nicht}} am Heizen",
+    "es": "!{{Está|No está}} calefaccionando",
+    "fr": "!{{Est|N'est pas}} en train de chauffer",
+    "it": "!{{È|Non è}} in fase di riscaldamento",
+    "no": "!{{Er|Er ikke}} oppvarming",
+    "sv": "!{{Är|Är inte}} uppvärmning",
+    "pl": "!{{Jest|Nie jest}} ogrzewanie",
+    "ru": "!{{Есть|Нет}} нагревания",
+    "ko": "!{{있음|없음}} 난방 중"
   },
   "platforms": [
     "local",

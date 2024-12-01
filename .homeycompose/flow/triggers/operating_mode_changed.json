@@ -8,7 +8,10 @@
     "sv": "Driftläget har ändrats",
     "no": "Driftsmodus er endret",
     "es": "El modo de funcionamiento ha cambiado",
-    "da": "Driftstilstand er ændret"
+    "da": "Driftstilstand er ændret",
+    "pl": "Tryb operacyjny został zmieniony",
+    "ru": "Режим работы изменился",
+    "ko": "작동 모드가 변경되었습니다"
   },
   "titleFormatted": {
     "en": "Operating mode has changed to [[operating_mode]]",
@@ -19,7 +22,10 @@
     "sv": "Driftläge har ändrats till [[operating_mode]]",
     "no": "Driftsmodus er endret til [[operating_mode]]",
     "es": "El modo de funcionamiento se ha cambiado a [[operating_mode]]",
-    "da": "Driftstilstand er blevet ændret til [[operating_mode]]"
+    "da": "Driftstilstand er blevet ændret til [[operating_mode]]",
+    "pl": "Tryb operacyjny został zmieniony na [[operating_mode]]",
+    "ru": "Режим работы изменён на [[operating_mode]]",
+    "ko": "[[operating_mode]]로 운영 모드가 변경되었습니다"
   },
   "platforms": [
     "local",
@@ -38,7 +44,10 @@
         "sv": "program",
         "no": "program",
         "es": "programa",
-        "da": "program"
+        "da": "program",
+        "pl": "program",
+        "ru": "программа",
+        "ko": "프로그램"
       },
       "values": [
         {
@@ -52,13 +61,19 @@
             "sv": "Program",
             "no": "Program",
             "es": "Programa",
-            "da": "Program"
+            "da": "Program",
+            "pl": "Program",
+            "ru": "Программа",
+            "ko": "프로그램"
           }
         },
         {
           "id": "boost",
           "label": {
-            "en": "Boost"
+            "en": "Boost",
+            "pl": "Wzrost",
+            "ru": "Усиление",
+            "ko": "부스트"
           }
         },
         {
@@ -72,7 +87,10 @@
             "sv": "Konstant",
             "no": "Konstant",
             "es": "Constante",
-            "da": "Konstant"
+            "da": "Konstant",
+            "pl": "Stały",
+            "ru": "Постоянный",
+            "ko": "일정한"
           }
         },
         {
@@ -86,7 +104,10 @@
             "sv": "Semester",
             "no": "Ferie",
             "es": "Vacaciones",
-            "da": "Ferie"
+            "da": "Ferie",
+            "pl": "Wakacje",
+            "ru": "Отпуск",
+            "ko": "휴가"
           }
         },
         {
@@ -100,7 +121,10 @@
             "sv": "Av",
             "no": "Av",
             "es": "Desactivado",
-            "da": "Deaktiveret"
+            "da": "Deaktiveret",
+            "pl": "Wył.",
+            "ru": "Выключено",
+            "ko": "끔"
           }
         }
       ]

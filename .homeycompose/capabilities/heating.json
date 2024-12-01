@@ -2,7 +2,17 @@
   "type": "boolean",
   "title": {
     "en": "Heating",
-    "nl": "Verwarmen"
+    "nl": "Verwarmen",
+    "da": "Opvarmning",
+    "de": "Heizung",
+    "es": "Calefacción",
+    "fr": "Chauffage",
+    "it": "Riscaldamento",
+    "no": "Oppvarming",
+    "sv": "Uppvärmning",
+    "pl": "Ogrzewanie",
+    "ru": "Отопление",
+    "ko": "난방"
   },
   "getable": true,
   "setable": true,

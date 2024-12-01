@@ -9,7 +9,10 @@
     "sv": "Driftläge",
     "no": "Driftsmodus",
     "es": "Modo operativo",
-    "da": "Driftstilstand"
+    "da": "Driftstilstand",
+    "pl": "Tryb pracy",
+    "ru": "Режим работы",
+    "ko": "작동 모드"
   },
   "getable": true,
   "setable": true,
@@ -23,7 +26,10 @@
     "sv": "Termostats driftläge",
     "no": "Driftsmodus for termostaten",
     "es": "Modo de funcionamiento del termostato",
-    "da": "Termostatens driftstilstand"
+    "da": "Termostatens driftstilstand",
+    "pl": "Tryb pracy termostatu",
+    "ru": "Режим работы термостата",
+    "ko": "온도 조절기의 작동 모드"
   },
   "values": [
     {
@@ -37,13 +43,19 @@
         "sv": "Program",
         "no": "Program",
         "es": "Programa",
-        "da": "Program"
+        "da": "Program",
+        "pl": "Program",
+        "ru": "Программа",
+        "ko": "프로그램"
       }
     },
     {
       "id": "boost",
       "title": {
-        "en": "Boost"
+        "en": "Boost",
+        "pl": "Doładowanie",
+        "ru": "Ускорение",
+        "ko": "부스트"
       }
     },
     {
@@ -57,7 +69,10 @@
         "sv": "Konstant",
         "no": "Konstant",
         "es": "Constante",
-        "da": "Konstant"
+        "da": "Konstant",
+        "pl": "Stały",
+        "ru": "Постоянный",
+        "ko": "계속"
       }
     },
     {
@@ -71,7 +86,10 @@
         "sv": "Frostskydd",
         "no": "Frostvæske",
         "es": "Anticongelante",
-        "da": "Frostvæske"
+        "da": "Frostvæske",
+        "pl": "Płyn niezamarzający",
+        "ru": "Антифриз",
+        "ko": "부동액"
       }
     },
     {
@@ -85,7 +103,10 @@
         "sv": "Inget tillstånd",
         "no": "Ingen stat",
         "es": "Sin estado",
-        "da": "Ingen stat"
+        "da": "Ingen stat",
+        "pl": "Brak stanu",
+        "ru": "Нет состояния",
+        "ko": "상태 없음"
       }
     }
   ]

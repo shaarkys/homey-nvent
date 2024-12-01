@@ -4,7 +4,15 @@
     "en": "Connected",
     "nl": "Verbonden",
     "de": "Verbunden",
-    "fr": "Connectée"
+    "fr": "Connectée",
+    "da": "Forbundet",
+    "es": "Conectado",
+    "it": "Connesso",
+    "no": "Tilkoblet",
+    "sv": "Ansluten",
+    "pl": "Połączony",
+    "ru": "Подключено",
+    "ko": "연결됨"
   },
   "getable": true,
   "setable": false,
@@ -13,13 +21,29 @@
     "en": "Connected",
     "nl": "Verbonden",
     "de": "Verbunden",
-    "fr": "Connectée"
+    "fr": "Connectée",
+    "da": "Forbundet",
+    "es": "Conectado",
+    "it": "Connesso",
+    "no": "Tilkoblet",
+    "sv": "Ansluten",
+    "pl": "Połączony",
+    "ru": "Подключено",
+    "ko": "연결됨"
   },
   "insightsTitleFalse": {
     "en": "Disconnected",
     "nl": "Verbroken",
     "de": "Getrennt",
-    "fr": "Déconnectée"
+    "fr": "Déconnectée",
+    "da": "Frakoblet",
+    "es": "Desconectado",
+    "it": "Disconnesso",
+    "no": "Frakoblet",
+    "sv": "Frånkopplad",
+    "pl": "Rozłączony",
+    "ru": "Отключено",
+    "ko": "연결이 끊김"
   },
   "uiComponent": null
 }
