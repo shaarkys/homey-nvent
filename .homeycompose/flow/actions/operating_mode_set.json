@@ -8,7 +8,10 @@
     "sv": "Ställ in driftläge",
     "no": "Still inn driftsmodus",
     "es": "Establecer el modo de funcionamiento",
-    "da": "Indstil driftstilstand"
+    "da": "Indstil driftstilstand",
+    "pl": "Ustaw tryb operacyjny",
+    "ru": "Установить режим работы",
+    "ko": "작동 모드 설정"
   },
   "titleFormatted": {
     "en": "Set the operating mode to [[operating_mode]]",
@@ -19,7 +22,10 @@
     "sv": "Ställ in driftläget på [[operating_mode]]",
     "no": "Sett driftsmodusen til [[operating_mode]]",
     "es": "Establezca el modo de funcionamiento en [[operating_mode]]",
-    "da": "Indstil driftstilstanden til [[operating_mode]]"
+    "da": "Indstil driftstilstanden til [[operating_mode]]",
+    "pl": "Ustaw tryb operacyjny na [[operating_mode]]",
+    "ru": "Установите режим работы на [[operating_mode]]",
+    "ko": "[[operating_mode]]으로 작동 모드 설정"
   },
   "platforms": [
     "local",
@@ -38,7 +44,10 @@
         "sv": "program",
         "no": "program",
         "es": "programa",
-        "da": "program"
+        "da": "program",
+        "pl": "program",
+        "ru": "программа",
+        "ko": "프로그램"
       },
       "values": [
         {
@@ -52,13 +61,27 @@
             "sv": "Program",
             "no": "Program",
             "es": "Programa",
-            "da": "Program"
+            "da": "Program",
+            "pl": "Program",
+            "ru": "Программа",
+            "ko": "프로그램"
           }
         },
         {
           "id": "boost",
           "label": {
-            "en": "Boost"
+            "en": "Boost",
+            "nl": "Boost",
+            "de": "Boost",
+            "fr": "Boost",
+            "it": "Boost",
+            "sv": "Boost",
+            "no": "Boost",
+            "es": "Boost",
+            "da": "Boost",
+            "pl": "Wzmocnienie",
+            "ru": "Ускорение",
+            "ko": "부스트"
           }
         },
         {
@@ -72,7 +95,10 @@
             "sv": "Konstant",
             "no": "Konstant",
             "es": "Constante",
-            "da": "Konstant"
+            "da": "Konstant",
+            "pl": "Stały",
+            "ru": "Постоянный",
+            "ko": "상수"
           }
         }
       ]

@@ -9,7 +9,10 @@
     "sv": "Driftläge",
     "no": "Driftsmodus",
     "es": "Modo operativo",
-    "da": "Driftstilstand"
+    "da": "Driftstilstand",
+    "pl": "Tryb operacyjny",
+    "ru": "Режим работы",
+    "ko": "운영 모드"
   },
   "getable": true,
   "setable": true,
@@ -23,7 +26,10 @@
     "sv": "Termostats driftläge",
     "no": "Driftsmodus for termostaten",
     "es": "Modo de funcionamiento del termostato",
-    "da": "Termostatens driftstilstand"
+    "da": "Termostatens driftstilstand",
+    "pl": "Tryb operacyjny termostatu",
+    "ru": "Режим работы термостата",
+    "ko": "온도 조절기의 운영 모드"
   },
   "values": [
     {
@@ -37,13 +43,27 @@
         "sv": "Program",
         "no": "Program",
         "es": "Programa",
-        "da": "Program"
+        "da": "Program",
+        "pl": "Program",
+        "ru": "Программа",
+        "ko": "프로그램"
       }
     },
     {
       "id": "boost",
       "title": {
-        "en": "Boost"
+        "en": "Boost",
+        "nl": "Boost",
+        "da": "Boost",
+        "de": "Boost",
+        "es": "Impulso",
+        "fr": "Renfort",
+        "it": "Incremento",
+        "no": "Boost",
+        "sv": "Boost",
+        "pl": "Wzmocnienie",
+        "ru": "Ускорение",
+        "ko": "부스트"
       }
     },
     {
@@ -57,7 +77,10 @@
         "sv": "Konstant",
         "no": "Konstant",
         "es": "Constante",
-        "da": "Konstant"
+        "da": "Konstant",
+        "pl": "Stały",
+        "ru": "Постоянный",
+        "ko": "상수"
       }
     },
     {
@@ -71,7 +94,10 @@
         "sv": "Semester",
         "no": "Ferie",
         "es": "Vacaciones",
-        "da": "Ferie"
+        "da": "Ferie",
+        "pl": "Wakacje",
+        "ru": "Отпуск",
+        "ko": "휴가"
       }
     },
     {
@@ -85,7 +111,10 @@
         "sv": "Av",
         "no": "Av",
         "es": "Desactivado",
-        "da": "Deaktiveret"
+        "da": "Deaktiveret",
+        "pl": "Wyłączony",
+        "ru": "Выключено",
+        "ko": "꺼짐"
       }
     }
   ]

@@ -1,0 +1,15 @@
+{
+  "authentication": {
+    "connecting": "Łączenie..."
+  },
+  "error": {
+    "401": "Dane logowania do nVent API są nieprawidłowe",
+    "403": "Dostęp do tego urządzenia został zablokowany przez nVent API",
+    "404": "Urządzenie nie znalezione w koncie nVent",
+    "50x": "nVent API jest niedostępne",
+    "invalid_mode": "Nie można aktywować tego trybu",
+    "network": "nVent API jest nieosiągalne",
+    "offline": "Urządzenie jest offline",
+    "unknown": "Wystąpił nieznany błąd"
+  }
+}

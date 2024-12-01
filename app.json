@@ -10,11 +10,32 @@
   "sdk": 3,
   "brandColor": "#C4262E",
   "name": {
-    "en": "nVent Raychem"
+    "en": "nVent Raychem",
+    "nl": "nVent Raychem",
+    "da": "nVent Raychem",
+    "de": "nVent Raychem",
+    "es": "nVent Raychem",
+    "fr": "nVent Raychem",
+    "it": "nVent Raychem",
+    "no": "nVent Raychem",
+    "sv": "nVent Raychem",
+    "pl": "nVent Raychem",
+    "ru": "nVent Raychem",
+    "ko": "nVent Raychem"
   },
   "description": {
     "en": "The new generation of floor heating thermostats",
-    "nl": "De nieuwe generatie vloerverwarmingsthermostaten"
+    "nl": "De nieuwe generatie vloerverwarmingsthermostaten",
+    "da": "Den nye generation af gulvvarmetermostater",
+    "de": "Die neue Generation von Fußbodenheizungsthermostaten",
+    "es": "La nueva generación de termostatos para calefacción por suelo radiante",
+    "fr": "La nouvelle génération de thermostats de chauffage au sol",
+    "it": "La nuova generazione di termostati per riscaldamento a pavimento",
+    "no": "Den nye generasjonen av gulvvarmetermostater",
+    "sv": "Den nya generationen av golvvärmetermostater",
+    "pl": "Nowa generacja termostatów do ogrzewania podłogowego",
+    "ru": "Новое поколение терморегуляторов теплого пола",
+    "ko": "바닥 난방 온도 조절기의 새로운 세대"
   },
   "category": [
     "climate"
@@ -41,6 +62,116 @@
       "vloer",
       "verwarming",
       "thermostaat"
+    ],
+    "da": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "gulv",
+      "opvarmning",
+      "termostat"
+    ],
+    "de": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "boden",
+      "heizung",
+      "thermostat"
+    ],
+    "es": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "inteligente",
+      "suelo",
+      "calefacción",
+      "termostato"
+    ],
+    "fr": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "numérique",
+      "intelligent",
+      "sol",
+      "chauffage",
+      "thermostat"
+    ],
+    "it": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digitale",
+      "intelligente",
+      "pavimento",
+      "riscaldamento",
+      "termostato"
+    ],
+    "no": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "gulv",
+      "oppvarming",
+      "termostat"
+    ],
+    "sv": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "digital",
+      "smart",
+      "golv",
+      "uppvärmning",
+      "termostat"
+    ],
+    "pl": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "cyfrowy",
+      "inteligentny",
+      "podłoga",
+      "ogrzewanie",
+      "termostat"
+    ],
+    "ru": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "цифровой",
+      "умный",
+      "пол",
+      "отопление",
+      "термостат"
+    ],
+    "ko": [
+      "nvent",
+      "raychem",
+      "senz",
+      "wifi",
+      "디지털",
+      "스마트",
+      "바닥",
+      "난방",
+      "온도 조절기"
     ]
   },
   "images": {
@@ -81,7 +212,15 @@
           "en": "The connection was lost",
           "nl": "De verbinding werd verbroken",
           "de": "Die Verbindung war verloren",
-          "fr": "La connexion a été perdue"
+          "fr": "La connexion a été perdue",
+          "da": "Forbindelsen blev tabt",
+          "es": "La conexión se perdió",
+          "it": "La connessione è stata persa",
+          "no": "Forbindelsen ble brutt",
+          "sv": "Anslutningen förlorades",
+          "pl": "Połączenie zostało utracone",
+          "ru": "Соединение было потеряно",
+          "ko": "연결이 끊겼습니다"
         },
         "platforms": [
           "local",
@@ -101,7 +240,15 @@
           "en": "The connection was restored",
           "nl": "De verbinding werd hersteld",
           "de": "Die Verbindung wurde wiederhergestellt",
-          "fr": "La connexion a été rétablie"
+          "fr": "La connexion a été rétablie",
+          "da": "Forbindelsen blev gendannet",
+          "es": "La conexión fue restaurada",
+          "it": "La connessione è stata ripristinata",
+          "no": "Tilkoblingen ble gjenopprettet",
+          "sv": "Anslutningen återställdes",
+          "pl": "Połączenie zostało przywrócone",
+          "ru": "Соединение было восстановлено",
+          "ko": "연결이 복원되었습니다"
         },
         "platforms": [
           "local",
@@ -119,7 +266,17 @@
       {
         "title": {
           "en": "Stops heating",
-          "nl": "Stopt met verwarmen"
+          "nl": "Stopt met verwarmen",
+          "da": "Stopper opvarmning",
+          "de": "Stoppt die Heizung",
+          "es": "Deja de calentar",
+          "fr": "Arrête de chauffer",
+          "it": "Smette di riscaldare",
+          "no": "Stopper oppvarming",
+          "sv": "Stoppar uppvärmning",
+          "pl": "Przestaje ogrzewać",
+          "ru": "Прекращает нагрев",
+          "ko": "난방 중지"
         },
         "platforms": [
           "local",
@@ -137,7 +294,17 @@
       {
         "title": {
           "en": "Starts heating",
-          "nl": "Begint met verwarmen"
+          "nl": "Begint met verwarmen",
+          "da": "Begynder opvarmning",
+          "de": "Beginnt zu heizen",
+          "es": "Comienza a calentar",
+          "fr": "Commence le chauffage",
+          "it": "Inizia a scaldare",
+          "no": "Starter oppvarming",
+          "sv": "Börjar värma",
+          "pl": "Zaczyna się ogrzewanie",
+          "ru": "Начинает нагреваться",
+          "ko": "난방 시작"
         },
         "platforms": [
           "local",
@@ -162,7 +329,10 @@
           "sv": "Driftläget har ändrats",
           "no": "Driftsmodus er endret",
           "es": "El modo de funcionamiento ha cambiado",
-          "da": "Driftstilstand er ændret"
+          "da": "Driftstilstand er ændret",
+          "pl": "Tryb operacyjny został zmieniony",
+          "ru": "Режим работы изменился",
+          "ko": "작동 모드가 변경되었습니다"
         },
         "titleFormatted": {
           "en": "Operating mode has changed to [[operating_mode]]",
@@ -173,7 +343,10 @@
           "sv": "Driftläge har ändrats till [[operating_mode]]",
           "no": "Driftsmodus er endret til [[operating_mode]]",
           "es": "El modo de funcionamiento se ha cambiado a [[operating_mode]]",
-          "da": "Driftstilstand er blevet ændret til [[operating_mode]]"
+          "da": "Driftstilstand er blevet ændret til [[operating_mode]]",
+          "pl": "Tryb operacyjny został zmieniony na [[operating_mode]]",
+          "ru": "Режим работы изменён на [[operating_mode]]",
+          "ko": "[[operating_mode]]로 운영 모드가 변경되었습니다"
         },
         "platforms": [
           "local",
@@ -192,7 +365,10 @@
               "sv": "program",
               "no": "program",
               "es": "programa",
-              "da": "program"
+              "da": "program",
+              "pl": "program",
+              "ru": "программа",
+              "ko": "프로그램"
             },
             "values": [
               {
@@ -206,13 +382,19 @@
                   "sv": "Program",
                   "no": "Program",
                   "es": "Programa",
-                  "da": "Program"
+                  "da": "Program",
+                  "pl": "Program",
+                  "ru": "Программа",
+                  "ko": "프로그램"
                 }
               },
               {
                 "id": "boost",
                 "label": {
-                  "en": "Boost"
+                  "en": "Boost",
+                  "pl": "Wzrost",
+                  "ru": "Усиление",
+                  "ko": "부스트"
                 }
               },
               {
@@ -226,7 +408,10 @@
                   "sv": "Konstant",
                   "no": "Konstant",
                   "es": "Constante",
-                  "da": "Konstant"
+                  "da": "Konstant",
+                  "pl": "Stały",
+                  "ru": "Постоянный",
+                  "ko": "일정한"
                 }
               },
               {
@@ -240,7 +425,10 @@
                   "sv": "Semester",
                   "no": "Ferie",
                   "es": "Vacaciones",
-                  "da": "Ferie"
+                  "da": "Ferie",
+                  "pl": "Wakacje",
+                  "ru": "Отпуск",
+                  "ko": "휴가"
                 }
               },
               {
@@ -254,7 +442,10 @@
                   "sv": "Av",
                   "no": "Av",
                   "es": "Desactivado",
-                  "da": "Deaktiveret"
+                  "da": "Deaktiveret",
+                  "pl": "Wył.",
+                  "ru": "Выключено",
+                  "ko": "끔"
                 }
               }
             ]
@@ -274,7 +465,15 @@
           "en": "!{{Is|Is not}} connected",
           "nl": "!{{Is|Is niet}} verbonden",
           "de": "!{{Ist|Nicht}} verbunden",
-          "fr": "!{{Est|N'est pas}} connecté"
+          "fr": "!{{Est|N'est pas}} connecté",
+          "da": "!{{Er|Er ikke}} forbundet",
+          "es": "!{{Está|No está}} conectado",
+          "it": "!{{È|Non è}} connesso",
+          "no": "!{{Er|Er ikke}} koblet",
+          "sv": "!{{Är|Är inte}} ansluten",
+          "pl": "!{{Jest|Nie jest}} połączony",
+          "ru": "!{{Подключен|Не подключен}}",
+          "ko": "!{{연결됨|연결 안 됨}}"
         },
         "platforms": [
           "local",
@@ -292,7 +491,17 @@
       {
         "title": {
           "en": "!{{Is|Is not}} heating",
-          "nl": "!{{Is|Is niet}} aan het verwarmen"
+          "nl": "!{{Is|Is niet}} aan het verwarmen",
+          "da": "!{{Is|Er ikke}} opvarmning",
+          "de": "!{{Ist|Ist nicht}} am Heizen",
+          "es": "!{{Está|No está}} calefaccionando",
+          "fr": "!{{Est|N'est pas}} en train de chauffer",
+          "it": "!{{È|Non è}} in fase di riscaldamento",
+          "no": "!{{Er|Er ikke}} oppvarming",
+          "sv": "!{{Är|Är inte}} uppvärmning",
+          "pl": "!{{Jest|Nie jest}} ogrzewanie",
+          "ru": "!{{Есть|Нет}} нагревания",
+          "ko": "!{{있음|없음}} 난방 중"
         },
         "platforms": [
           "local",
@@ -317,7 +526,10 @@
           "sv": "Driftläget !{{är|är inte}}",
           "no": "Driftsmodus !{{er|er ikke}}",
           "es": "El modo de funcionamiento !{{está|no está}}",
-          "da": "Driftstilstand !{{er|er ikke}}"
+          "da": "Driftstilstand !{{er|er ikke}}",
+          "pl": "Tryb pracy !{{jest|nie jest}}",
+          "ru": "Режим работы !{{является|не является}}",
+          "ko": "작동 모드 !{{입니다|아닙니다}}"
         },
         "titleFormatted": {
           "en": "Operating mode is [[operating_mode]]",
@@ -328,7 +540,10 @@
           "sv": "Driftläget är [[operating_mode]]",
           "no": "Driftsmodus er [[operating_mode]]",
           "es": "El modo de funcionamiento está [[operating_mode]]",
-          "da": "Driftstilstand er [[operating_mode]]"
+          "da": "Driftstilstand er [[operating_mode]]",
+          "pl": "Tryb pracy to [[operating_mode]]",
+          "ru": "Режим работы - [[operating_mode]]",
+          "ko": "작동 모드는 [[operating_mode]]입니다"
         },
         "platforms": [
           "local",
@@ -347,7 +562,10 @@
               "sv": "program",
               "no": "program",
               "es": "programa",
-              "da": "program"
+              "da": "program",
+              "pl": "program",
+              "ru": "программа",
+              "ko": "프로그램"
             },
             "values": [
               {
@@ -361,13 +579,19 @@
                   "sv": "Program",
                   "no": "Program",
                   "es": "Programa",
-                  "da": "Program"
+                  "da": "Program",
+                  "pl": "Program",
+                  "ru": "Программа",
+                  "ko": "프로그램"
                 }
               },
               {
                 "id": "boost",
                 "label": {
-                  "en": "Boost"
+                  "en": "Boost",
+                  "pl": "Dopalacz",
+                  "ru": "Ускорение",
+                  "ko": "부스트"
                 }
               },
               {
@@ -381,7 +605,10 @@
                   "sv": "Konstant",
                   "no": "Konstant",
                   "es": "Constante",
-                  "da": "Konstant"
+                  "da": "Konstant",
+                  "pl": "Stały",
+                  "ru": "Постоянный",
+                  "ko": "상수"
                 }
               },
               {
@@ -395,7 +622,10 @@
                   "sv": "Semester",
                   "no": "Ferie",
                   "es": "Vacaciones",
-                  "da": "Ferie"
+                  "da": "Ferie",
+                  "pl": "Wakacje",
+                  "ru": "Отпуск",
+                  "ko": "휴일"
                 }
               },
               {
@@ -409,7 +639,10 @@
                   "sv": "Av",
                   "no": "Av",
                   "es": "Desactivado",
-                  "da": "Deaktiveret"
+                  "da": "Deaktiveret",
+                  "pl": "Wyłączony",
+                  "ru": "Выключено",
+                  "ko": "끄기"
                 }
               }
             ]
@@ -434,7 +667,10 @@
           "sv": "Ställ in driftläge",
           "no": "Still inn driftsmodus",
           "es": "Establecer el modo de funcionamiento",
-          "da": "Indstil driftstilstand"
+          "da": "Indstil driftstilstand",
+          "pl": "Ustaw tryb operacyjny",
+          "ru": "Установить режим работы",
+          "ko": "작동 모드 설정"
         },
         "titleFormatted": {
           "en": "Set the operating mode to [[operating_mode]]",
@@ -445,7 +681,10 @@
           "sv": "Ställ in driftläget på [[operating_mode]]",
           "no": "Sett driftsmodusen til [[operating_mode]]",
           "es": "Establezca el modo de funcionamiento en [[operating_mode]]",
-          "da": "Indstil driftstilstanden til [[operating_mode]]"
+          "da": "Indstil driftstilstanden til [[operating_mode]]",
+          "pl": "Ustaw tryb operacyjny na [[operating_mode]]",
+          "ru": "Установите режим работы на [[operating_mode]]",
+          "ko": "[[operating_mode]]으로 작동 모드 설정"
         },
         "platforms": [
           "local",
@@ -464,7 +703,10 @@
               "sv": "program",
               "no": "program",
               "es": "programa",
-              "da": "program"
+              "da": "program",
+              "pl": "program",
+              "ru": "программа",
+              "ko": "프로그램"
             },
             "values": [
               {
@@ -478,13 +720,27 @@
                   "sv": "Program",
                   "no": "Program",
                   "es": "Programa",
-                  "da": "Program"
+                  "da": "Program",
+                  "pl": "Program",
+                  "ru": "Программа",
+                  "ko": "프로그램"
                 }
               },
               {
                 "id": "boost",
                 "label": {
-                  "en": "Boost"
+                  "en": "Boost",
+                  "nl": "Boost",
+                  "de": "Boost",
+                  "fr": "Boost",
+                  "it": "Boost",
+                  "sv": "Boost",
+                  "no": "Boost",
+                  "es": "Boost",
+                  "da": "Boost",
+                  "pl": "Wzmocnienie",
+                  "ru": "Ускорение",
+                  "ko": "부스트"
                 }
               },
               {
@@ -498,7 +754,10 @@
                   "sv": "Konstant",
                   "no": "Konstant",
                   "es": "Constante",
-                  "da": "Konstant"
+                  "da": "Konstant",
+                  "pl": "Stały",
+                  "ru": "Постоянный",
+                  "ko": "상수"
                 }
               }
             ]
@@ -573,7 +832,17 @@
           "type": "group",
           "label": {
             "en": "General settings",
-            "nl": "Algemene instellingen"
+            "nl": "Algemene instellingen",
+            "da": "Generelle indstillinger",
+            "de": "Allgemeine Einstellungen",
+            "es": "Configuración general",
+            "fr": "Paramètres généraux",
+            "it": "Impostazioni generali",
+            "no": "Generelle innstillinger",
+            "sv": "Allmänna inställningar",
+            "pl": "Ustawienia ogólne",
+            "ru": "Основные настройки",
+            "ko": "일반 설정"
           },
           "children": [
             {
@@ -581,11 +850,31 @@
               "type": "number",
               "label": {
                 "en": "Boost temperature",
-                "nl": "Boost temperatuur"
+                "nl": "Boost temperatuur",
+                "da": "Boost temperatur",
+                "de": "Temperatur erhöhen",
+                "es": "Temperatura de impulso",
+                "fr": "Température de boost",
+                "it": "Aumenta la temperatura",
+                "no": "Boost temperatur",
+                "sv": "Höj temperaturen",
+                "pl": "Temperatura zwiększenia",
+                "ru": "Повышение температуры",
+                "ko": "부스트 온도"
               },
               "hint": {
                 "en": "Temperature when Boost mode is activated",
-                "nl": "Temperatuur wanneer Boost mode geactiveerd wordt"
+                "nl": "Temperatuur wanneer Boost mode geactiveerd wordt",
+                "da": "Temperatur når Boost-tilstand er aktiveret",
+                "de": "Temperatur, wenn der Boost-Modus aktiviert ist",
+                "es": "Temperatura cuando se activa el modo Boost",
+                "fr": "Température lorsque le mode Boost est activé",
+                "it": "Temperatura quando la modalità Boost è attivata",
+                "no": "Temperatur når Boost-modus er aktivert",
+                "sv": "Temperatur när Boost-läge är aktiverat",
+                "pl": "Temperatura, gdy aktywowany jest tryb Boost",
+                "ru": "Температура, когда включен режим Boost",
+                "ko": "부스트 모드가 활성화될 때의 온도"
               },
               "units": {
                 "en": "°C"
@@ -599,11 +888,31 @@
               "type": "number",
               "label": {
                 "en": "Constant temperature",
-                "nl": "Constant temperatuur"
+                "nl": "Constant temperatuur",
+                "da": "Konstant temperatur",
+                "de": "Konstante Temperatur",
+                "es": "Temperatura constante",
+                "fr": "Température constante",
+                "it": "Temperatura costante",
+                "no": "Konstant temperatur",
+                "sv": "Konstant temperatur",
+                "pl": "Stała temperatura",
+                "ru": "Постоянная температура",
+                "ko": "일정 온도"
               },
               "hint": {
                 "en": "Temperature when Constant mode is activated. Use 0 when you don't want to change the temperature.",
-                "nl": "Temperatuur wanneer Constant mode geactiveerd wordt. Gebruik 0 wanneer je niet wilt dat de temperatuur veranderd."
+                "nl": "Temperatuur wanneer Constant mode geactiveerd wordt. Gebruik 0 wanneer je niet wilt dat de temperatuur veranderd.",
+                "da": "Temperatur når Konstant modus er aktiveret. Brug 0, når du ikke vil ændre temperaturen.",
+                "de": "Temperatur, wenn der konstante Modus aktiviert ist. Verwenden Sie 0, wenn Sie die Temperatur nicht ändern möchten.",
+                "es": "Temperatura cuando se activa el modo Constante. Utiliza 0 cuando no quieras cambiar la temperatura.",
+                "fr": "Température lorsque le mode Constant est activé. Utilisez 0 si vous ne souhaitez pas modifier la température.",
+                "it": "Temperatura quando la modalità Costante è attivata. Usa 0 quando non vuoi cambiare la temperatura.",
+                "no": "Temperatur når Konstant-modus er aktivert. Bruk 0 når du ikke vil endre temperaturen.",
+                "sv": "Temperatur när konstantläge är aktiverat. Använd 0 när du inte vill ändra temperaturen.",
+                "pl": "Temperatura podczas aktywacji trybu stałego. Użyj 0, gdy nie chcesz zmieniać temperatury.",
+                "ru": "Температура, когда активирован режим постоянной температуры. Используйте 0, если не хотите изменять температуру.",
+                "ko": "일정 모드가 활성화될 때의 온도입니다. 온도를 변경하지 않으려면 0을 사용하세요."
               },
               "units": {
                 "en": "°C"
@@ -625,7 +934,15 @@
         "en": "Connected",
         "nl": "Verbonden",
         "de": "Verbunden",
-        "fr": "Connectée"
+        "fr": "Connectée",
+        "da": "Forbundet",
+        "es": "Conectado",
+        "it": "Connesso",
+        "no": "Tilkoblet",
+        "sv": "Ansluten",
+        "pl": "Połączony",
+        "ru": "Подключено",
+        "ko": "연결됨"
       },
       "getable": true,
       "setable": false,
@@ -634,13 +951,29 @@
         "en": "Connected",
         "nl": "Verbonden",
         "de": "Verbunden",
-        "fr": "Connectée"
+        "fr": "Connectée",
+        "da": "Forbundet",
+        "es": "Conectado",
+        "it": "Connesso",
+        "no": "Tilkoblet",
+        "sv": "Ansluten",
+        "pl": "Połączony",
+        "ru": "Подключено",
+        "ko": "연결됨"
       },
       "insightsTitleFalse": {
         "en": "Disconnected",
         "nl": "Verbroken",
         "de": "Getrennt",
-        "fr": "Déconnectée"
+        "fr": "Déconnectée",
+        "da": "Frakoblet",
+        "es": "Desconectado",
+        "it": "Disconnesso",
+        "no": "Frakoblet",
+        "sv": "Frånkopplad",
+        "pl": "Rozłączony",
+        "ru": "Отключено",
+        "ko": "연결이 끊김"
       },
       "uiComponent": null
     },
@@ -648,7 +981,17 @@
       "type": "boolean",
       "title": {
         "en": "Heating",
-        "nl": "Verwarmen"
+        "nl": "Verwarmen",
+        "da": "Opvarmning",
+        "de": "Heizung",
+        "es": "Calefacción",
+        "fr": "Chauffage",
+        "it": "Riscaldamento",
+        "no": "Oppvarming",
+        "sv": "Uppvärmning",
+        "pl": "Ogrzewanie",
+        "ru": "Отопление",
+        "ko": "난방"
       },
       "getable": true,
       "setable": true,
@@ -666,7 +1009,10 @@
         "sv": "Driftläge",
         "no": "Driftsmodus",
         "es": "Modo operativo",
-        "da": "Driftstilstand"
+        "da": "Driftstilstand",
+        "pl": "Tryb operacyjny",
+        "ru": "Режим работы",
+        "ko": "운영 모드"
       },
       "getable": true,
       "setable": true,
@@ -680,7 +1026,10 @@
         "sv": "Termostats driftläge",
         "no": "Driftsmodus for termostaten",
         "es": "Modo de funcionamiento del termostato",
-        "da": "Termostatens driftstilstand"
+        "da": "Termostatens driftstilstand",
+        "pl": "Tryb operacyjny termostatu",
+        "ru": "Режим работы термостата",
+        "ko": "온도 조절기의 운영 모드"
       },
       "values": [
         {
@@ -694,13 +1043,27 @@
             "sv": "Program",
             "no": "Program",
             "es": "Programa",
-            "da": "Program"
+            "da": "Program",
+            "pl": "Program",
+            "ru": "Программа",
+            "ko": "프로그램"
           }
         },
         {
           "id": "boost",
           "title": {
-            "en": "Boost"
+            "en": "Boost",
+            "nl": "Boost",
+            "da": "Boost",
+            "de": "Boost",
+            "es": "Impulso",
+            "fr": "Renfort",
+            "it": "Incremento",
+            "no": "Boost",
+            "sv": "Boost",
+            "pl": "Wzmocnienie",
+            "ru": "Ускорение",
+            "ko": "부스트"
           }
         },
         {
@@ -714,7 +1077,10 @@
             "sv": "Konstant",
             "no": "Konstant",
             "es": "Constante",
-            "da": "Konstant"
+            "da": "Konstant",
+            "pl": "Stały",
+            "ru": "Постоянный",
+            "ko": "상수"
           }
         },
         {
@@ -728,7 +1094,10 @@
             "sv": "Semester",
             "no": "Ferie",
             "es": "Vacaciones",
-            "da": "Ferie"
+            "da": "Ferie",
+            "pl": "Wakacje",
+            "ru": "Отпуск",
+            "ko": "휴가"
           }
         },
         {
@@ -742,7 +1111,10 @@
             "sv": "Av",
             "no": "Av",
             "es": "Desactivado",
-            "da": "Deaktiveret"
+            "da": "Deaktiveret",
+            "pl": "Wyłączony",
+            "ru": "Выключено",
+            "ko": "꺼짐"
           }
         }
       ]
@@ -758,7 +1130,10 @@
         "sv": "Driftläge",
         "no": "Driftsmodus",
         "es": "Modo operativo",
-        "da": "Driftstilstand"
+        "da": "Driftstilstand",
+        "pl": "Tryb pracy",
+        "ru": "Режим работы",
+        "ko": "작동 모드"
       },
       "getable": true,
       "setable": true,
@@ -772,7 +1147,10 @@
         "sv": "Termostats driftläge",
         "no": "Driftsmodus for termostaten",
         "es": "Modo de funcionamiento del termostato",
-        "da": "Termostatens driftstilstand"
+        "da": "Termostatens driftstilstand",
+        "pl": "Tryb pracy termostatu",
+        "ru": "Режим работы термостата",
+        "ko": "온도 조절기의 작동 모드"
       },
       "values": [
         {
@@ -786,13 +1164,19 @@
             "sv": "Program",
             "no": "Program",
             "es": "Programa",
-            "da": "Program"
+            "da": "Program",
+            "pl": "Program",
+            "ru": "Программа",
+            "ko": "프로그램"
           }
         },
         {
           "id": "boost",
           "title": {
-            "en": "Boost"
+            "en": "Boost",
+            "pl": "Doładowanie",
+            "ru": "Ускорение",
+            "ko": "부스트"
           }
         },
         {
@@ -806,7 +1190,10 @@
             "sv": "Konstant",
             "no": "Konstant",
             "es": "Constante",
-            "da": "Konstant"
+            "da": "Konstant",
+            "pl": "Stały",
+            "ru": "Постоянный",
+            "ko": "계속"
           }
         },
         {
@@ -820,7 +1207,10 @@
             "sv": "Frostskydd",
             "no": "Frostvæske",
             "es": "Anticongelante",
-            "da": "Frostvæske"
+            "da": "Frostvæske",
+            "pl": "Płyn niezamarzający",
+            "ru": "Антифриз",
+            "ko": "부동액"
           }
         },
         {
@@ -834,7 +1224,10 @@
             "sv": "Inget tillstånd",
             "no": "Ingen stat",
             "es": "Sin estado",
-            "da": "Ingen stat"
+            "da": "Ingen stat",
+            "pl": "Brak stanu",
+            "ru": "Нет состояния",
+            "ko": "상태 없음"
           }
         }
       ]

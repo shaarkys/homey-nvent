@@ -1,7 +1,17 @@
 {
   "title": {
     "en": "Stops heating",
-    "nl": "Stopt met verwarmen"
+    "nl": "Stopt met verwarmen",
+    "da": "Stopper opvarmning",
+    "de": "Stoppt die Heizung",
+    "es": "Deja de calentar",
+    "fr": "Arrête de chauffer",
+    "it": "Smette di riscaldare",
+    "no": "Stopper oppvarming",
+    "sv": "Stoppar uppvärmning",
+    "pl": "Przestaje ogrzewać",
+    "ru": "Прекращает нагрев",
+    "ko": "난방 중지"
   },
   "platforms": [
     "local",

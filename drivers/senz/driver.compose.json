@@ -22,7 +22,17 @@
       "type": "group",
       "label": {
         "en": "General settings",
-        "nl": "Algemene instellingen"
+        "nl": "Algemene instellingen",
+        "da": "Generelle indstillinger",
+        "de": "Allgemeine Einstellungen",
+        "es": "Configuración general",
+        "fr": "Paramètres généraux",
+        "it": "Impostazioni generali",
+        "no": "Generelle innstillinger",
+        "sv": "Allmänna inställningar",
+        "pl": "Ustawienia ogólne",
+        "ru": "Основные настройки",
+        "ko": "일반 설정"
       },
       "children": [
         {
@@ -30,11 +40,31 @@
           "type": "number",
           "label": {
             "en": "Boost temperature",
-            "nl": "Boost temperatuur"
+            "nl": "Boost temperatuur",
+            "da": "Boost temperatur",
+            "de": "Temperatur erhöhen",
+            "es": "Temperatura de impulso",
+            "fr": "Température de boost",
+            "it": "Aumenta la temperatura",
+            "no": "Boost temperatur",
+            "sv": "Höj temperaturen",
+            "pl": "Temperatura zwiększenia",
+            "ru": "Повышение температуры",
+            "ko": "부스트 온도"
           },
           "hint": {
             "en": "Temperature when Boost mode is activated",
-            "nl": "Temperatuur wanneer Boost mode geactiveerd wordt"
+            "nl": "Temperatuur wanneer Boost mode geactiveerd wordt",
+            "da": "Temperatur når Boost-tilstand er aktiveret",
+            "de": "Temperatur, wenn der Boost-Modus aktiviert ist",
+            "es": "Temperatura cuando se activa el modo Boost",
+            "fr": "Température lorsque le mode Boost est activé",
+            "it": "Temperatura quando la modalità Boost è attivata",
+            "no": "Temperatur når Boost-modus er aktivert",
+            "sv": "Temperatur när Boost-läge är aktiverat",
+            "pl": "Temperatura, gdy aktywowany jest tryb Boost",
+            "ru": "Температура, когда включен режим Boost",
+            "ko": "부스트 모드가 활성화될 때의 온도"
           },
           "units": {
             "en": "°C"
@@ -48,11 +78,31 @@
           "type": "number",
           "label": {
             "en": "Constant temperature",
-            "nl": "Constant temperatuur"
+            "nl": "Constant temperatuur",
+            "da": "Konstant temperatur",
+            "de": "Konstante Temperatur",
+            "es": "Temperatura constante",
+            "fr": "Température constante",
+            "it": "Temperatura costante",
+            "no": "Konstant temperatur",
+            "sv": "Konstant temperatur",
+            "pl": "Stała temperatura",
+            "ru": "Постоянная температура",
+            "ko": "일정 온도"
           },
           "hint": {
             "en": "Temperature when Constant mode is activated. Use 0 when you don't want to change the temperature.",
-            "nl": "Temperatuur wanneer Constant mode geactiveerd wordt. Gebruik 0 wanneer je niet wilt dat de temperatuur veranderd."
+            "nl": "Temperatuur wanneer Constant mode geactiveerd wordt. Gebruik 0 wanneer je niet wilt dat de temperatuur veranderd.",
+            "da": "Temperatur når Konstant modus er aktiveret. Brug 0, når du ikke vil ændre temperaturen.",
+            "de": "Temperatur, wenn der konstante Modus aktiviert ist. Verwenden Sie 0, wenn Sie die Temperatur nicht ändern möchten.",
+            "es": "Temperatura cuando se activa el modo Constante. Utiliza 0 cuando no quieras cambiar la temperatura.",
+            "fr": "Température lorsque le mode Constant est activé. Utilisez 0 si vous ne souhaitez pas modifier la température.",
+            "it": "Temperatura quando la modalità Costante è attivata. Usa 0 quando non vuoi cambiare la temperatura.",
+            "no": "Temperatur når Konstant-modus er aktivert. Bruk 0 når du ikke vil endre temperaturen.",
+            "sv": "Temperatur när konstantläge är aktiverat. Använd 0 när du inte vill ändra temperaturen.",
+            "pl": "Temperatura podczas aktywacji trybu stałego. Użyj 0, gdy nie chcesz zmieniać temperatury.",
+            "ru": "Температура, когда активирован режим постоянной температуры. Используйте 0, если не хотите изменять температуру.",
+            "ko": "일정 모드가 활성화될 때의 온도입니다. 온도를 변경하지 않으려면 0을 사용하세요."
           },
           "units": {
             "en": "°C"
