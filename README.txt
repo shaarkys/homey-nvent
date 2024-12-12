@@ -1,5 +1,7 @@
-nVent RAYCHEM SENZ WIFI is developed to suit the modern home owner, who prioritizes high comfort, low energy costs and a beautiful home.It can be used with all underfloor heating cables and heating mats.
+The nVent Raychem Homey App seamlessly connects your nVent RAYCHEM SENZ WIFI thermostat with the Homey smart home system, providing enhanced control over your electric underfloor heating. This app offers precise temperature management and monitoring from anywhere, ensuring comfort and energy efficiency throughout your home.
 
-Stepping on a heated floor makes all the difference, radiant floor heating takes the chill away from your floors and brings warmth and comfort into your home. It adds that little touch of luxury that helps you relax and enjoy the cozy atmosphere in any room you have it installed.
+With the nVent Raychem Homey App, you can create custom heating schedules and automate your underfloor heating based on your daily routine. Receive instant alerts for temperature changes, adjust settings according to weather forecasts, or integrate with other smart devices to optimize energy use.
 
-IMPORTANT: nVent does not allow to set the mode to "Holiday" or "Off". There can be a 1 minute delay before some capabilities are updated.
+Whether you're maximizing comfort, improving energy savings, or expanding your smart home capabilities, the nVent Raychem Homey App offers intelligent heating management right at your fingertips.
+
+To use this app, you need an active nVent account.
