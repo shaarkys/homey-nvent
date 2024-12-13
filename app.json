@@ -996,7 +996,7 @@
       "getable": true,
       "setable": true,
       "uiComponent": "sensor",
-      "icon": "/assets/heating.svg"
+      "icon": "/assets/capabilities/heating.svg"
     },
     "operating_mode": {
       "type": "enum",
