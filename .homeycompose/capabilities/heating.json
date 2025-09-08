@@ -19,3 +19,6 @@
   "uiComponent": "sensor",
   "icon": "/assets/heating.svg"
 }
+
+  "icon": "/assets/capabilities/heating.svg"
+}
