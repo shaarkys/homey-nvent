@@ -1,0 +1,37 @@
+{
+  "type": "number",
+  "label": {
+    "en": "Boost temperature",
+    "nl": "Boost temperatuur",
+    "da": "Boost temperatur",
+    "de": "Temperatur erhöhen",
+    "es": "Temperatura de impulso",
+    "fr": "Température de boost",
+    "it": "Aumenta la temperatura",
+    "no": "Boost temperatur",
+    "sv": "Höj temperaturen",
+    "pl": "Temperatura zwiększenia",
+    "ru": "Повышение температуры",
+    "ko": "부스트 온도"
+  },
+  "hint": {
+    "en": "Temperature when Boost mode is activated",
+    "nl": "Temperatuur wanneer Boost mode geactiveerd wordt",
+    "da": "Temperatur når Boost-tilstand er aktiveret",
+    "de": "Temperatur, wenn der Boost-Modus aktiviert ist",
+    "es": "Temperatura cuando se activa el modo Boost",
+    "fr": "Température lorsque le mode Boost est activé",
+    "it": "Temperatura quando la modalità Boost è attivata",
+    "no": "Temperatur når Boost-modus er aktivert",
+    "sv": "Temperatur när Boost-läge är aktiverat",
+    "pl": "Temperatura, gdy aktywowany jest tryb Boost",
+    "ru": "Температура, когда включен режим Boost",
+    "ko": "부스트 모드가 활성화될 때의 온도"
+  },
+  "units": {
+    "en": "°C"
+  },
+  "value": 26,
+  "min": 5,
+  "max": 40
+}

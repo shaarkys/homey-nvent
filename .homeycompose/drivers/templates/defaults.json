@@ -1,4 +1,20 @@
 {
+  "class": "thermostat",
+  "capabilities": [
+    "alarm_connectivity",
+    "target_temperature",
+    "measure_temperature",
+    "operating_mode",
+    "settable_mode",
+    "heating"
+  ],
+  "capabilitiesOptions": {
+    "target_temperature": {
+      "step": 0.5,
+      "min": 5,
+      "max": 40
+    }
+  },
   "images": {
     "small": "{{driverAssetsPath}}/images/small.png",
     "large": "{{driverAssetsPath}}/images/large.png",
@@ -32,6 +48,33 @@
     {
       "id": "login_oauth2",
       "template": "login_oauth2"
+    }
+  ],
+  "settings": [
+    {
+      "type": "group",
+      "label": {
+        "en": "Temperatures",
+        "nl": "Temperaturen",
+        "da": "Temperaturer",
+        "de": "Temperaturen",
+        "es": "Temperaturas",
+        "fr": "Températures",
+        "it": "Temperature",
+        "no": "Temperaturer",
+        "sv": "Temperaturer",
+        "pl": "Temperatury",
+        "ru": "Температуры",
+        "ko": "온도"
+      },
+      "children": [
+        {
+          "$extends": "boost_temperature"
+        },
+        {
+          "$extends": "constant_temperature"
+        }
+      ]
     }
   ]
 }

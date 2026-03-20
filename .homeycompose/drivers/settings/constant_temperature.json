@@ -1,0 +1,37 @@
+{
+  "type": "number",
+  "label": {
+    "en": "Constant temperature",
+    "nl": "Constant temperatuur",
+    "da": "Konstant temperatur",
+    "de": "Konstante Temperatur",
+    "es": "Temperatura constante",
+    "fr": "Température constante",
+    "it": "Temperatura costante",
+    "no": "Konstant temperatur",
+    "sv": "Konstant temperatur",
+    "pl": "Stała temperatura",
+    "ru": "Постоянная температура",
+    "ko": "일정 온도"
+  },
+  "hint": {
+    "en": "Temperature when Constant mode is activated. Use 0 when you don't want to change the temperature.",
+    "nl": "Temperatuur wanneer Constant mode geactiveerd wordt. Gebruik 0 wanneer je niet wilt dat de temperatuur veranderd.",
+    "da": "Temperatur når Konstant modus er aktiveret. Brug 0, når du ikke vil ændre temperaturen.",
+    "de": "Temperatur, wenn der konstante Modus aktiviert ist. Verwenden Sie 0, wenn Sie die Temperatur nicht ändern möchten.",
+    "es": "Temperatura cuando se activa el modo Constante. Utiliza 0 cuando no quieras cambiar la temperatura.",
+    "fr": "Température lorsque le mode Constant est activé. Utilisez 0 si vous ne souhaitez pas modifier la température.",
+    "it": "Temperatura quando la modalità Costante è attivata. Usa 0 quando non vuoi cambiare la temperatura.",
+    "no": "Temperatur når Konstant-modus er aktivert. Bruk 0 når du ikke vil endre temperaturen.",
+    "sv": "Temperatur när konstantläge är aktiverat. Använd 0 när du inte vill ändra temperaturen.",
+    "pl": "Temperatura podczas aktywacji trybu stałego. Użyj 0, gdy nie chcesz zmieniać temperatury.",
+    "ru": "Температура, когда активирован режим постоянной температуры. Используйте 0, если не хотите изменять температуру.",
+    "ko": "일정 모드가 활성화될 때의 온도입니다. 온도를 변경하지 않으려면 0을 사용하세요."
+  },
+  "units": {
+    "en": "°C"
+  },
+  "value": 22,
+  "min": 0,
+  "max": 40
+}
