@@ -49,5 +49,8 @@
   },
   "1.5.0": {
     "en": "Updated name, translations and API endpoints."
+  },
+  "1.6.0": {
+    "en": "Improved connection handling, preserved existing connectivity Flows, added a temporary certificate expiry workaround, and fixed synchronization and temperature control."
   }
 }
